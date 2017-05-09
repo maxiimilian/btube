@@ -25,10 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    datenausgabe.cpp
+    datenausgabe.cpp \
+    dateneingabe.cpp
 
 HEADERS  += mainwindow.h \
-    datenausgabe.h
+    datenausgabe.h \
+    dateneingabe.h
 
 FORMS    += mainwindow.ui \
-    datenausgabe.ui
+    datenausgabe.ui \
+    dateneingabe.ui
