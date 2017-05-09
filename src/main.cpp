@@ -1,12 +1,11 @@
-#include <iostream>
-#include "rohr.h"
+#include "mainwindow.h"
+#include <QApplication>
 
-using namespace std;
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
 
-int main(){
-    Rohr rohr(2.3, 5.5);
-
-    cout << "Querschnitt ist: " << rohr.get_querschnitt(5) << endl;
-
-    return 0;
+    return a.exec();
 }
