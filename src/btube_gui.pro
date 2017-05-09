@@ -26,11 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     datenausgabe.cpp \
-    dateneingabe.cpp
+    dateneingabe.cpp \
+    fluid.cpp \
+    rohr.cpp
 
 HEADERS  += mainwindow.h \
     datenausgabe.h \
-    dateneingabe.h
+    dateneingabe.h \
+    fluid.h \
+    rohr.h
 
 FORMS    += mainwindow.ui \
     datenausgabe.ui \
