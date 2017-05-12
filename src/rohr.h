@@ -1,5 +1,5 @@
-#ifndef ROHR_H_
-#define ROHR_H_
+#ifndef ROHR_H
+#define ROHR_H
 
 class Rohr 
 {
@@ -11,7 +11,7 @@ class Rohr
     public:
         /* Funktionen des Rohrs definieren */
         // Konstruktor wird bei Initialisierung aufgerufen
-        Rohr(const double, const double);
+        Rohr(const double l, const double r);
 
         // Gibt Querschnittsfläche zurück
         double get_querschnitt(const double x);

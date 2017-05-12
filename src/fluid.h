@@ -1,10 +1,10 @@
-#ifndef FLUID_H_
-#define FLUID_H_
+#ifndef FLUID_H
+#define FLUID_H
 
 class Fluid 
 {
     private:
         double dichte;
-}
+};
 
 #endif 
