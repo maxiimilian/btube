@@ -12,3 +12,10 @@ DatenAusgabe::~DatenAusgabe()
 {
     delete ui;
 }
+
+
+void DatenAusgabe::erstellePlot()
+{
+
+
+}

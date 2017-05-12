@@ -15,6 +15,9 @@ public:
     explicit DatenAusgabe(QWidget *parent = 0);
     ~DatenAusgabe();
 
+private slots:
+    void erstellePlot();
+
 private:
     Ui::DatenAusgabe *ui;
 };
