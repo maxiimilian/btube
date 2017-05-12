@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = btube_gui
 TEMPLATE = app
@@ -28,14 +28,16 @@ SOURCES += main.cpp\
     datenausgabe.cpp \
     dateneingabe.cpp \
     fluid.cpp \
-    rohr.cpp
+    rohr.cpp \
+    qcustomplot.cpp
 
 HEADERS  += mainwindow.h \
     datenausgabe.h \
     dateneingabe.h \
     fluid.h \
     rohr.h \
-    stroemung.h
+    stroemung.h \
+    qcustomplot.h
 
 FORMS    += mainwindow.ui \
     datenausgabe.ui \
