@@ -1,22 +1,20 @@
-#include "datenausgabe.h"
-#include "ui_datenausgabe.h"
+#include "plotter.h"
+#include "ui_plotter.h"
 
-DatenAusgabe::DatenAusgabe(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::DatenAusgabe)
+Plotter::Plotter(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::Plotter)
 {
     ui->setupUi(this);
-    DatenAusgabe::erstellePlot();
-
+    Plotter::erstellePlot();
 }
 
-DatenAusgabe::~DatenAusgabe()
+Plotter::~Plotter()
 {
     delete ui;
 }
 
-
-void DatenAusgabe::erstellePlot()
+void Plotter::erstellePlot()
 {
     // Erstellen von Daten, die angezeigt werden sollen
     QVector<double> x(101), y(101); // initilaisieren mit Einträgen von 0..100

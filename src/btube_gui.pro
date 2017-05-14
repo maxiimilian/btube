@@ -25,20 +25,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    datenausgabe.cpp \
     dateneingabe.cpp \
     fluid.cpp \
     rohr.cpp \
-    qcustomplot.cpp
+    qcustomplot.cpp \
+    plotter.cpp
 
 HEADERS  += mainwindow.h \
-    datenausgabe.h \
     dateneingabe.h \
     fluid.h \
     rohr.h \
     stroemung.h \
-    qcustomplot.h
+    qcustomplot.h \
+    plotter.h
 
 FORMS    += mainwindow.ui \
-    datenausgabe.ui \
-    dateneingabe.ui
+    dateneingabe.ui \
+    plotter.ui
