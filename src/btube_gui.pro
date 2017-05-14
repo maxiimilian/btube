@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     datenausgabe.cpp \
     dateneingabe.cpp \
     fluid.cpp \
-    rohr.cpp
+    rohr.cpp \
+    stroemung.cpp
 
 HEADERS  += mainwindow.h \
     datenausgabe.h \
