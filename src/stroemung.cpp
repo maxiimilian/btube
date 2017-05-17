@@ -14,7 +14,6 @@ double Rohrstroemung::get_Re(){
 }
 
 double Rohrstroemung::get_lambda(){
-    /* gibt den Rohrreibungsbeiwert in Abhängigkeit von der Reynoldszahl aus */
     double Re = get_Re();
 
     if(Re < 2300){

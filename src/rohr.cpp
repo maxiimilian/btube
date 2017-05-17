@@ -4,7 +4,6 @@
 
 Rohr::Rohr(){};
 Rohr::Rohr(double l, double r){
-    /* Rohr-Konstruktor: Erstellt ein Rohr mit Länge und Radius */
     // Prüfen, ob Länge größer als Null ist
     if(l > 0){
         this->laenge = l;
@@ -23,12 +22,12 @@ Rohr::Rohr(double l, double r){
 }
 
 double Rohr::get_radius(){
-    /* gibt den Wert des Radius-Attributs zurück */
+    // gibt den Wert des Radius-Attributs zurück
     return this->radius;
 }
 
 double Rohr::get_radius(double x){
-    /* 
+    /*! 
      * gibt den Wert des Radius an einer bestimmten Stelle zurück.
      * Kann überschrieben werden, um den Radius als r=f(x) auszudrücken.
      */

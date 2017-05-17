@@ -4,6 +4,14 @@
 #ifndef STROEMUNG_H
 #define STROEMUNG_H
 
+/*! 
+ * \brief Beschriebt eine Rohrströmung
+ *
+ * Benötigt dazu Objekte von Rohr und Fluid.
+ * 
+ * \warning Es werden keine kompressiblen Fluide oder Ablösungen 
+ * und Einlaufstörungen am Ein- und Ausgang des Rohrs berücksichtigt.
+ */
 class Rohrstroemung
 {
     private:
@@ -13,10 +21,10 @@ class Rohrstroemung
         // Konstruktor
         Rohrstroemung(Rohr rohr, Fluid fluid);
 
-        // Reynoldszahl berechnen
+        /// Reynoldszahl des Member-Fluids berechnen
         double get_Re();
 
-        // Rohrreibungszahl Lambda berechnen
+        /// Rohrreibungszahl Lambda berechnen, in Abhängigkeit von Re \sa get_Re()
         double get_lambda();
 };
 
