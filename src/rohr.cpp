@@ -2,7 +2,7 @@
 #include "rohr.h"
 #include <stdexcept>
 
-Rohr::Rohr(){};
+Rohr::Rohr(){}
 Rohr::Rohr(double l, double r){
     // Prüfen, ob Länge größer als Null ist
     if(l > 0){
@@ -45,4 +45,8 @@ double Rohr::get_querschnitt(){
 }
 double Rohr::get_querschnitt(double x){
     return 3.14*pow(this->get_radius(x), 2);
+}
+
+double Rohr::get_laenge(){
+    return this->laenge;
 }

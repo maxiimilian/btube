@@ -38,6 +38,9 @@ class Rohr
          * Diese Funktion überschreiben, um r=f(x) zu realisieren
          */
         double get_radius(double x);
+
+        /// Gibt Länge zurück
+        double get_laenge();
 };
 
 #endif 

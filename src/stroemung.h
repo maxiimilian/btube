@@ -26,6 +26,9 @@ class Rohrstroemung
 
         /// Rohrreibungszahl Lambda berechnen, in Abhängigkeit von Re \sa get_Re()
         double get_lambda();
+
+        /// Berechnung der Fluidgeschwindigkeit durch den Massenstorm
+        double get_speed();
 };
 
 

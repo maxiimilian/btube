@@ -10,7 +10,20 @@ Rohrstroemung::Rohrstroemung(Rohr rohr, Fluid fluid){
 }
 
 double Rohrstroemung::get_Re(){
-    return 5555;
+    double u = this->get_speed();
+    double nue = this->fluid.get_nue();
+    double l = this->rohr.get_laenge();
+
+    return (u*l)/nue;
+}
+
+double Rohrstroemung::get_speed(){
+
+    double A = this->rohr.get_querschnitt();
+    double roh = this->fluid.get_dichte();
+    double m = this->fluid.get_massenstrom(); //Funktionen sind noch nicht definiert
+
+    return m/(A*roh);
 }
 
 double Rohrstroemung::get_lambda(){

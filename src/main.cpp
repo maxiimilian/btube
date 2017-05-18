@@ -9,6 +9,9 @@ using namespace std;
 int main(){
     double l_in = 0;
     double r_in = 0;
+    double massenstrom_in = 0;
+    double dichte_in = 0;
+    double nue_in = 0;
     
     // Rohrparameter abfragen
     cout << "Rohrparameter eingeben\n" << "##########" << endl;
@@ -22,7 +25,7 @@ int main(){
     cout << "Rohrquerschnitt: " << rohr.get_querschnitt() << endl;
 
     // Fluid initialisieren
-    Fluid fluid;
+    Fluid fluid(dichte_in, massenstrom_in, nue_in);
 
     // Rohrströmung zusammenbauen
     Rohrstroemung rohrstroemung(rohr, fluid);
