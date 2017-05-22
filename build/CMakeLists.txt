@@ -6,8 +6,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 project(btube)
 
 add_executable(
-    btube
-    src/main.cpp
-    src/rohr.cpp
-    src/fluid.cpp
+    btube_cli
+    ../src/main.cpp
+    ../src/rohr.cpp
+    ../src/fluid.cpp
 )

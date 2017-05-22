@@ -39,6 +39,6 @@ HEADERS  += mainwindow.h \
     qcustomplot.h \
     plotter.h
 
-FORMS    += mainwindow.ui \
-    dateneingabe.ui \
+FORMS    += dateneingabe.ui \
+    mainwindow.ui \
     plotter.ui
