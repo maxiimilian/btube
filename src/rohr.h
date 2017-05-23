@@ -1,25 +1,46 @@
 #ifndef ROHR_H
 #define ROHR_H
 
+/*!
+ * \brief Stellt ein Rohrbauteil zur Verfügung
+ */
 class Rohr 
 {
     private:
-        /* Eigenschaften des Rohrs definieren */
+        /// Rohrlänge in m
         double laenge;
+
+        /// Rohrradius in m
         double radius;
 
     public:
-        /* Funktionen des Rohrs definieren */
-        // Konstruktor wird bei Initialisierung aufgerufen
-        Rohr(const double l, const double r);
+        Rohr();
+        Rohr(double l, double r);
 
-        // Gibt Querschnittsfläche (an der Stelle x) zurück
+        /// Gibt Querschnittsfläche
         double get_querschnitt();
-        double get_querschnitt(const double x);
 
-        // Gibt Radius an der Stelle x zurück
+        /*! 
+         * \brief Gibt den Querschnitt an der Stelle x zurück.
+         *
+         * \warning Basiert auf get_radius, daher wird r=f(x) hier 
+         * automatisch berücksichtigt. Nicht doppelt überschreiben!
+         * \sa Rohr::get_radius(double x)
+         */
+        double get_querschnitt(double x);
+
+        /// Gibt Radius zurück
         double get_radius();
-        double get_radius(const double x);
+        
+        /*!
+         * \brief Gibt Radius an der Stelle x zurück.
+         *
+         * Diese Funktion überschreiben, um r=f(x) zu realisieren
+         */
+        double get_radius(double x);
+
+        /// Gibt Länge zurück
+        double get_laenge();
 };
 
 #endif 

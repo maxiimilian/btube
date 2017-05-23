@@ -29,7 +29,9 @@ SOURCES += main.cpp\
     fluid.cpp \
     rohr.cpp \
     qcustomplot.cpp \
-    plotter.cpp
+    plotter.cpp \
+    stroemung.cpp
+
 
 HEADERS  += mainwindow.h \
     dateneingabe.h \
