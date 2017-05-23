@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "plotter.h"
+#include "dateneingabe.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,12 +17,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
-
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_2_clicked()
 {
-    Plotter plotter;        //Modal-Approach
-    plotter.setModal(true);
-    plotter.exec();
+    DatenEingabe dateneingabe;
+    dateneingabe.setModal(true);
+    dateneingabe.exec();
+
 }

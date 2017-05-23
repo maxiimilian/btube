@@ -14,18 +14,24 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>90</y>
-      <width>211</width>
-      <height>91</height>
+      <x>80</x>
+      <y>30</y>
+      <width>231</width>
+      <height>181</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Open Datenausgabe</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Open Dateneingabe</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -34,7 +40,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

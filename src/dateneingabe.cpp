@@ -3,6 +3,7 @@
 #include "rohr.h"
 #include "fluid.h"
 #include "mainwindow.h"
+#include "plotter.h"
 
 
 DatenEingabe::DatenEingabe(QWidget *parent) :
@@ -10,8 +11,6 @@ DatenEingabe::DatenEingabe(QWidget *parent) :
     ui(new Ui::DatenEingabe)
 {
     ui->setupUi(this);
-
-
 
 }
 
@@ -39,4 +38,11 @@ void DatenEingabe::on_doubleSpinBox_2_valueChanged(double arg2)
 void DatenEingabe::on_radioButton_clicked()
 {
     double dichte = 0;
+}
+
+void DatenEingabe::on_pushButton_clicked()
+{
+    Plotter plotter;        //Modal-Approach
+    plotter.setModal(true);
+    plotter.exec();
 }
