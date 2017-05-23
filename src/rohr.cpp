@@ -2,8 +2,8 @@
 #include "rohr.h"
 #include <stdexcept>
 
+Rohr::Rohr(){}
 Rohr::Rohr(double l, double r){
-    /* Rohr-Konstruktor: Erstellt ein Rohr mit Länge und Radius */
     // Prüfen, ob Länge größer als Null ist
     if(l > 0){
         this->laenge = l;
@@ -22,12 +22,12 @@ Rohr::Rohr(double l, double r){
 }
 
 double Rohr::get_radius(){
-    /* gibt den Wert des Radius-Attributs zurück */
+    // gibt den Wert des Radius-Attributs zurück
     return this->radius;
 }
 
-double Rohr::get_radius(const double x){
-    /* 
+double Rohr::get_radius(double x){
+    /*! 
      * gibt den Wert des Radius an einer bestimmten Stelle zurück.
      * Kann überschrieben werden, um den Radius als r=f(x) auszudrücken.
      */
@@ -43,6 +43,10 @@ double Rohr::get_radius(const double x){
 double Rohr::get_querschnitt(){
     return 3.14*pow(this->get_radius(), 2);
 }
-double Rohr::get_querschnitt(const double x){
+double Rohr::get_querschnitt(double x){
     return 3.14*pow(this->get_radius(x), 2);
+}
+
+double Rohr::get_laenge(){
+    return this->laenge;
 }

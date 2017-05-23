@@ -10,4 +10,5 @@ add_executable(
     ../src/main.cpp
     ../src/rohr.cpp
     ../src/fluid.cpp
+    ../src/stroemung.cpp
 )
