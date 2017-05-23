@@ -39,7 +39,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Daten für das Fluid&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton">
+  <widget class="QRadioButton" name="Wasser">
    <property name="geometry">
     <rect>
      <x>181</x>
@@ -52,7 +52,7 @@
     <string>Wasser</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_4">
+  <widget class="QRadioButton" name="Oel">
    <property name="geometry">
     <rect>
      <x>424</x>
@@ -65,7 +65,7 @@
     <string>Öl</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_3">
+  <widget class="QRadioButton" name="Benutzerdefiniert">
    <property name="geometry">
     <rect>
      <x>424</x>
@@ -78,7 +78,7 @@
     <string>Benutzerdefiniert</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_2">
+  <widget class="QRadioButton" name="Luft">
    <property name="geometry">
     <rect>
      <x>181</x>

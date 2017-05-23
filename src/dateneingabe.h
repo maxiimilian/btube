@@ -23,11 +23,7 @@ private slots:
 
     void on_doubleSpinBox_2_valueChanged(double arg1);
 
-    void on_radioButton_clicked();
-
     void on_pushButton_clicked();
-
-private:
 
     Ui::DatenEingabe *ui;
 

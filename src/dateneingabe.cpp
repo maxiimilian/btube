@@ -26,18 +26,9 @@ void DatenEingabe::on_doubleSpinBox_valueChanged(double arg1)
     double laenge = arg1;
 }
 
-
-
 void DatenEingabe::on_doubleSpinBox_2_valueChanged(double arg2)
 {
     double radius = arg2;
-}
-
-// Festlegen der Werte für das Fluid mit Hilfe der Radio Boxen
-
-void DatenEingabe::on_radioButton_clicked()
-{
-    double dichte = 0;
 }
 
 void DatenEingabe::on_pushButton_clicked()
