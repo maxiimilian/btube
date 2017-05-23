@@ -32,7 +32,6 @@ SOURCES += main.cpp\
     plotter.cpp \
     stroemung.cpp
 
-
 HEADERS  += mainwindow.h \
     dateneingabe.h \
     fluid.h \
