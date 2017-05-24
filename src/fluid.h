@@ -16,7 +16,7 @@ class Fluid
 
     public:
         Fluid();
-        Fluid(double dichte, double massenstrom, double nue);
+        Fluid(double dichte, double nue);
 
         /// Massenstrom wird zurückgegeben
         double get_massenstrom();
@@ -24,6 +24,9 @@ class Fluid
         double get_dichte();
         /// Viskosität wird zurückgegeb
         double get_nue();      
+
+        /// Setzt den Massenstrom des Fluids
+        void set_massenstrom(double massenstrom);
 };
 
 #endif 
