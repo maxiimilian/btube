@@ -36,7 +36,9 @@ HEADERS  += mainwindow.h \
     dateneingabe.h \
     fluid.h \
     rohr.h \
-    stroemung.h
+    stroemung.h \
+    tests/test.h \
+    tests/testDefinitionen.h
 
 FORMS    += mainwindow.ui \
     datenausgabe.ui \

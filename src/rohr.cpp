@@ -41,10 +41,10 @@ double Rohr::get_radius(double x){
 }
 
 double Rohr::get_querschnitt(){
-    return 3.14*pow(this->get_radius(), 2);
+    return M_PI*pow(this->get_radius(), 2);
 }
 double Rohr::get_querschnitt(double x){
-    return 3.14*pow(this->get_radius(x), 2);
+    return M_PI*pow(this->get_radius(x), 2);
 }
 
 double Rohr::get_laenge(){

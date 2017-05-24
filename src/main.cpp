@@ -4,9 +4,14 @@
 #include "fluid.h"
 #include "stroemung.h"
 
+#define TEST
+#include "tests/testDefinitionen.h"
+
 using namespace std;
 
 int main(){
+    RUNTEST
+
     double l_in = 0;
     double r_in = 0;
     
