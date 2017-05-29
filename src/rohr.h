@@ -13,6 +13,16 @@ class Rohr
         /// Rohrradius in m
         double radius;
 
+        /// Konvektionswiderstand für Innenseite (Watt pro Quadratmeter und Kelvin)
+        double alpha_innen;
+
+        /// Konevktionswiderstand für Außenseite (Watt pro Quadratmeter und Kelvin)
+        double alpha_außen;
+
+        ///Wrämedurchgangskoeffizient (Watt pro Kelvin)
+        double kA;
+
+
     public:
         Rohr();
         Rohr(double l, double r);
@@ -41,6 +51,26 @@ class Rohr
 
         /// Gibt Länge zurück
         double get_laenge();
+
+        /// Gibt Bauart zurück
+        double get_bauart();
+
+        /// Gibt Konvektionswiderstand auf der Innenseite zurück
+        double get_alpha_innen();
+
+        /// Gibt Konvektionswiderstand auf der Außenseite zurück
+        double get_aplha_außen();
+
+        /// Gibt Wärmedurchgangskoeffizient zurück
+        double get_kA();
+
+        /// Berechnet Wärmedurchgangskoeffizient
+        void set_kA();
+
+        /// Berechnet Leistungszahl
+        void set_epsilon();
+
+
 };
 
 #endif 

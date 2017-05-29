@@ -50,3 +50,25 @@ double Rohr::get_querschnitt(double x){
 double Rohr::get_laenge(){
     return this->laenge;
 }
+
+double Rohr::get_alpha_innen(){
+    return this->alpha_innen;
+}
+
+double Rohr::get_aplha_außen(){
+    return this->alpha_außen;
+}
+
+double Rohr::get_kA(){
+    return this->kA;
+}
+
+/*!
+ * \brief Berechenet den Wärmdurchgangskoeffzient
+ *
+ * \warning Anderer Ansatz: Es werden keine Werte der Funktion übergeben sondern in der Funktion get-Funktionen aufgerufen
+ * \sa Fluid::set_cp_strom
+ */
+void Rohr::set_kA(){
+    this->kA = 2 * M_PI * this->get_radius() * this->get_laenge() * (this->get_alpha_innen() + this->get_aplha_außen()); //2*Pi*r*L(alpha_innen+alpha_außen)
+}

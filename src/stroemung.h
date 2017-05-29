@@ -29,6 +29,15 @@ class Rohrstroemung
 
         /// Berechnung der Fluidgeschwindigkeit durch den Massenstorm
         double get_speed();
+
+        /// Berechnet Bauartszahl
+        double get_bauart();
+
+        /// Gibt Leistungsgröße zurück
+        double get_epsilon();
+
+        /// Berechnet Austrittstemperatur
+        double get_temp();
 };
 
 
