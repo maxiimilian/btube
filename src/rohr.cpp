@@ -72,3 +72,19 @@ double Rohr::get_kA(){
 void Rohr::set_kA(){
     this->kA = 2 * M_PI * this->get_radius() * this->get_laenge() * (this->get_alpha_innen() + this->get_aplha_außen()); //2*Pi*r*L(alpha_innen+alpha_außen)
 }
+
+void Rohr::set_kA(double x){
+    /*!
+     * berechnet den Wert von kA an einer bestimmten Stelle.
+     * Kann überschrieben werden, um den Radius als kA=f(x) auszudrücken.
+     */
+
+    //Prüfe ob Ort x innerhalb des Rohres liegt
+    if ( x <= get_laenge()){
+    this->kA = 2 * M_PI * this->get_radius() * x * (this->get_alpha_innen() + this->get_aplha_außen()); //2*Pi*r*x(alpha_innen+alpha_außen)
+    }
+
+    else {
+        throw std::out_of_range("Rohrradius muss positiv und größer Null sein!");
+    }
+}

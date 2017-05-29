@@ -28,20 +28,28 @@ class Fluid
 
         /// Massenstrom wird zurückgegeben
         double get_massenstrom();
+
         /// Dichte wird zurückgegeben
         double get_dichte();
+
         /// Viskosität wird zurückgegen
         double get_nue();
+
         /// Wärmekapazität wird zurückgegeben
         double get_cp();
+
         /// Wärmekapazitätsstrom wird zurückgegen
         double get_cp_strom();
+
         /// Gibt Eintrittstemperatur des Fluids zurück
         double get_t_ein();
+
         /// Gibt Außentemperatur zurück
         double get_t_aussen();
+
         /// Setzt den Massenstrom des Fluids
         void set_massenstrom(double massenstrom);
+
         /// Setzt den Wärmekapazizätstrom des Fluids
         void set_cp_strom (double cp, double massenstrom);
 

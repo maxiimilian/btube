@@ -64,12 +64,18 @@ class Rohr
         /// Gibt Wärmedurchgangskoeffizient zurück
         double get_kA();
 
+        /*!
+         * \brief Berechnet Wärmedurchgangskoeffizient an der Stelle x und speichert ihn auch unter kA
+         *
+         * \warning Diese Funktion überschreiben, um kA=f(x) zu realisieren.
+         */
+        void set_kA(double x);
+
         /// Berechnet Wärmedurchgangskoeffizient
         void set_kA();
 
         /// Berechnet Leistungszahl
         void set_epsilon();
-
 
 };
 
