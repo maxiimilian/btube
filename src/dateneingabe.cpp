@@ -31,9 +31,34 @@ void DatenEingabe::on_doubleSpinBox_2_valueChanged(double arg2)
     double radius = arg2;
 }
 
+    void DatenEingabe::on_Wasser_clicked() //Stoffwerte für Wasser
+    {
+       double dichte;
+
+    }
+
+    void DatenEingabe::on_Oel_clicked() //Stoffwerte für Öl
+    {
+        double dichte;
+    }
+
+    void DatenEingabe::on_Luft_clicked() //Stoffwerte für Luft
+    {
+        double dichte;
+    }
+
+    void DatenEingabe::on_Benutzerdefiniert_clicked() //Stoffwerte für benutzerdefiniertes Fluid
+    {
+        double dichte=ui->Dichte->value(); // Benutzer legt Werte für Parameter fest // Überprüfung der Werte muss noch erfolgen
+        double nue=ui->Viskositaet->value();
+        double massenstrom=ui->Massenstrom->value();
+    }
 void DatenEingabe::on_pushButton_clicked()
 {
+
+
     Plotter plotter;        //Modal-Approach
     plotter.setModal(true);
     plotter.exec();
 }
+
