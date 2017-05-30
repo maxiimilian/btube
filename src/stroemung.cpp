@@ -48,8 +48,7 @@ double Rohrstroemung::get_pressure(double x){
 
     double p = this->get_startpressure(); //NOCH NICHT IMPLEMENTIERT!
     double lambda = this->get_lambda();
-    double r = rohr.get_radius();
-    double d = 2*r;
+    double d = 2 * rohr.get_radius();
     double rho = fluid.get_dichte();
     double v = this->get_speed();
 
