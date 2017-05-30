@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = btube_gui
 TEMPLATE = app
@@ -25,21 +25,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    datenausgabe.cpp \
     dateneingabe.cpp \
     fluid.cpp \
     rohr.cpp \
+    qcustomplot.cpp \
+    plotter.cpp \
     stroemung.cpp
 
 HEADERS  += mainwindow.h \
-    datenausgabe.h \
     dateneingabe.h \
     fluid.h \
     rohr.h \
     stroemung.h \
     tests/test.h \
-    tests/testDefinitionen.h
+    tests/testDefinitionen.h \
+    qcustomplot.h \
+    plotter.h
 
-FORMS    += mainwindow.ui \
-    datenausgabe.ui \
-    dateneingabe.ui
+FORMS    += dateneingabe.ui \
+    mainwindow.ui \
+    plotter.ui

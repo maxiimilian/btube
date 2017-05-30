@@ -2,6 +2,8 @@
 #define DATENEINGABE_H
 
 #include <QDialog>
+#include <QDoubleSpinBox>
+#include <QRadioButton>
 
 namespace Ui {
 class DatenEingabe;
@@ -15,8 +17,26 @@ public:
     explicit DatenEingabe(QWidget *parent = 0);
     ~DatenEingabe();
 
+private slots:
+
+    void on_doubleSpinBox_valueChanged(double arg1);
+
+    void on_doubleSpinBox_2_valueChanged(double arg1);
+
+    void on_pushButton_clicked();
+
+    void on_Wasser_clicked();
+
+    void on_Oel_clicked();
+
+    void on_Luft_clicked();
+
+    void on_Benutzerdefiniert_clicked();
+
 private:
+
     Ui::DatenEingabe *ui;
+
 };
 
 #endif // DATENEINGABE_H
