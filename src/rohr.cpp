@@ -55,8 +55,8 @@ double Rohr::get_alpha_innen(){
     return this->alpha_innen;
 }
 
-double Rohr::get_aplha_außen(){
-    return this->alpha_außen;
+double Rohr::get_aplha_aussen(){
+    return this->alpha_aussen;
 }
 
 
@@ -67,7 +67,7 @@ double Rohr::get_aplha_außen(){
  * \sa Fluid::set_cp_strom
  */
 double Rohr::get_kA(){
-    return this->kA = 2 * M_PI * this->get_radius() * this->get_laenge() * (this->get_alpha_innen() + this->get_aplha_außen()); //2*Pi*r*L(alpha_innen+alpha_außen)
+    return this->kA = 2 * M_PI * this->get_radius() * this->get_laenge() * (this->get_alpha_innen() + this->get_aplha_aussen()); //2*Pi*r*L(alpha_innen+alpha_außen)
 }
 
 double Rohr::get_kA(double x){
@@ -78,7 +78,7 @@ double Rohr::get_kA(double x){
 
     //Prüfe ob Ort x innerhalb des Rohres liegt
     if ( x <= get_laenge()){
-    return this->kA = 2 * M_PI * this->get_radius() * x * (this->get_alpha_innen() + this->get_aplha_außen()); //2*Pi*r*x(alpha_innen+alpha_außen)
+    return this->kA = 2 * M_PI * this->get_radius() * x * (this->get_alpha_innen() + this->get_aplha_aussen()); //2*Pi*r*x(alpha_innen+alpha_außen)
     }
 
     else {

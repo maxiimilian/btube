@@ -17,7 +17,7 @@ class Rohr
         double alpha_innen;
 
         /// Konevktionswiderstand für Außenseite (Watt pro Quadratmeter und Kelvin)
-        double alpha_außen;
+        double alpha_aussen;
 
         ///Wrämedurchgangskoeffizient (Watt pro Kelvin)
         double kA;
@@ -59,7 +59,7 @@ class Rohr
         double get_alpha_innen();
 
         /// Gibt Konvektionswiderstand auf der Außenseite zurück
-        double get_aplha_außen();
+        double get_aplha_aussen();
 
         /// Berechnet Wärmedurchgangskoeffizient
         double get_kA();
