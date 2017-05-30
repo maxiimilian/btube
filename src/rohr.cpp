@@ -59,9 +59,6 @@ double Rohr::get_aplha_außen(){
     return this->alpha_außen;
 }
 
-double Rohr::get_kA(){
-    return this->kA;
-}
 
 /*!
  * \brief Berechenet den Wärmdurchgangskoeffzient
@@ -69,11 +66,11 @@ double Rohr::get_kA(){
  * \warning Anderer Ansatz: Es werden keine Werte der Funktion übergeben sondern in der Funktion get-Funktionen aufgerufen
  * \sa Fluid::set_cp_strom
  */
-void Rohr::set_kA(){
-    this->kA = 2 * M_PI * this->get_radius() * this->get_laenge() * (this->get_alpha_innen() + this->get_aplha_außen()); //2*Pi*r*L(alpha_innen+alpha_außen)
+double Rohr::get_kA(){
+    return this->kA = 2 * M_PI * this->get_radius() * this->get_laenge() * (this->get_alpha_innen() + this->get_aplha_außen()); //2*Pi*r*L(alpha_innen+alpha_außen)
 }
 
-void Rohr::set_kA(double x){
+double Rohr::get_kA(double x){
     /*!
      * berechnet den Wert von kA an einer bestimmten Stelle.
      * Kann überschrieben werden, um den Radius als kA=f(x) auszudrücken.
@@ -81,10 +78,10 @@ void Rohr::set_kA(double x){
 
     //Prüfe ob Ort x innerhalb des Rohres liegt
     if ( x <= get_laenge()){
-    this->kA = 2 * M_PI * this->get_radius() * x * (this->get_alpha_innen() + this->get_aplha_außen()); //2*Pi*r*x(alpha_innen+alpha_außen)
+    return this->kA = 2 * M_PI * this->get_radius() * x * (this->get_alpha_innen() + this->get_aplha_außen()); //2*Pi*r*x(alpha_innen+alpha_außen)
     }
 
     else {
-        throw std::out_of_range("Rohrradius muss positiv und größer Null sein!");
+        throw std::out_of_range("Ort x muss im Rohr liegen und damit kleiner als die Länge sein!");
     }
 }

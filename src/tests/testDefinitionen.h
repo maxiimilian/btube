@@ -18,7 +18,9 @@ void test_Re_Berechnung(){
     Rohr rohr(100, 15);
 
     // Fluid mit Dichte, Viskosität und Massenstrom
-    Fluid fluid(123, 5.43e-6);
+    // cp = 1.4 wird in diesem Test aktuell nicht verwendet,
+    // wird aber vollständigkeitshalber übergeben
+    Fluid fluid(123, 5.43e-6, 1.4);
     fluid.set_massenstrom(50);
 
     // Rohrströmung

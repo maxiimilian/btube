@@ -61,7 +61,7 @@ class Rohr
         /// Gibt Konvektionswiderstand auf der Außenseite zurück
         double get_aplha_außen();
 
-        /// Gibt Wärmedurchgangskoeffizient zurück
+        /// Berechnet Wärmedurchgangskoeffizient
         double get_kA();
 
         /*!
@@ -69,13 +69,9 @@ class Rohr
          *
          * \warning Diese Funktion überschreiben, um kA=f(x) zu realisieren.
          */
-        void set_kA(double x);
+        double get_kA(double x);
 
-        /// Berechnet Wärmedurchgangskoeffizient
-        void set_kA();
 
-        /// Berechnet Leistungszahl
-        void set_epsilon();
 
 };
 

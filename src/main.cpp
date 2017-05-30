@@ -30,9 +30,10 @@ int main(){
     double massenstrom_in = 10;
     double dichte_in = 1000;
     double nue_in = 5e-6;
+    double cp = 4.18; // [kJ/kg/K]
 
     // Verschiedene Standardfluide definieren (bei 20°C)
-    Fluid fluid(dichte_in, nue_in);
+    Fluid fluid(dichte_in, nue_in, cp);
     fluid.set_massenstrom(massenstrom_in);
 
     // Rohrströmung zusammenbauen

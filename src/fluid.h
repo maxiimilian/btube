@@ -24,7 +24,7 @@ class Fluid
 
     public:
         Fluid();
-        Fluid(double dichte, double nue);
+        Fluid(double dichte, double nue, double cp);
 
         /// Massenstrom wird zurückgegeben
         double get_massenstrom();
@@ -50,8 +50,6 @@ class Fluid
         /// Setzt den Massenstrom des Fluids
         void set_massenstrom(double massenstrom);
 
-        /// Setzt den Wärmekapazizätstrom des Fluids
-        void set_cp_strom (double cp, double massenstrom);
 
 };
 

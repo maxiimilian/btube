@@ -2,7 +2,7 @@
 #include <stdexcept>
 
 Fluid::Fluid(){}
-Fluid::Fluid(double dichte, double nue){
+Fluid::Fluid(double dichte, double nue, double cp){
     // Validieren, dass Dichte und Viskosität größer Null sind
     if(nue > 0){
         this->nue = nue;
@@ -18,6 +18,13 @@ Fluid::Fluid(double dichte, double nue){
     else {
         throw std::out_of_range("Die Dichte muss größer Null sein!");
     }
+    if(cp > 0){
+        this->cp = cp;
+    }
+    else {
+        throw std::out_of_range("Die Wärmekapazität muss größer Null sein!");
+    }
+
 }
 
 double Fluid::get_dichte(){
@@ -35,10 +42,6 @@ double Fluid::get_cp(){
 
 double Fluid::get_nue(){
     return this->nue;
-}
-
-double Fluid::get_cp_strom(){
-    return this->cp_strom;
 }
 
 double Fluid::get_t_ein(){
@@ -59,6 +62,6 @@ void Fluid::set_massenstrom(double massenstrom){
  * \warning Ist es wirklich nötig die Vairablen der Funktion zu übergeben oder ist auch ein anderer Ansatz über enstprechende get-Funktionen möglich?
  * \sa Rohr::set_kA
  */
-void Fluid::set_cp_strom (double cp, double massenstrom){
-    this->cp_strom = cp * massenstrom;
+double Fluid::get_cp_strom(){
+    return this->get_cp()*this->get_massenstrom();
 }
