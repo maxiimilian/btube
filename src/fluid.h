@@ -19,8 +19,6 @@ class Fluid
         double cp_strom;
         /// Eintrittstemperatur in Celcius oder Kelvin
         double t_ein;
-        /// Umgebungstemperatur in Celcius oder Kelvin
-        double t_aussen;
 
     public:
         Fluid();
@@ -44,11 +42,11 @@ class Fluid
         /// Gibt Eintrittstemperatur des Fluids zurück
         double get_t_ein();
 
-        /// Gibt Außentemperatur zurück
-        double get_t_aussen();
-
         /// Setzt den Massenstrom des Fluids
         void set_massenstrom(double massenstrom);
+
+        /// Setzt die Eintrittstemperatur
+        void set_t_ein (double t_ein);
 
 
 };

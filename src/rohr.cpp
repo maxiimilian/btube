@@ -85,3 +85,11 @@ double Rohr::get_kA(double x){
         throw std::out_of_range("Ort x muss im Rohr liegen und damit kleiner als die Länge sein!");
     }
 }
+
+void Rohr::set_alpha_innen(double alpha_innen){
+    this->alpha_innen = alpha_innen;
+}
+
+void Rohr::set_aplha_aussen(double alpha_aussen){
+    this->alpha_aussen = alpha_aussen;
+}

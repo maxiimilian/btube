@@ -71,8 +71,11 @@ class Rohr
          */
         double get_kA(double x);
 
+        /// Setzt Wert für Konvektionswiderstand auf der Außenseite
+        void set_aplha_aussen(double alpha_aussen);
 
-
+        /// Setzt Wert für Konvektionswiderstand auf der Innenseite
+        void set_alpha_innen(double alpha_innen);
 };
 
 #endif 

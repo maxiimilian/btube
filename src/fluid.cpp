@@ -48,10 +48,6 @@ double Fluid::get_t_ein(){
     return this->t_ein;
 }
 
-double Fluid::get_t_aussen(){
-    return this->t_aussen;
-}
-
 void Fluid::set_massenstrom(double massenstrom){
     this->massenstrom = massenstrom;
 }
@@ -64,4 +60,8 @@ void Fluid::set_massenstrom(double massenstrom){
  */
 double Fluid::get_cp_strom(){
     return this->get_cp()*this->get_massenstrom();
+}
+
+void Fluid::set_t_ein (double t_ein){
+    this->t_ein = t_ein;
 }

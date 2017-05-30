@@ -44,15 +44,16 @@ double Rohrstroemung::get_lambda(){
 }
 
 double Rohrstroemung::get_bauart(){
-    return this->rohr.get_kA() * this->fluid.get_cp_strom();
+    return this->rohr.get_kA() / this->fluid.get_cp_strom();
 }
 
 double Rohrstroemung::get_epsilon(){
-    return 1 - pow(exp(1),this->get_bauart());
+    return 1 - exp((-1) * this->get_bauart());
+    //return 1 - pow(exp(1), - this->get_bauart());
 }
 
-double Rohrstroemung::get_temp(){
-    return this->fluid.get_t_ein() - this->get_epsilon() * (this->fluid.get_t_ein() - this->fluid.get_t_aussen()); // t_austritt = t_ein - epsiolon * tempdifferenz
+double Rohrstroemung::get_temp(double t_aussen){
+    return this->fluid.get_t_ein() - this->get_epsilon() * (this->fluid.get_t_ein() - t_aussen); // t_austritt = t_ein - epsiolon * tempdifferenz
 }
 
 double Rohrstroemung::get_pressure(double x){
