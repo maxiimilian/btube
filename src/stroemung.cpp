@@ -2,6 +2,7 @@
 #include "stroemung.h"
 #include "rohr.h"
 #include "fluid.h"
+#include "dateneingabe.h"
 
 Rohrstroemung::Rohrstroemung(Rohr rohr, Fluid fluid){
     // Rohr und Fluid mit der Rohrströmung verbinden
@@ -54,3 +55,6 @@ double Rohrstroemung::get_pressure(double x){
 
     return p-((lambda*x*rho*v*v)/(d*2));
 }
+
+//Berechnung des Strömungprofils
+
