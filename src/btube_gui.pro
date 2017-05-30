@@ -37,6 +37,8 @@ HEADERS  += mainwindow.h \
     fluid.h \
     rohr.h \
     stroemung.h \
+    tests/test.h \
+    tests/testDefinitionen.h \
     qcustomplot.h \
     plotter.h
 
