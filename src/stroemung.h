@@ -29,6 +29,12 @@ class Rohrstroemung
 
         /// Berechnung der Fluidgeschwindigkeit durch den Massenstorm
         double get_speed();
+
+        /// Gibt Startdruck zurück
+        double get_startpressure();
+
+        /// Berechnung des Drucks an der Stelle x
+        double get_pressure(double x);
 };
 
 
