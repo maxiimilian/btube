@@ -21,10 +21,10 @@ double Rohrstroemung::get_Re(){
 double Rohrstroemung::get_speed(){
 
     double A = this->rohr.get_querschnitt();
-    double roh = this->fluid.get_dichte();
+    double rho = this->fluid.get_dichte();
     double m = this->fluid.get_massenstrom(); //Funktionen sind noch nicht definiert
 
-    return m/(A*roh);
+    return m/(A*rho);
 }
 
 double Rohrstroemung::get_lambda(){
@@ -43,4 +43,18 @@ double Rohrstroemung::get_lambda(){
     return 0.03;
 }
 
+double Rohrstroemung::get_pressure(double x){
+    //double vstart = this->get_speed(0);
+    //double vpoint = this->get_speed(x);
+
+    double p = this->get_startpressure(); //NOCH NICHT IMPLEMENTIERT!
+    double lambda = this->get_lambda();
+    double d = 2 * rohr.get_radius();
+    double rho = fluid.get_dichte();
+    double v = this->get_speed();
+
+    return p-((lambda*x*rho*v*v)/(d*2));
+}
+
 //Berechnung des Strömungprofils
+
