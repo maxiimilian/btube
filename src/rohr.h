@@ -59,7 +59,7 @@ class Rohr
         double get_alpha_innen();
 
         /// Gibt Konvektionswiderstand auf der Außenseite zurück
-        double get_aplha_aussen();
+        double get_alpha_aussen();
 
         /// Berechnet Wärmedurchgangskoeffizient
         double get_kA();
@@ -72,7 +72,7 @@ class Rohr
         double get_kA(double x);
 
         /// Setzt Wert für Konvektionswiderstand auf der Außenseite
-        void set_aplha_aussen(double alpha_aussen);
+        void set_alpha_aussen(double alpha_aussen);
 
         /// Setzt Wert für Konvektionswiderstand auf der Innenseite
         void set_alpha_innen(double alpha_innen);
