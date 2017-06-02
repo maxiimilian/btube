@@ -47,13 +47,46 @@ double Rohrstroemung::get_bauart(){
     return this->rohr.get_kA() / this->fluid.get_cp_strom();
 }
 
+double Rohrstroemung::get_bauart(double x){
+    //Prüfe ob Ort x innerhalb des Rohres liegt
+    if ( x <= this->rohr.get_laenge()){
+        return this->rohr.get_kA(x) / this->fluid.get_cp_strom();
+    }
+    
+    else {
+        throw std::out_of_range("Ort x muss im Rohr liegen und damit kleiner als die Länge sein!");
+    }
+}
+
 double Rohrstroemung::get_epsilon(){
     return 1 - exp((-1) * this->get_bauart());
-    //return 1 - pow(exp(1), - this->get_bauart());
+}
+
+double Rohrstroemung::get_epsilon(double x){
+    //Prüfe ob Ort x innerhalb des Rohres liegt
+    if ( x <= this->rohr.get_laenge()){
+        return 1 - exp( (-1) * this->get_bauart(x));
+    }
+    
+    else {
+        throw std::out_of_range("Ort x muss im Rohr liegen und damit kleiner als die Länge sein!");
+    }
 }
 
 double Rohrstroemung::get_temp(double t_aussen){
     return this->fluid.get_t_ein() - this->get_epsilon() * (this->fluid.get_t_ein() - t_aussen); // t_austritt = t_ein - epsiolon * tempdifferenz
+}
+
+
+double Rohrstroemung::get_temp(double t_aussen, double x){
+    //Prüfe ob Ort x innerhalb des Rohres liegt
+    if ( x <= this->rohr.get_laenge() ){
+        return this->fluid.get_t_ein() + this->get_epsilon(x) * (t_aussen - this->fluid.get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
+    }
+    
+    else {
+        throw std::out_of_range("Ort x muss im Rohr liegen und damit kleiner als die Länge sein!");
+    }
 }
 
 double Rohrstroemung::get_pressure(double x){

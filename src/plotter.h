@@ -1,6 +1,7 @@
 #ifndef PLOTTER_H
 #define PLOTTER_H
-
+#include "fluid.h"
+#include "rohr.h"
 #include <QDialog>
 
 namespace Ui {
@@ -16,7 +17,7 @@ public:
     ~Plotter();
 
 private slots:
-    void erstellePlot();
+    void erstellePlot(Rohr rohr, Fluid fluid);
 private:
     Ui::Plotter *ui;
 };

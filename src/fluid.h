@@ -15,10 +15,10 @@ class Fluid
         double massenstrom;
         /// spez. isobare Wärmekapazität [J/kg/K]
         double cp;
-        /// Wärmekapazitätsstrom [?]
-        double cp_strom;
         /// Eintrittstemperatur [K]
         double t_ein;
+
+        double cp_strom;
 
     public:
         Fluid();
@@ -47,6 +47,7 @@ class Fluid
 
         /// Setzt die Eintrittstemperatur
         void set_t_ein (double t_ein);
+
 
 
 };

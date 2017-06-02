@@ -23,6 +23,7 @@ class Rohr
         double kA;
 
 
+
     public:
         Rohr();
         Rohr(double l, double r);
@@ -51,9 +52,6 @@ class Rohr
 
         /// Gibt Länge zurück
         double get_laenge();
-
-        /// Gibt Bauart zurück
-        double get_bauart();
 
         /// Gibt Konvektionswiderstand auf der Innenseite zurück
         double get_alpha_innen();
