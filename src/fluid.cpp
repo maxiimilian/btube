@@ -59,12 +59,7 @@ void Fluid::set_massenstrom(double massenstrom){
  * \sa Rohr::set_kA
  */
 double  Fluid::get_cp_strom(){
-    double cp = this->get_cp();
-    double m = this->get_massenstrom();
-    double w = cp*m;
-    cp_strom = w;
-
-    return this->cp_strom;
+    return this->cp_strom = this->get_cp() * this->get_massenstrom();
 }
 
 void Fluid::set_t_ein(double t_ein){
