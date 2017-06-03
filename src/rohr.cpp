@@ -86,6 +86,10 @@ double Rohr::get_kA(double x){
     }
 }
 
+double Rohr::get_t_aussen(){
+    return this->t_aussen;
+}
+
 void Rohr::set_alpha_innen(double alpha_innen){
     this->alpha_innen = alpha_innen;
 }
@@ -94,3 +98,6 @@ void Rohr::set_aplha_aussen(double alpha_aussen){
     this->alpha_aussen = alpha_aussen;
 }
 
+void Rohr::set_t_aussen(double t_aussen){
+    this->t_aussen = t_aussen;
+}

@@ -15,6 +15,8 @@ Plotter::Plotter(QWidget *parent) :
 
     rohr.set_alpha_innen(300);
     rohr.set_aplha_aussen(400);
+    rohr.set_t_aussen(0);
+
     double massenstrom_in = 10;
     double dichte_in = 1000;
     double nue_in = 5e-6;
@@ -37,7 +39,6 @@ Plotter::~Plotter()
 void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 {
     Rohrstroemung rohrstroemung(rohr, fluid);
-    double t_aussen = 0;
 
     ///Anlegen der Länge als Variable damit Koordinatensystem und for-Schleife angepasst werde
     double l = rohr.get_laenge();
@@ -48,7 +49,7 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
     for (int i=0; i<=100; ++i)  //Es müssen 100 Einträgegefüllt werden
     {
       x[i] = i * (l/100);
-      y[i] = rohrstroemung.get_temp(t_aussen,i * (l/100)); //0 ist t_aussen. Da dieser Wert zu keiner Klasse gehört, kann der Wert auch nicht übergeben werden
+      y[i] = rohrstroemung.get_temp(i * (l/100));
 
     }
     /// Graphen erstellen und Achsen festlegen:
@@ -63,19 +64,19 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
     ui->customPlot->xAxis->setRange(0, l);
 
     ///Unterscheidung ob t_aussen oder t_ein größer ist; entsprechendes Setzen der y-Achsenbereichs
-    if (t_aussen >= fluid.get_t_ein()){
+    if (rohr.get_t_aussen() >= fluid.get_t_ein()){
 
         ///Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen
-        double axis_plus = (t_aussen-fluid.get_t_ein())/10;
+        double axis_plus = (rohr.get_t_aussen()-fluid.get_t_ein())/10;
 
         ///y-Achse beginnt kurz unter t_ein und endet kurz über t_aussen
-        ui->customPlot->yAxis->setRange(fluid.get_t_ein() - axis_plus,t_aussen + axis_plus);
+        ui->customPlot->yAxis->setRange(fluid.get_t_ein() - axis_plus, rohr.get_t_aussen() + axis_plus);
     }
 
-    ///Analoges Vorgehen wie im if-Statement \sa if(t_aussen >= fluid.get_t_ein())
+    ///Analoges Vorgehen wie im if-Statement \sa if(rohr.get_t_aussen >= fluid.get_t_ein())
     else{
-        double axis_plus = (fluid.get_t_ein()-t_aussen)/10;
-        ui->customPlot->yAxis->setRange(t_aussen -axis_plus, fluid.get_t_ein()+axis_plus);
+        double axis_plus = (fluid.get_t_ein()-rohr.get_t_aussen())/10;
+        ui->customPlot->yAxis->setRange(rohr.get_t_aussen() -axis_plus, fluid.get_t_ein()+axis_plus);
     }
     ui->customPlot->replot();
 

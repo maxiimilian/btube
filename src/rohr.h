@@ -22,6 +22,9 @@ class Rohr
         ///Wrämedurchgangskoeffizient (Watt pro Kelvin)
         double kA;
 
+        ///Aussentemperatur (Celcius oder Kelvin)
+        double t_aussen;
+
 
 
     public:
@@ -69,11 +72,17 @@ class Rohr
          */
         double get_kA(double x);
 
+        ///Gibt Aussentemperatur zurück
+        double get_t_aussen();
+
         /// Setzt Wert für Konvektionswiderstand auf der Außenseite
         void set_aplha_aussen(double alpha_aussen);
 
         /// Setzt Wert für Konvektionswiderstand auf der Innenseite
         void set_alpha_innen(double alpha_innen);
+
+        ///Setzt Wert für Aussentemperatur
+        void set_t_aussen(double t_aussen);
 };
 
 #endif 

@@ -63,6 +63,7 @@ void start_cli(){
          << "----------------------------" << endl;
     cout << "Umgebungstemperatur [K]: "; 
     cin >> t_aussen;
+    rohr.set_t_aussen(t_aussen);
     cout << endl;
 
     // Rohrströmung zusammenbauen
@@ -77,7 +78,7 @@ void start_cli(){
     cout << "kA [?]: " << rohr.get_kA() << endl;
     cout << "Bauart [?]: " << rohrstroemung.get_bauart() << endl;
     cout << "Epsilon [?]: " <<rohrstroemung.get_epsilon() << endl;
-    cout << "Austrittstemperatur [K]: " << rohrstroemung.get_temp(t_aussen) <<endl;
+    cout << "Austrittstemperatur [K]: " << rohrstroemung.get_temp() <<endl;
 
 }
 

@@ -73,15 +73,15 @@ double Rohrstroemung::get_epsilon(double x){
     }
 }
 
-double Rohrstroemung::get_temp(double t_aussen){
-    return this->fluid.get_t_ein() - this->get_epsilon() * (this->fluid.get_t_ein() - t_aussen); // t_austritt = t_ein - epsiolon * tempdifferenz
+double Rohrstroemung::get_temp(){
+    return this->fluid.get_t_ein() - this->get_epsilon() * (this->rohr.get_t_aussen() - this->fluid.get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
 }
 
 
-double Rohrstroemung::get_temp(double t_aussen, double x){
+double Rohrstroemung::get_temp(double x){
     //Prüfe ob Ort x innerhalb des Rohres liegt
     if ( x <= this->rohr.get_laenge() ){
-        return this->fluid.get_t_ein() + this->get_epsilon(x) * (t_aussen - this->fluid.get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
+        return this->fluid.get_t_ein() + this->get_epsilon(x) * (this->rohr.get_t_aussen() - this->fluid.get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
     }
     
     else {
