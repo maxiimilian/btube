@@ -14,7 +14,7 @@ Plotter::Plotter(QWidget *parent) :
     Rohr rohr(37, 0.5);
 
     rohr.set_alpha_innen(300);
-    rohr.set_aplha_aussen(400);
+    rohr.set_alpha_aussen(400);
     rohr.set_t_aussen(0);
 
     double massenstrom_in = 10;

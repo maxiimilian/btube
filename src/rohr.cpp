@@ -78,7 +78,7 @@ double Rohr::get_kA(double x){
 
     //Prüfe ob Ort x innerhalb des Rohres liegt
     if ( x <= this->get_laenge()){
-        return this->kA = 2 * M_PI * this->get_radius() * x * (this->get_alpha_innen() + this->get_aplha_aussen()); //2*Pi*r*x(alpha_innen+alpha_außen)
+        return this->kA = 2 * M_PI * this->get_radius() * x * (this->get_alpha_innen() + this->get_alpha_aussen()); //2*Pi*r*x(alpha_innen+alpha_außen)
     }
 
     else {
