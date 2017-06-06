@@ -4,6 +4,8 @@
 #include "fluid.h"
 #include "dateneingabe.h"
 
+using namespace std;
+
 Rohrstroemung::Rohrstroemung(Rohr rohr, Fluid fluid){
     // Rohr und Fluid mit der Rohrströmung verbinden
     this->rohr = rohr;
@@ -11,11 +13,8 @@ Rohrstroemung::Rohrstroemung(Rohr rohr, Fluid fluid){
 }
 
 double Rohrstroemung::get_Re(){
-    double u = this->get_speed();
-    double nue = this->fluid.get_nue();
-    double l = this->rohr.get_laenge();
-
-    return (u*l)/nue;
+    // Re_D zurückgeben
+    return this->get_speed()*2*this->rohr.get_radius()/this->fluid.get_nue();
 }
 
 double Rohrstroemung::get_speed(){
@@ -37,6 +36,11 @@ double Rohrstroemung::get_lambda(){
     if(Re < 100000){
         // turbulent, aber hydraulisch glatt
         return 0.3164/pow(Re, 0.25); 
+    }
+    if(Re >= 100000){
+        // Unterscheidung nach Dicker der laminaren Unterschicht
+        LambdaTurbulentGlattSolver ltgs;
+        return ltgs.get_lambda(Re);
     }
 
     // Fallback / Schätzung
@@ -104,3 +108,41 @@ double Rohrstroemung::get_pressure(double x){
 }
 
 //Berechnung des Strömungprofils
+
+// Solver für Lambda bei hydraulisch glatten, turbulenten Strömungen
+double LambdaTurbulentGlattSolver::get_lambda(double Re)
+{
+    double y_ceil = 0.03; // Wird nicht größer werden, da konvergiert
+    double y_floor = 0; // Gleichung konvergiert gegen Null für Re->inf
+
+    double r = 0; // aktuelle rechte Seite der Gleichung
+    double l = 0; // aktuelle linke Seite der Gleichung
+    double y = 0; // aktuelles y = lambda
+    double epsilon = 1e-7; // Genauigkeit
+
+    do {
+        y = y_floor + (y_ceil - y_floor) / 2;
+        r = this->eq_right(Re, y);
+        l = this->eq_left(Re, y);
+
+        if((r-l) > 0){
+            // ceiling setzen
+            y_ceil = y;
+        }
+        else {
+            // floor setzen
+            y_floor = y;
+        }
+    }
+    while(fabs(r-l) > epsilon);
+
+    return y;
+}
+
+double LambdaTurbulentGlattSolver::eq_left(double x, double y){
+    return 1/sqrt(y);
+}
+
+double LambdaTurbulentGlattSolver::eq_right(double x, double y){
+    return 2*log10(x*sqrt(y))-0.8;
+}

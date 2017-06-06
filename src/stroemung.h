@@ -21,7 +21,7 @@ class Rohrstroemung
         // Konstruktor
         Rohrstroemung(Rohr rohr, Fluid fluid);
 
-        /// Reynoldszahl des Member-Fluids berechnen
+        /// Reynoldszahl des Member-Fluids berechnen (u*d/nue)
         double get_Re();
 
         /// Rohrreibungszahl Lambda berechnen, in Abhängigkeit von Re \sa get_Re()
@@ -55,5 +55,18 @@ class Rohrstroemung
         double get_bauart(double x);
 };
 
+/*!
+ * \brief The LambdaTurbulentGlattSolver class
+ *
+ * Löst die Gleichung für den Rohrreibungsbeiwert Lambda,
+ * für Re > 100000 und hydraulisch glatte Rohre numerisch.
+ */
+class LambdaTurbulentGlattSolver{
+    private:
+        double eq_left(double x, double y);
+        double eq_right(double x, double y);
+    public:
+        double get_lambda(double Re);
+};
 
 #endif // STROEMUNG_H

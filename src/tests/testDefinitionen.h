@@ -1,6 +1,8 @@
 #ifndef TESTDEFINITIONEN_H
 #define TESTDEFINITIONEN_H
 
+#include <iostream>
+
 #ifdef TEST
 #include "test.h"
 
@@ -41,6 +43,11 @@ void test_Re_Berechnung(){
 /// Testfunktion des Rohrreibungsbeiwerts
 void test_lambda_Berechnung(){
     bool testResult = false;
+
+    LambdaTurbulentGlattSolver ltgs;
+    if(fabs(ltgs.get_lambda(1000000)-0.0116465) < 1e-7){
+        testResult = true;
+    };
 
     APITest::printTestResult(testResult, "Rohrreibungsbeiwert", "Maximilian Pierzyna");
 }
