@@ -13,23 +13,26 @@ class Rohr
         /// Rohrradius in m
         double radius;
 
+        /// Rohrrauheit k_s [m]
+        double k_s;
+
         /// Konvektionswiderstand für Innenseite (Watt pro Quadratmeter und Kelvin)
         double alpha_innen;
 
         /// Konevktionswiderstand für Außenseite (Watt pro Quadratmeter und Kelvin)
         double alpha_aussen;
 
-        ///Wrämedurchgangskoeffizient (Watt pro Kelvin)
+        /// Wrämedurchgangskoeffizient [Watt pro Kelvin]
         double kA;
 
-        ///Aussentemperatur (Celcius oder Kelvin)
+        /// Aussentemperatur [Celcius oder Kelvin]
         double t_aussen;
 
 
 
     public:
         Rohr();
-        Rohr(double l, double r);
+        Rohr(double l, double r, double k_s);
 
         /// Gibt Querschnittsfläche
         double get_querschnitt();
@@ -83,6 +86,9 @@ class Rohr
 
         ///Setzt Wert für Aussentemperatur
         void set_t_aussen(double t_aussen);
+
+        /// Gibt Rohrrauheitswert aus
+        double get_k_s();
 };
 
 #endif 

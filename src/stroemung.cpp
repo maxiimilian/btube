@@ -30,17 +30,27 @@ double Rohrstroemung::get_lambda(){
     double Re = get_Re();
 
     if(Re < 2300){
-        // Laminare Strömung, Gesetz von Hagen-Poiseuille
+        // Laminare Strömung, Gesetz von Hagen-Poiseuille (1)
         return 64/Re;
     }
-    if(Re < 100000){
-        // turbulent, aber hydraulisch glatt
-        return 0.3164/pow(Re, 0.25); 
-    }
-    if(Re >= 100000){
-        // Unterscheidung nach Dicker der laminaren Unterschicht
+    // Zulässige Rohrrauheit, für die noch die hydraulisch glatte Strömung gilt
+    double k_s_zul = 10*this->fluid.get_nue()/this->get_speed();
+
+    if(this->rohr.get_k_s() <= k_s_zul){
+        // hydraulisch glatt
+
+        if(Re < 10e5){
+            // turbulent, aber hydraulisch glatt (2)
+            return M_PI/pow(Re, 0.25);
+        }
+
+        // Re > 10e5 (3)
         LambdaTurbulentGlattSolver ltgs;
         return ltgs.get_lambda(Re);
+    }
+    else {
+        // raue Strömung (5)
+        return pow(1/(1.74-2*log10(this->rohr.get_k_s()/this->rohr.get_radius())),2);
     }
 
     // Fallback / Schätzung
@@ -125,12 +135,13 @@ double LambdaTurbulentGlattSolver::get_lambda(double Re)
         r = this->eq_right(Re, y);
         l = this->eq_left(Re, y);
 
+        // Linke und rechte Seite der Gleichung vergleichen
         if((r-l) > 0){
-            // ceiling setzen
+            // Wenn > 0, ceiling setzen
             y_ceil = y;
         }
         else {
-            // floor setzen
+            // Wenn < 0, floor setzen
             y_floor = y;
         }
     }

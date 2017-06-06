@@ -17,7 +17,7 @@ void test_Re_Berechnung(){
     bool testResult = false;
     
     // Rohr mit Länge und Radius
-    Rohr rohr(100, 15);
+    Rohr rohr(100, .5, 100e-6);
 
     // Fluid mit Dichte, Viskosität und Massenstrom
     // cp = 1.4 wird in diesem Test aktuell nicht verwendet,
@@ -29,7 +29,7 @@ void test_Re_Berechnung(){
     Rohrstroemung rohrstroemung(rohr, fluid);
 
     // Prüfen, ob sich Berechnung und Taschenrechnerwert um max. 0.5 unterscheiden
-    if(fabs(rohrstroemung.get_Re()-10590.895)<=0.5){
+    if(fabs(rohrstroemung.get_Re()-95318.05722)<=0.5){
         testResult = true; 
     }
 
@@ -49,7 +49,11 @@ void test_lambda_Berechnung(){
         testResult = true;
     };
 
-    APITest::printTestResult(testResult, "Rohrreibungsbeiwert", "Maximilian Pierzyna");
+    APITest::printTestResult(testResult,
+                             "Rohrreibungsbeiwert",
+                             "Maximilian Pierzyna",
+                             "Numerische Berechnung des Rohrreibungsbeiwerts",
+                             "stroemung.cpp");
 }
 
 #endif // TEST

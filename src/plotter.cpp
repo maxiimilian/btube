@@ -11,7 +11,7 @@ Plotter::Plotter(QWidget *parent) :
 {
     ui->setupUi(this);
 //Folgende Zeilen dienen nur zu Testzwecken der Plotter-Funktion für den Temperatur verlauf und sind eigentlich Teil der Eingabe-Funktion
-    Rohr rohr(37, 0.5);
+    Rohr rohr(37, 0.5, 32e-6);
 
     rohr.set_alpha_innen(300);
     rohr.set_alpha_aussen(400);
