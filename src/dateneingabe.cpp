@@ -2,7 +2,6 @@
 #include "ui_dateneingabe.h"
 #include "rohr.h"
 #include "fluid.h"
-#include "mainwindow.h"
 #include "plotter.h"
 
 
