@@ -10,27 +10,7 @@ Plotter::Plotter(QWidget *parent) :
     ui(new Ui::Plotter)
 {
     ui->setupUi(this);
-//Folgende Zeilen dienen nur zu Testzwecken der Plotter-Funktion für den Temperatur verlauf und sind eigentlich Teil der Eingabe-Funktion
-    Rohr rohr(37, 0.5);
-
-    rohr.set_alpha_innen(300);
-    rohr.set_alpha_aussen(400);
-    rohr.set_t_aussen(0);
-
-    double massenstrom_in = 10;
-    double dichte_in = 1000;
-    double nue_in = 5e-6;
-    double cp_in = 4182;
-    double t_ein = 20;
-
-    Fluid fluid(dichte_in, nue_in, cp_in);
-    fluid.set_massenstrom(massenstrom_in);
-    fluid.set_t_ein(t_ein);
-//Ende der Test-Eingabe
-
-    Plotter::erstellePlot(rohr, fluid);
 }
-
 Plotter::~Plotter()
 {
     delete ui;
