@@ -1,0 +1,81 @@
+\hypertarget{class_fluid}{}\section{Fluid Class Reference}
+\label{class_fluid}\index{Fluid@{Fluid}}
+
+
+Stellt ein \hyperlink{class_fluid}{Fluid} zur Verfügung.  
+
+
+
+
+{\ttfamily \#include $<$fluid.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_fluid_a2b1fada8a43d2edf1424e4f5915d6e06}\label{class_fluid_a2b1fada8a43d2edf1424e4f5915d6e06}} 
+{\bfseries Fluid} (double dichte, double nue, double cp)
+\item 
+double \hyperlink{class_fluid_afd9451c48ea66d15fdb8226da58da28e}{get\+\_\+massenstrom} ()
+\begin{DoxyCompactList}\small\item\em Massenstrom wird zurückgegeben. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_fluid_acb9e3346c0871ad5fefc9d11dcfc3283}\label{class_fluid_acb9e3346c0871ad5fefc9d11dcfc3283}} 
+double \hyperlink{class_fluid_acb9e3346c0871ad5fefc9d11dcfc3283}{get\+\_\+dichte} ()
+\begin{DoxyCompactList}\small\item\em Dichte wird zurückgegeben. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_fluid_ae0031c0e8f70a4fb3dacc34c9725c3c1}\label{class_fluid_ae0031c0e8f70a4fb3dacc34c9725c3c1}} 
+double \hyperlink{class_fluid_ae0031c0e8f70a4fb3dacc34c9725c3c1}{get\+\_\+nue} ()
+\begin{DoxyCompactList}\small\item\em Viskosität wird zurückgegen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_fluid_a86bf10785c4c5822eabf9245f0b39ae0}\label{class_fluid_a86bf10785c4c5822eabf9245f0b39ae0}} 
+double \hyperlink{class_fluid_a86bf10785c4c5822eabf9245f0b39ae0}{get\+\_\+cp} ()
+\begin{DoxyCompactList}\small\item\em Wärmekapazität wird zurückgegeben. \end{DoxyCompactList}\item 
+double \hyperlink{class_fluid_a5c589565d1bde26bc83125e3e8939796}{get\+\_\+cp\+\_\+strom} ()
+\begin{DoxyCompactList}\small\item\em Wärmekapazitätsstrom wird zurückgegen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_fluid_a60d0c9269a8c8af00bf8828c7f764537}\label{class_fluid_a60d0c9269a8c8af00bf8828c7f764537}} 
+double \hyperlink{class_fluid_a60d0c9269a8c8af00bf8828c7f764537}{get\+\_\+t\+\_\+ein} ()
+\begin{DoxyCompactList}\small\item\em Gibt Eintrittstemperatur des Fluids zurück. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_fluid_af70884f77d5dd43499fcc70969100498}\label{class_fluid_af70884f77d5dd43499fcc70969100498}} 
+void \hyperlink{class_fluid_af70884f77d5dd43499fcc70969100498}{set\+\_\+massenstrom} (double massenstrom)
+\begin{DoxyCompactList}\small\item\em Setzt den Massenstrom des Fluids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_fluid_a9449846d8fd4bf31d8685eefa55d4a57}\label{class_fluid_a9449846d8fd4bf31d8685eefa55d4a57}} 
+void \hyperlink{class_fluid_a9449846d8fd4bf31d8685eefa55d4a57}{set\+\_\+t\+\_\+ein} (double t\+\_\+ein)
+\begin{DoxyCompactList}\small\item\em Setzt die Eintrittstemperatur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stellt ein \hyperlink{class_fluid}{Fluid} zur Verfügung. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_fluid_a5c589565d1bde26bc83125e3e8939796}\label{class_fluid_a5c589565d1bde26bc83125e3e8939796}} 
+\index{Fluid@{Fluid}!get\+\_\+cp\+\_\+strom@{get\+\_\+cp\+\_\+strom}}
+\index{get\+\_\+cp\+\_\+strom@{get\+\_\+cp\+\_\+strom}!Fluid@{Fluid}}
+\subsubsection{\texorpdfstring{get\+\_\+cp\+\_\+strom()}{get\_cp\_strom()}}
+{\footnotesize\ttfamily double Fluid\+::get\+\_\+cp\+\_\+strom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Wärmekapazitätsstrom wird zurückgegen. 
+
+Berechnet den Wärmekapazitätsstrom.
+
+\begin{DoxyWarning}{Warning}
+Ist es wirklich nötig die Vairablen der Funktion zu übergeben oder ist auch ein anderer Ansatz über enstprechende get-\/\+Funktionen möglich? 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+Rohr\+::set\+\_\+kA 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_fluid_afd9451c48ea66d15fdb8226da58da28e}\label{class_fluid_afd9451c48ea66d15fdb8226da58da28e}} 
+\index{Fluid@{Fluid}!get\+\_\+massenstrom@{get\+\_\+massenstrom}}
+\index{get\+\_\+massenstrom@{get\+\_\+massenstrom}!Fluid@{Fluid}}
+\subsubsection{\texorpdfstring{get\+\_\+massenstrom()}{get\_massenstrom()}}
+{\footnotesize\ttfamily double Fluid\+::get\+\_\+massenstrom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Massenstrom wird zurückgegeben. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]\+: prüfen ob gesetzt \end{DoxyRefDesc}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/maximilian/\+Sync/\+Dokumente/2\+\_\+\+Studium/2017\+\_\+\+S\+S/\+Informatik/2\+\_\+\+A\+P\+I/projektarbeit-\/berdoullies/src/fluid.\+h\item 
+/home/maximilian/\+Sync/\+Dokumente/2\+\_\+\+Studium/2017\+\_\+\+S\+S/\+Informatik/2\+\_\+\+A\+P\+I/projektarbeit-\/berdoullies/src/fluid.\+cpp\end{DoxyCompactItemize}
