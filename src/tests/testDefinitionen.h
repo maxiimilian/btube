@@ -12,48 +12,68 @@
 #include "../rohr.h"
 #include "../stroemung.h"
 
-/// Testfunktion der Berechnung der Reynoldszahl
-void test_Re_Berechnung(){
-    bool testResult = false;
-    
-    // Rohr mit Länge und Radius
-    Rohr rohr(100, .5, 100e-6);
 
-    // Fluid mit Dichte, Viskosität und Massenstrom
-    // cp = 1.4 wird in diesem Test aktuell nicht verwendet,
-    // wird aber vollständigkeitshalber übergeben
-    Fluid fluid(123, 5.43e-6, 1.4);
-    fluid.set_massenstrom(50);
+/*!
+ * \brief Testfunktion des Rohrreibungsbeiwerts
+ *
+ * Diese Funktion testet die verschiedenen Fallunterscheidungen der
+ * Rohrreibungsbeiwertberechnung. Damit werden impliziet auch
+ * - der numerische Solver
+ * - die Funktion get_speed()
+ * - die Funktion get_Re()
+ * getestet.
+ *
+ * Der Rechenweg der Referenzwerte befindet sich im Wiki bei der
+ * entsprechenden Testdokumentation! (Scan der Rechenschritte)
+ */
+void test_lambda_Berechnung(){
+    bool testResult = true;
 
-    // Rohrströmung
-    Rohrstroemung rohrstroemung(&rohr, &fluid);
+    // Fluid definieren
+    Fluid wasser(1000, 1e-6, 4180);
+    // Rohr definieren
+    Rohr rohr(100, 0.5, 100e-6);
+    // Rohrströmung definieren
+    Rohrstroemung str_wasser(&rohr, &wasser);
 
-    // Prüfen, ob sich Berechnung und Taschenrechnerwert um max. 0.5 unterscheiden
-    if(fabs(rohrstroemung.get_Re()-95318.05722)<=0.5){
-        testResult = true; 
+    /*
+     * Test für laminare Rohrströmung mit Wasser (Re = 1273)
+     */
+    wasser.set_massenstrom(1);
+    if(fabs(str_wasser.get_lambda()-0.05026548) > 1e-7){
+        testResult = false;
     }
 
-    APITest::printTestResult(testResult, 
-            "Reynoldszahl", 
-            "Maximilian Pierzyna",
-            "Berechnung der Reynoldszahl",
-            "rohr.cpp, fluid.cpp, stroemung.cpp");
-}
+    /*
+     * Test für turbulente Strömung im hydr. glatten Rohr, Re < 10e5
+     */
+    wasser.set_massenstrom(10);
+    if(fabs(str_wasser.get_lambda()-0.02978578) > 1e-7){
+        testResult = false;
+    }
 
-/// Testfunktion des Rohrreibungsbeiwerts
-void test_lambda_Berechnung(){
-    bool testResult = false;
+    /*
+     * Test für turbulente Strömung im rauen Rohr (Übergangsberich wird vernachlässigt!!)
+     */
+    wasser.set_massenstrom(100);
+    if(fabs(str_wasser.get_lambda()-0.01197577) > 1e-7){
+        testResult = false;
+    }
 
-    // Prüfen, ob die numerische Berechnung erfolgreich ist, da sehr komplex
-    LambdaTurbulentGlattSolver ltgs;
-    if(fabs(ltgs.get_lambda(1000000)-0.0116465) < 1e-7){
-        testResult = true;
-    };
+    /*
+     * Test für turbulente Strömung im hydr. glatten Rohr, Re > 10e5
+     * Rohrrauheit muss angepasst werden, da k_s_zul für gewählten Massenstrom bei etwa 78e-6 liegt.
+     * Hier wird der numerische Solver getestet! Der Vergleichswert stammt von WolframAlpha
+     */
+    rohr = Rohr(100, 0.5, 50e-6);
+    if(fabs(str_wasser.get_lambda() - 0.0171176) > 1e-7){
+        testResult = false;
+    }
 
     APITest::printTestResult(testResult,
                              "Rohrreibungsbeiwert",
                              "Maximilian Pierzyna",
-                             "Numerische Berechnung des Rohrreibungsbeiwerts",
+                             "Berechnung des Rohrreibungsbeiwerts und der jeweiligen nötigen Fallunterscheidungen",
                              "stroemung.cpp");
 }
 

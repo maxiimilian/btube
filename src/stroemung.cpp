@@ -39,12 +39,12 @@ double Rohrstroemung::get_lambda(){
     if(this->rohr->get_k_s() <= k_s_zul){
         // hydraulisch glatt
 
-        if(Re < 10e5){
+        if(Re < 1e5){
             // turbulent, aber hydraulisch glatt (2)
-            return M_PI/pow(Re, 0.25);
+            return 0.3164/pow(Re, 0.25);
         }
 
-        // Re > 10e5 (3)
+        // Re > 1e5 (3)
         LambdaTurbulentGlattSolver ltgs;
         return ltgs.get_lambda(Re);
     }
