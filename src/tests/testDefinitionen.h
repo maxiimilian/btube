@@ -74,7 +74,7 @@ void test_lambda_Berechnung(){
                              "Rohrreibungsbeiwert",
                              "Maximilian Pierzyna",
                              "Berechnung des Rohrreibungsbeiwerts und der jeweiligen nötigen Fallunterscheidungen",
-                             "stroemung.cpp");
+                             "stroemung.cpp, (rohr.cpp, fluid.cpp implizit)");
 }
 
 #endif // TEST
@@ -85,7 +85,6 @@ void runTests(){
 	APITest::printTestStartHeader(); // Nicht modifizieren
 
 	// Hier sollen die eigenen Tests hinzugefuegt werden
-    test_Re_Berechnung();
     test_lambda_Berechnung();
 
 	APITest::printTestEndFooter(); // Nicht modifizieren
