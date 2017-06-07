@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     rohr.cpp \
     qcustomplot.cpp \
     plotter.cpp \
-    stroemung.cpp
+    stroemung.cpp \
+    cli.cpp
 
 HEADERS  += mainwindow.h \
     dateneingabe.h \
@@ -40,7 +41,8 @@ HEADERS  += mainwindow.h \
     tests/test.h \
     tests/testDefinitionen.h \
     qcustomplot.h \
-    plotter.h
+    plotter.h \
+    cli.h
 
 FORMS    += dateneingabe.ui \
     mainwindow.ui \

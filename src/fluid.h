@@ -7,18 +7,18 @@
 class Fluid 
 {
     private:
-        /// Dichte des Fluids
+        /// Dichte des Fluids [kg/m^3]
         double dichte;
-        /// kinematische Viskosität
+        /// kinematische Viskosität [m^2/s]
         double nue;
-        /// Massenstrom
+        /// Massenstrom [kg/s]
         double massenstrom;
-        /// Wärmekapazität
+        /// spez. isobare Wärmekapazität [J/kg/K]
         double cp;
-        /// Wärmekapazitätsstrom
-        double cp_strom;
-        /// Eintrittstemperatur in Celcius oder Kelvin
+        /// Eintrittstemperatur [K]
         double t_ein;
+
+        double cp_strom;
 
     public:
         Fluid();
@@ -47,6 +47,7 @@ class Fluid
 
         /// Setzt die Eintrittstemperatur
         void set_t_ein (double t_ein);
+
 
 
 };
