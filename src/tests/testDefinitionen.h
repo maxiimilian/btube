@@ -26,7 +26,7 @@ void test_Re_Berechnung(){
     fluid.set_massenstrom(50);
 
     // Rohrströmung
-    Rohrstroemung rohrstroemung(rohr, fluid);
+    Rohrstroemung rohrstroemung(&rohr, &fluid);
 
     // Prüfen, ob sich Berechnung und Taschenrechnerwert um max. 0.5 unterscheiden
     if(fabs(rohrstroemung.get_Re()-95318.05722)<=0.5){
@@ -44,6 +44,7 @@ void test_Re_Berechnung(){
 void test_lambda_Berechnung(){
     bool testResult = false;
 
+    // Prüfen, ob die numerische Berechnung erfolgreich ist, da sehr komplex
     LambdaTurbulentGlattSolver ltgs;
     if(fabs(ltgs.get_lambda(1000000)-0.0116465) < 1e-7){
         testResult = true;

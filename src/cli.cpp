@@ -79,7 +79,7 @@ void start_cli(){
     cout << endl;
 
     // Rohrströmung zusammenbauen
-    Rohrstroemung rohrstroemung(rohr, fluid);
+    Rohrstroemung rohrstroemung(&rohr, &fluid);
 
     cout << "***************************" << endl
          << "* Berechnete Rohrströmung *" << endl

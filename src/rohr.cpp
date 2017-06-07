@@ -2,7 +2,6 @@
 #include "rohr.h"
 #include <stdexcept>
 
-Rohr::Rohr(){}
 Rohr::Rohr(double l, double r, double k_s){
     // Prüfen, ob Länge größer als Null ist
     if(l > 0){

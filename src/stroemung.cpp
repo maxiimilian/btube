@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Rohrstroemung::Rohrstroemung(Rohr rohr, Fluid fluid){
+Rohrstroemung::Rohrstroemung(Rohr* rohr, Fluid* fluid){
     // Rohr und Fluid mit der Rohrströmung verbinden
     this->rohr = rohr;
     this->fluid = fluid;
@@ -14,14 +14,14 @@ Rohrstroemung::Rohrstroemung(Rohr rohr, Fluid fluid){
 
 double Rohrstroemung::get_Re(){
     // Re_D zurückgeben
-    return this->get_speed()*2*this->rohr.get_radius()/this->fluid.get_nue();
+    return this->get_speed()*2*this->rohr->get_radius()/this->fluid->get_nue();
 }
 
 double Rohrstroemung::get_speed(){
 
-    double A = this->rohr.get_querschnitt();
-    double m = this->fluid.get_massenstrom();
-    double rho = this->fluid.get_dichte();
+    double A = this->rohr->get_querschnitt();
+    double m = this->fluid->get_massenstrom();
+    double rho = this->fluid->get_dichte();
 
     return m/(A*rho);
 }
@@ -34,9 +34,9 @@ double Rohrstroemung::get_lambda(){
         return 64/Re;
     }
     // Zulässige Rohrrauheit, für die noch die hydraulisch glatte Strömung gilt
-    double k_s_zul = 10*this->fluid.get_nue()/this->get_speed();
+    double k_s_zul = 10*this->fluid->get_nue()/this->get_speed();
 
-    if(this->rohr.get_k_s() <= k_s_zul){
+    if(this->rohr->get_k_s() <= k_s_zul){
         // hydraulisch glatt
 
         if(Re < 10e5){
@@ -50,7 +50,7 @@ double Rohrstroemung::get_lambda(){
     }
     else {
         // raue Strömung (5)
-        return pow(1/(1.74-2*log10(this->rohr.get_k_s()/this->rohr.get_radius())),2);
+        return pow(1/(1.74-2*log10(this->rohr->get_k_s()/this->rohr->get_radius())),2);
     }
 
     // Fallback / Schätzung
@@ -58,13 +58,13 @@ double Rohrstroemung::get_lambda(){
 }
 
 double Rohrstroemung::get_bauart(){
-    return this->rohr.get_kA() / this->fluid.get_cp_strom();
+    return this->rohr->get_kA() / this->fluid->get_cp_strom();
 }
 
 double Rohrstroemung::get_bauart(double x){
     //Prüfe ob Ort x innerhalb des Rohres liegt
-    if ( x <= this->rohr.get_laenge()){
-        return this->rohr.get_kA(x) / this->fluid.get_cp_strom();
+    if ( x <= this->rohr->get_laenge()){
+        return this->rohr->get_kA(x) / this->fluid->get_cp_strom();
     }
     
     else {
@@ -78,7 +78,7 @@ double Rohrstroemung::get_epsilon(){
 
 double Rohrstroemung::get_epsilon(double x){
     //Prüfe ob Ort x innerhalb des Rohres liegt
-    if ( x <= this->rohr.get_laenge()){
+    if ( x <= this->rohr->get_laenge()){
         return 1 - exp( (-1) * this->get_bauart(x));
     }
     
@@ -88,14 +88,14 @@ double Rohrstroemung::get_epsilon(double x){
 }
 
 double Rohrstroemung::get_temp(){
-    return this->fluid.get_t_ein() - this->get_epsilon() * (this->rohr.get_t_aussen() - this->fluid.get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
+    return this->fluid->get_t_ein() - this->get_epsilon() * (this->rohr->get_t_aussen() - this->fluid->get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
 }
 
 
 double Rohrstroemung::get_temp(double x){
     //Prüfe ob Ort x innerhalb des Rohres liegt
-    if ( x <= this->rohr.get_laenge() ){
-        return this->fluid.get_t_ein() + this->get_epsilon(x) * (this->rohr.get_t_aussen() - this->fluid.get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
+    if ( x <= this->rohr->get_laenge() ){
+        return this->fluid->get_t_ein() + this->get_epsilon(x) * (this->rohr->get_t_aussen() - this->fluid->get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
     }
     
     else {
@@ -110,8 +110,8 @@ double Rohrstroemung::get_pressure(double x){
     //double p = this->get_startpressure(); //NOCH NICHT IMPLEMENTIERT!
     double p = 5; // auf konsante setzen, da noch nicht implementiert
     double lambda = this->get_lambda();
-    double d = 2 * rohr.get_radius();
-    double rho = fluid.get_dichte();
+    double d = 2 * rohr->get_radius();
+    double rho = fluid->get_dichte();
     double v = this->get_speed();
 
     return p-((lambda*x*rho*v*v)/(d*2));

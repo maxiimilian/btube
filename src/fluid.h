@@ -21,7 +21,6 @@ class Fluid
         double cp_strom;
 
     public:
-        Fluid();
         Fluid(double dichte, double nue, double cp);
 
         /// Massenstrom wird zurückgegeben

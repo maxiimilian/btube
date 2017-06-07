@@ -11,15 +11,17 @@
  * 
  * \warning Es werden keine kompressiblen Fluide oder Ablösungen 
  * und Einlaufstörungen am Ein- und Ausgang des Rohrs berücksichtigt.
+ *
+ * \note Zur Laufzeitoptimierung werden dieser Funktion nur Pointer auf Rohr und Fluid übergeben!
  */
 class Rohrstroemung
 {
     private:
-        Rohr rohr;
-        Fluid fluid;
+        Rohr* rohr;
+        Fluid* fluid;
     public:
         // Konstruktor
-        Rohrstroemung(Rohr rohr, Fluid fluid);
+        Rohrstroemung(Rohr* rohr, Fluid* fluid);
 
         /// Reynoldszahl des Member-Fluids berechnen (u*d/nue)
         double get_Re();

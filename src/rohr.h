@@ -31,7 +31,6 @@ class Rohr
 
 
     public:
-        Rohr();
         Rohr(double l, double r, double k_s);
 
         /// Gibt Querschnittsfläche

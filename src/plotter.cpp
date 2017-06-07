@@ -38,7 +38,7 @@ Plotter::~Plotter()
 
 void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 {
-    Rohrstroemung rohrstroemung(rohr, fluid);
+    Rohrstroemung rohrstroemung(&rohr, &fluid);
 
     ///Anlegen der Länge als Variable damit Koordinatensystem und for-Schleife angepasst werde
     double l = rohr.get_laenge();
