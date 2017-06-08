@@ -83,6 +83,7 @@ class Rohr
 
         ///Setzt Wert für Aussentemperatur
         void set_t_aussen(double t_aussen);
+
 };
 
 #endif 

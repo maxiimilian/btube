@@ -115,7 +115,11 @@
      </widget>
     </item>
     <item>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+     <widget class="QDoubleSpinBox" name="laenge">
+      <property name="maximum">
+       <double>1000.000000000000000</double>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QLabel" name="label_3">
@@ -125,7 +129,11 @@
      </widget>
     </item>
     <item>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+     <widget class="QDoubleSpinBox" name="radius">
+      <property name="maximum">
+       <double>2000.000000000000000</double>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -188,7 +196,7 @@
     <string>isobare Wärmekapazität [Einheit]</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>371</x>
@@ -199,7 +207,11 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QDoubleSpinBox" name="Dichte"/>
+     <widget class="QDoubleSpinBox" name="Dichte">
+      <property name="maximum">
+       <double>2000.000000000000000</double>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QDoubleSpinBox" name="Viskositaet"/>
