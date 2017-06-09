@@ -58,7 +58,10 @@ class Rohrstroemung
         double get_bauart(double x);
 
         /// Ausfüllen des Druckverlauf-Arrays
-        void ausgabe();
+        void set_druckverlauf();
+
+        /// Eintragen des Druckverlauf-Arrays in Textdatei
+        void print_druckverlauf();
 };
 
 
