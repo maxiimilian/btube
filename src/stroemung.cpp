@@ -93,8 +93,8 @@ double Rohrstroemung::get_pressure(double x){
     //double vstart = this->get_speed(0);
     //double vpoint = this->get_speed(x);
 
-    //double p = this->get_startpressure(); //NOCH NICHT IMPLEMENTIERT!
-    double p = 5; // auf konsante setzen, da noch nicht implementiert
+    //double p = this->get_startpressure(); ---NOCH NICHT IMPLEMENTIERT!---
+    double p = 5; // auf Konsante gesetzt, da noch nicht implementiert
     double lambda = this->get_lambda();
     double d = 2 * rohr.get_radius();
     double rho = fluid.get_dichte();
@@ -102,5 +102,17 @@ double Rohrstroemung::get_pressure(double x){
 
     return p-((lambda*x*rho*v*v)/(d*2));
 }
+
+
+
+void Rohrstroemung::set_druckverlauf(){
+    double x = rohr.get_laenge() / 100;
+    for(int i=0; i<100; i++){
+        this->druckverlauf[0][i] = i*x;
+        this->druckverlauf[1][i] = get_pressure(i*x);
+    }
+}
+
+
 
 //Berechnung des Strömungprofils
