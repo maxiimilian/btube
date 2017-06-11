@@ -19,11 +19,14 @@ class Rohr
         /// Konevktionswiderstand für Außenseite (Watt pro Quadratmeter und Kelvin)
         double alpha_aussen;
 
-        ///Wrämedurchgangskoeffizient (Watt pro Kelvin)
+        ///Wärmedurchgangskoeffizient (Watt pro Kelvin)
         double kA;
 
         ///Aussentemperatur (Celcius oder Kelvin)
         double t_aussen;
+
+        /// Eingangsdruck
+        double p_ein;
 
 
 
