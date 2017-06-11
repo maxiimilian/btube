@@ -1,7 +1,7 @@
 #include "fluid.h"
 #include <stdexcept>
 
-Fluid::Fluid(double dichte, double nue, double cp){
+Fluid::Fluid(double dichte, double nue, double cp, double my){
     // Validieren, dass Dichte und Viskosität größer Null sind
     if(nue > 0){
         this->nue = nue;
@@ -24,6 +24,13 @@ Fluid::Fluid(double dichte, double nue, double cp){
         throw std::out_of_range("Die Wärmekapazität muss größer Null sein!");
     }
 
+    if(my > 0){
+        this->my = my;
+    }
+    else {
+        throw std::out_of_range("Die Viskosität muss größer Null sein!");
+
+    }
 }
 
 double Fluid::get_dichte(){
@@ -45,6 +52,10 @@ double Fluid::get_nue(){
 
 double Fluid::get_t_ein(){
     return this->t_ein;
+}
+
+double Fluid::get_my(){
+    return this->my;
 }
 
 void Fluid::set_massenstrom(double massenstrom){
