@@ -93,6 +93,9 @@ void start_cli(){
     cout << "Epsilon [?]: " <<rohrstroemung.get_epsilon() << endl;
     cout << "Austrittstemperatur [K]: " << rohrstroemung.get_temp() <<endl;
 
+    //rohrstroemung.set_druckverlauf();
+    //rohrstroemung.print_druckverlauf();
+
 }
 
 void run_tests(){
