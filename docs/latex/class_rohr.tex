@@ -1,0 +1,121 @@
+\hypertarget{class_rohr}{}\section{Rohr Class Reference}
+\label{class_rohr}\index{Rohr@{Rohr}}
+
+
+Stellt ein Rohrbauteil zur Verfügung.  
+
+
+
+
+{\ttfamily \#include $<$rohr.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_rohr_a8548148de26323a876077bfb61324ed3}\label{class_rohr_a8548148de26323a876077bfb61324ed3}} 
+{\bfseries Rohr} (double l, double r)
+\item 
+\mbox{\Hypertarget{class_rohr_a6763a65cfe3992b6dd4baa903ae44b29}\label{class_rohr_a6763a65cfe3992b6dd4baa903ae44b29}} 
+double \hyperlink{class_rohr_a6763a65cfe3992b6dd4baa903ae44b29}{get\+\_\+querschnitt} ()
+\begin{DoxyCompactList}\small\item\em Gibt Querschnittsfläche. \end{DoxyCompactList}\item 
+double \hyperlink{class_rohr_ab8c1e474c5b1510a7c52cb805260ab15}{get\+\_\+querschnitt} (double x)
+\begin{DoxyCompactList}\small\item\em Gibt den Querschnitt an der Stelle x zurück. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohr_a273b05707337661cfaab228a670350f2}\label{class_rohr_a273b05707337661cfaab228a670350f2}} 
+double \hyperlink{class_rohr_a273b05707337661cfaab228a670350f2}{get\+\_\+radius} ()
+\begin{DoxyCompactList}\small\item\em Gibt Radius zurück. \end{DoxyCompactList}\item 
+double \hyperlink{class_rohr_a427e4ad6d350912715bd6796e385eaf3}{get\+\_\+radius} (double x)
+\begin{DoxyCompactList}\small\item\em Gibt Radius an der Stelle x zurück. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohr_a191d4b81fcdfc02f9433effdc1fade81}\label{class_rohr_a191d4b81fcdfc02f9433effdc1fade81}} 
+double \hyperlink{class_rohr_a191d4b81fcdfc02f9433effdc1fade81}{get\+\_\+laenge} ()
+\begin{DoxyCompactList}\small\item\em Gibt Länge zurück. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohr_a8e5ea4e3595b344475e2db45deccd9fd}\label{class_rohr_a8e5ea4e3595b344475e2db45deccd9fd}} 
+double \hyperlink{class_rohr_a8e5ea4e3595b344475e2db45deccd9fd}{get\+\_\+alpha\+\_\+innen} ()
+\begin{DoxyCompactList}\small\item\em Gibt Konvektionswiderstand auf der Innenseite zurück. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohr_ad02b003b17d07ee5f53bc2defbe8227a}\label{class_rohr_ad02b003b17d07ee5f53bc2defbe8227a}} 
+double \hyperlink{class_rohr_ad02b003b17d07ee5f53bc2defbe8227a}{get\+\_\+alpha\+\_\+aussen} ()
+\begin{DoxyCompactList}\small\item\em Gibt Konvektionswiderstand auf der Außenseite zurück. \end{DoxyCompactList}\item 
+double \hyperlink{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}{get\+\_\+kA} ()
+\begin{DoxyCompactList}\small\item\em Berechnet Wärmedurchgangskoeffizient. \end{DoxyCompactList}\item 
+double \hyperlink{class_rohr_a07985e6f4a1d9dc8bfcfe2e5cc9f2a60}{get\+\_\+kA} (double x)
+\begin{DoxyCompactList}\small\item\em Berechnet Wärmedurchgangskoeffizient an der Stelle x und speichert ihn auch unter kA. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohr_a5d7b97148ffb9e42e5dc9b5657a64cc0}\label{class_rohr_a5d7b97148ffb9e42e5dc9b5657a64cc0}} 
+double \hyperlink{class_rohr_a5d7b97148ffb9e42e5dc9b5657a64cc0}{get\+\_\+t\+\_\+aussen} ()
+\begin{DoxyCompactList}\small\item\em Gibt Aussentemperatur zurück. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohr_ae6e604082fdb43a35bcdc74478ced8a7}\label{class_rohr_ae6e604082fdb43a35bcdc74478ced8a7}} 
+void \hyperlink{class_rohr_ae6e604082fdb43a35bcdc74478ced8a7}{set\+\_\+alpha\+\_\+aussen} (double alpha\+\_\+aussen)
+\begin{DoxyCompactList}\small\item\em Setzt Wert für Konvektionswiderstand auf der Außenseite. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohr_aed25a50fcf5c735e51693303d8b41663}\label{class_rohr_aed25a50fcf5c735e51693303d8b41663}} 
+void \hyperlink{class_rohr_aed25a50fcf5c735e51693303d8b41663}{set\+\_\+alpha\+\_\+innen} (double alpha\+\_\+innen)
+\begin{DoxyCompactList}\small\item\em Setzt Wert für Konvektionswiderstand auf der Innenseite. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohr_a92be37f04575328b6b15de5ab2e511a9}\label{class_rohr_a92be37f04575328b6b15de5ab2e511a9}} 
+void \hyperlink{class_rohr_a92be37f04575328b6b15de5ab2e511a9}{set\+\_\+t\+\_\+aussen} (double t\+\_\+aussen)
+\begin{DoxyCompactList}\small\item\em Setzt Wert für Aussentemperatur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stellt ein Rohrbauteil zur Verfügung. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}\label{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}} 
+\index{Rohr@{Rohr}!get\+\_\+kA@{get\+\_\+kA}}
+\index{get\+\_\+kA@{get\+\_\+kA}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+k\+A()}{get\_kA()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+kA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Berechnet Wärmedurchgangskoeffizient. 
+
+Berechenet den Wärmdurchgangskoeffzient.
+
+\begin{DoxyWarning}{Warning}
+Anderer Ansatz\+: Es werden keine Werte der Funktion übergeben sondern in der Funktion get-\/\+Funktionen aufgerufen 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+Fluid\+::set\+\_\+cp\+\_\+strom 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_rohr_a07985e6f4a1d9dc8bfcfe2e5cc9f2a60}\label{class_rohr_a07985e6f4a1d9dc8bfcfe2e5cc9f2a60}} 
+\index{Rohr@{Rohr}!get\+\_\+kA@{get\+\_\+kA}}
+\index{get\+\_\+kA@{get\+\_\+kA}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+k\+A()}{get\_kA()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+kA (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Berechnet Wärmedurchgangskoeffizient an der Stelle x und speichert ihn auch unter kA. 
+
+\begin{DoxyWarning}{Warning}
+Diese Funktion überschreiben, um kA=f(x) zu realisieren. 
+\end{DoxyWarning}
+berechnet den Wert von kA an einer bestimmten Stelle. Kann überschrieben werden, um den Radius als kA=f(x) auszudrücken.\mbox{\Hypertarget{class_rohr_ab8c1e474c5b1510a7c52cb805260ab15}\label{class_rohr_ab8c1e474c5b1510a7c52cb805260ab15}} 
+\index{Rohr@{Rohr}!get\+\_\+querschnitt@{get\+\_\+querschnitt}}
+\index{get\+\_\+querschnitt@{get\+\_\+querschnitt}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+querschnitt()}{get\_querschnitt()}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+querschnitt (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Gibt den Querschnitt an der Stelle x zurück. 
+
+\begin{DoxyWarning}{Warning}
+Basiert auf get\+\_\+radius, daher wird r=f(x) hier automatisch berücksichtigt. Nicht doppelt überschreiben! 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_rohr_a427e4ad6d350912715bd6796e385eaf3}{Rohr\+::get\+\_\+radius(double x)} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_rohr_a427e4ad6d350912715bd6796e385eaf3}\label{class_rohr_a427e4ad6d350912715bd6796e385eaf3}} 
+\index{Rohr@{Rohr}!get\+\_\+radius@{get\+\_\+radius}}
+\index{get\+\_\+radius@{get\+\_\+radius}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+radius()}{get\_radius()}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+radius (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Gibt Radius an der Stelle x zurück. 
+
+Diese Funktion überschreiben, um r=f(x) zu realisieren gibt den Wert des Radius an einer bestimmten Stelle zurück. Kann überschrieben werden, um den Radius als r=f(x) auszudrücken.
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/maximilian/\+Sync/\+Dokumente/2\+\_\+\+Studium/2017\+\_\+\+S\+S/\+Informatik/2\+\_\+\+A\+P\+I/projektarbeit-\/berdoullies/src/rohr.\+h\item 
+/home/maximilian/\+Sync/\+Dokumente/2\+\_\+\+Studium/2017\+\_\+\+S\+S/\+Informatik/2\+\_\+\+A\+P\+I/projektarbeit-\/berdoullies/src/rohr.\+cpp\end{DoxyCompactItemize}
