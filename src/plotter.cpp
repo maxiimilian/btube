@@ -21,6 +21,8 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
     Rohrstroemung rohrstroemung(&rohr, &fluid);
 
     /// Temperaturprofil
+
+    /// Anlegen der Länge als Variable damit Koordinatensystem und for-Schleife angepasst werde
     double l = rohr.get_laenge();
     /// initilaisieren von QVectoren mit Einträgen von 0..100
     QVector<double> x(101), y(101);
@@ -40,35 +42,61 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
     ui->tempGraph->yAxis->setLabel("Temperatur des Fluids in [K]");
 
     /// Achsenbereich
+    /// x-Achse geht von 0 bis zur Länge des Rohres
     ui->tempGraph->xAxis->setRange(0, l);
 
+    /// Unterscheidung ob t_aussen oder t_ein größer ist; entsprechendes Setzen der y-Achsenbereichs
     if (rohr.get_t_aussen() >= fluid.get_t_ein()){
 
+        /// Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen
         double axis_plus = (rohr.get_t_aussen()-fluid.get_t_ein())/10;
 
+        /// y-Achse beginnt kurz unter t_ein und endet kurz über t_aussen
         ui->tempGraph->yAxis->setRange(fluid.get_t_ein() - axis_plus, rohr.get_t_aussen() + axis_plus);
     }
 
+    /// Analoges Vorgehen wie im if-Statement
+    /// \sa if(rohr.get_t_aussen >= fluid.get_t_ein())
     else{
         double axis_plus = (fluid.get_t_ein()-rohr.get_t_aussen())/10;
         ui->tempGraph->yAxis->setRange(rohr.get_t_aussen() -axis_plus, fluid.get_t_ein()+axis_plus);
     }
     ui->tempGraph->replot();
 
+    /// \warning rohrstroemung.get_start_starpressur ist noch nicht implementiert. Enstprechende Zeilen werden auskommentiert
 
 
     /// Druckgradient
+
+    /// Initilaisieren von QVectoren mit Einträgen von 0..100
     QVector<double> g(101), m(101);
+    for (int i=0; i<=100; ++i)
     {
+      g[i] =i * (l/100);
+      m[i] = rohrstroemung.get_pressure(i * (l/100));
     }
 
     ui->druckGraph->addGraph();
     ui->druckGraph->graph(0)->setData(g, m);
 
+    ui->druckGraph->xAxis->setLabel("Länge in [m]");
+    ui->druckGraph->yAxis->setLabel("Druck in [bar]");
+
+    /// Achsenbereich
+    /// Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen
+    // double axis_plus = (rohrstroemung.get_startpressure()-m[100])/10;
+    /// x-Achse geht von 0 bis zur Länge des Rohres
+    ui->druckGraph->xAxis->setRange(0, l);
+
+    /*!
+     * \brief Legt den y-Achsenbereich fest
+     *
+     * Der Druck im Rohr wird aufgrund der Reibung ständig abnehmen. Eine Fallunterscheidung wie bei der Temperatur ist daher nicht nötig.
+     * Der Bereich wird festgelegt vom niedirgsten Druckwert (m[100]) und dem Anfangsdruck. Zusätzlich wird noch ein Offset genau wie bei dem Temperaturverlauf berücksichtigt
+     */
+    // ui->druckGraph->yAxis->setRange(m[100]-axis_plus, rohrstroemung.get_startpressure()+axis_plus);
 
     ui->druckGraph->replot();
-
-
 
 
     /// Strömungsprofil
@@ -140,6 +168,7 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
      * gpJet ist ein Fabrverlauf der für numerische Analysen verwendet wird und passt daher auf unseren Anwendungsfall
      */
     colorMap->setGradient(QCPColorGradient::gpJet);
+
     /*!
      * \brief Die Farbdimension wird so angepasst, sodass alle erzeugten Datenpunkten auch eine Farbe zugewiesen bekommen.
      *
@@ -154,6 +183,4 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 
     /// Anpassung der Größe der Achsen an Widgetgröße:
     ui->speedGraph->rescaleAxes();
-
-
 }
