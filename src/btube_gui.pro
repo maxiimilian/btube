@@ -24,7 +24,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     dateneingabe.cpp \
     fluid.cpp \
     rohr.cpp \
@@ -33,7 +32,7 @@ SOURCES += main.cpp\
     stroemung.cpp \
     cli.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     dateneingabe.h \
     fluid.h \
     rohr.h \
@@ -45,5 +44,4 @@ HEADERS  += mainwindow.h \
     cli.h
 
 FORMS    += dateneingabe.ui \
-    mainwindow.ui \
     plotter.ui

@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "dateneingabe.h"
 #include <QApplication>
 #include <string>
 #include "cli.h"
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     // GUI starten, wenn kein passendes Argument übergeben wurde
     QApplication app(argc, argv);
 
-    MainWindow w;
+    DatenEingabe w;
     w.show();
 
     return app.exec();
