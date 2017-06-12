@@ -3,6 +3,10 @@
 #include "rohr.h"
 #include "fluid.h"
 #include "dateneingabe.h"
+#include <iostream>
+#include <fstream>
+
+using namespace std;
 
 Rohrstroemung::Rohrstroemung(Rohr rohr, Fluid fluid){
     // Rohr und Fluid mit der Rohrströmung verbinden
@@ -93,8 +97,8 @@ double Rohrstroemung::get_pressure(double x){
     //double vstart = this->get_speed(0);
     //double vpoint = this->get_speed(x);
 
-    //double p = this->get_startpressure(); //NOCH NICHT IMPLEMENTIERT!
-    double p = 5; // auf konsante setzen, da noch nicht implementiert
+    //double p = this->get_startpressure(); ---NOCH NICHT IMPLEMENTIERT!---
+    double p = 5; // auf Konsante gesetzt, da noch nicht implementiert
     double lambda = this->get_lambda();
     double d = 2 * rohr.get_radius();
     double rho = fluid.get_dichte();
@@ -102,5 +106,30 @@ double Rohrstroemung::get_pressure(double x){
 
     return p-((lambda*x*rho*v*v)/(d*2));
 }
+
+
+
+void Rohrstroemung::set_druckverlauf(){
+    double x = rohr.get_laenge() / 100;
+    this->druckverlauf[0][0] = 0;
+    //this->druckverlauf[1][0] = get_startpressure();
+    this->druckverlauf[1][0] = 5;
+    for(int i=1; i<101; i++){
+        this->druckverlauf[0][i] = i*x;
+        this->druckverlauf[1][i] = get_pressure(i*x);
+    }
+}
+
+void Rohrstroemung::print_druckverlauf(){
+    ofstream tabellenausgabe;
+    tabellenausgabe.open("Druckverlauf.txt");
+    tabellenausgabe << "x-Wert | Druck" << endl;
+    for (int i=0; i<101; i++){
+    tabellenausgabe << this->druckverlauf[0][i] << " | " << this->druckverlauf[1][i] << endl;
+    }
+    tabellenausgabe.close();
+}
+
+
 
 //Berechnung des Strömungprofils

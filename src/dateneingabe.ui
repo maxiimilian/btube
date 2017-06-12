@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>841</width>
-    <height>757</height>
+    <height>685</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -141,7 +141,7 @@
    <property name="geometry">
     <rect>
      <x>580</x>
-     <y>710</y>
+     <y>630</y>
      <width>231</width>
      <height>28</height>
     </rect>
@@ -208,44 +208,45 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QDoubleSpinBox" name="Dichte">
+      <property name="decimals">
+       <number>10</number>
+      </property>
       <property name="maximum">
        <double>2000.000000000000000</double>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QDoubleSpinBox" name="Viskositaet"/>
+     <widget class="QDoubleSpinBox" name="Viskositaet">
+      <property name="decimals">
+       <number>10</number>
+      </property>
+      <property name="maximum">
+       <double>1000.000000000000000</double>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QDoubleSpinBox" name="Massenstrom"/>
+     <widget class="QDoubleSpinBox" name="Massenstrom">
+      <property name="decimals">
+       <number>10</number>
+      </property>
+      <property name="maximum">
+       <double>10000.000000000000000</double>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QDoubleSpinBox" name="cpwert"/>
+     <widget class="QDoubleSpinBox" name="cpwert">
+      <property name="decimals">
+       <number>10</number>
+      </property>
+      <property name="maximum">
+       <double>1000.000000000000000</double>
+      </property>
+     </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QLabel" name="label_9">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>600</y>
-     <width>151</width>
-     <height>38</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>dyn. Viskosität [kg/(m*s)]</string>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="my">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>610</y>
-     <width>189</width>
-     <height>22</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QLabel" name="label_10">
    <property name="geometry">
@@ -529,70 +530,6 @@
     <hint type="destinationlabel">
      <x>504</x>
      <y>563</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Wasser</sender>
-   <signal>clicked()</signal>
-   <receiver>my</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>240</x>
-     <y>330</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>406</x>
-     <y>620</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Luft</sender>
-   <signal>clicked()</signal>
-   <receiver>my</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>205</x>
-     <y>391</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>430</x>
-     <y>623</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Oel</sender>
-   <signal>clicked()</signal>
-   <receiver>my</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>437</x>
-     <y>322</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>506</x>
-     <y>625</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Benutzerdefiniert</sender>
-   <signal>clicked()</signal>
-   <receiver>my</receiver>
-   <slot>show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>474</x>
-     <y>386</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>475</x>
-     <y>613</y>
     </hint>
    </hints>
   </connection>
