@@ -122,12 +122,12 @@ double Rohrstroemung::get_pressure(double x){
 
 
 void Rohrstroemung::set_druckverlauf(){
-    double x = this->rohr->get_laenge() / 100;
+    double x = (rohr->get_laenge())/100;
     this->druckverlauf[0][0] = 0;
     this->druckverlauf[1][0] = rohr->get_startpressure();
     for(int i=1; i<101; i++){
         this->druckverlauf[0][i] = i*x;
-        this->druckverlauf[1][i] = get_pressure(i*x);
+        this->druckverlauf[1][i] = this->get_pressure(i*x);
     }
 }
 

@@ -20,7 +20,7 @@ class Rohrstroemung
         Rohr* rohr;
         Fluid* fluid;
 
-        double druckverlauf[2][100]={{0.0},{0.0}};
+        double druckverlauf[2][101]={{0.0},{0.0}};
 
     public:
         // Konstruktor
