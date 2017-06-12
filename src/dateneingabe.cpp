@@ -23,17 +23,17 @@ DatenEingabe::~DatenEingabe()
 
 void DatenEingabe::on_Wasser_clicked() //Stoffwerte für Wasser
 {
-     double dichte;
+     Fluid Wasser(1000,10e-6,4182);
 }
 
-void DatenEingabe::on_Oel_clicked() //Stoffwerte für Öl
+void DatenEingabe::on_Oel_clicked() //Stoffwerte für Olivenöl
 {
-     double dichte;
+     Fluid Oel(910,107.5,1970);
 }
 
 void DatenEingabe::on_Luft_clicked() //Stoffwerte für Luft
 {
-     double dichte;
+     Fluid Luft(1.293,1558,1005); // kin. Viskosität von Luft ist von Druck abhängig, hier noch nicht berücksichtigt
 }
 
 void DatenEingabe::on_Benutzerdefiniert_clicked()
@@ -59,7 +59,6 @@ void DatenEingabe::on_pushButton_clicked()
         double nue_in=ui->Viskositaet->value();
         double massenstrom_in=ui->Massenstrom->value();
         double cp_in=ui->cpwert->value();
-        double my=ui->my->value();
         double t_ein = 20;
 
         Fluid fluid(dichte_in, nue_in, cp_in);
