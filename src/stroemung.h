@@ -44,9 +44,6 @@ class Rohrstroemung
         /// Berechnet Austrittstemperatur
         double get_temp(double x);
 
-        /// Gibt Startdruck zurück
-        double get_startpressure();
-
         /// Berechnung des Drucks an der Stelle x
         double get_pressure(double x);
 

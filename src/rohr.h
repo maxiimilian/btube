@@ -91,6 +91,9 @@ class Rohr
 
         /// Gibt Rohrrauheitswert aus
         double get_k_s();
+
+        /// Gibt Startdruck zurück
+        double get_startpressure();
 };
 
 #endif 

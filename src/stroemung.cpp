@@ -111,8 +111,7 @@ double Rohrstroemung::get_pressure(double x){
     //double vstart = this->get_speed(0);
     //double vpoint = this->get_speed(x);
 
-    //double p = this->get_startpressure(); ---NOCH NICHT IMPLEMENTIERT!---
-    double p = 5; // auf Konsante gesetzt, da noch nicht implementiert
+    double p = rohr->get_startpressure();
     double lambda = this->get_lambda();
     double d = 2 * rohr->get_radius();
     double rho = fluid->get_dichte();
