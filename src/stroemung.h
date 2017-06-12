@@ -64,6 +64,9 @@ class Rohrstroemung
 
         /// Eintragen des Druckverlauf-Arrays in Textdatei
         void print_druckverlauf();
+        
+        /// Berechnung des Strömungsprofils
+        double get_stroemung(double r, double x);
 };
 
 /*!
