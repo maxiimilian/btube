@@ -208,19 +208,43 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QDoubleSpinBox" name="Dichte">
+      <property name="decimals">
+       <number>10</number>
+      </property>
       <property name="maximum">
        <double>2000.000000000000000</double>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QDoubleSpinBox" name="Viskositaet"/>
+     <widget class="QDoubleSpinBox" name="Viskositaet">
+      <property name="decimals">
+       <number>10</number>
+      </property>
+      <property name="maximum">
+       <double>1000.000000000000000</double>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QDoubleSpinBox" name="Massenstrom"/>
+     <widget class="QDoubleSpinBox" name="Massenstrom">
+      <property name="decimals">
+       <number>10</number>
+      </property>
+      <property name="maximum">
+       <double>10000.000000000000000</double>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QDoubleSpinBox" name="cpwert"/>
+     <widget class="QDoubleSpinBox" name="cpwert">
+      <property name="decimals">
+       <number>10</number>
+      </property>
+      <property name="maximum">
+       <double>1000.000000000000000</double>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
