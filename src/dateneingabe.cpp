@@ -59,7 +59,6 @@ void DatenEingabe::on_pushButton_clicked()
         double nue_in=ui->Viskositaet->value();
         double massenstrom_in=ui->Massenstrom->value();
         double cp_in=ui->cpwert->value();
-        double my=ui->my->value();
         double t_ein = 20;
 
         Fluid fluid(dichte_in, nue_in, cp_in);
