@@ -57,7 +57,7 @@ class Rohrstroemung
         double get_bauart(double x);
 
         /// Berechnung des Strömungsprofils
-        double get_stroemung();
+        double get_stroemung(double r, double x);
 };
 
 /*!

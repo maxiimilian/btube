@@ -17,8 +17,6 @@ class Fluid
         double cp;
         /// Eintrittstemperatur [K]
         double t_ein;
-        /// dynamische Viskosität [kg/(m*s)]
-        double my;
 
         double cp_strom;
 
