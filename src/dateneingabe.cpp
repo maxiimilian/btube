@@ -47,7 +47,9 @@ void DatenEingabe::on_pushButton_clicked()
 
         double laenge=ui->laenge->value();
         double radius=ui->radius->value();
-        Rohr rohr(laenge, radius);
+        double k_s = 5e-6;
+
+        Rohr rohr(laenge, radius, k_s);
 
         double p_ein=ui->druckein->value();
 

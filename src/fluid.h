@@ -13,7 +13,7 @@ class Fluid
         double nue;
         /// Massenstrom [kg/s]
         double massenstrom;
-        /// spez. isobare Wärmekapazität [J/kg/K]
+        /// spez. isobare Wärmekapazität [J/(kg*K)]
         double cp;
         /// Eintrittstemperatur [K]
         double t_ein;
@@ -21,7 +21,6 @@ class Fluid
         double cp_strom;
 
     public:
-        Fluid();
         Fluid(double dichte, double nue, double cp);
 
         /// Massenstrom wird zurückgegeben
@@ -30,7 +29,7 @@ class Fluid
         /// Dichte wird zurückgegeben
         double get_dichte();
 
-        /// Viskosität wird zurückgegen
+        /// kinematische Viskosität wird zurückgegen
         double get_nue();
 
         /// Wärmekapazität wird zurückgegeben
@@ -41,6 +40,9 @@ class Fluid
 
         /// Gibt Eintrittstemperatur des Fluids zurück
         double get_t_ein();
+
+        /// dynamische Viskosität wird zurückgegeben
+        double get_my();
 
         /// Setzt den Massenstrom des Fluids
         void set_massenstrom(double massenstrom);

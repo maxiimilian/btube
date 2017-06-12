@@ -11,20 +11,22 @@
  * 
  * \warning Es werden keine kompressiblen Fluide oder Ablösungen 
  * und Einlaufstörungen am Ein- und Ausgang des Rohrs berücksichtigt.
+ *
+ * \note Zur Laufzeitoptimierung werden dieser Funktion nur Pointer auf Rohr und Fluid übergeben!
  */
 class Rohrstroemung
 {
     private:
-        Rohr rohr;
-        Fluid fluid;
+        Rohr* rohr;
+        Fluid* fluid;
 
         double druckverlauf[2][100]={{0.0},{0.0}};
 
     public:
         // Konstruktor
-        Rohrstroemung(Rohr rohr, Fluid fluid);
+        Rohrstroemung(Rohr* rohr, Fluid* fluid);
 
-        /// Reynoldszahl des Member-Fluids berechnen
+        /// Reynoldszahl des Member-Fluids berechnen (u*d/nue)
         double get_Re();
 
         /// Rohrreibungszahl Lambda berechnen, in Abhängigkeit von Re \sa get_Re()
@@ -62,7 +64,23 @@ class Rohrstroemung
 
         /// Eintragen des Druckverlauf-Arrays in Textdatei
         void print_druckverlauf();
+        
+        /// Berechnung des Strömungsprofils
+        double get_stroemung(double r, double x);
 };
 
+/*!
+ * \brief The LambdaTurbulentGlattSolver class
+ *
+ * Löst die Gleichung für den Rohrreibungsbeiwert Lambda,
+ * für Re > 100000 und hydraulisch glatte Rohre numerisch.
+ */
+class LambdaTurbulentGlattSolver{
+    private:
+        double eq_left(double x, double y);
+        double eq_right(double x, double y);
+    public:
+        double get_lambda(double Re);
+};
 
 #endif // STROEMUNG_H

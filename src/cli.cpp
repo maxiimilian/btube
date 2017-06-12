@@ -17,15 +17,18 @@ void start_cli(){
     // Rohrparameter abfragen
     double laenge_in = 0;
     double radius_in = 0;
+    double k_s_in = 0;
     double alpha_innen = 0;
     double alpha_aussen = 0;
     
     cout << "Rohrparameter eingeben:" << endl
          << "-----------------------" << endl;
-    cout << "Länge: ";
+    cout << "Länge [m]: ";
     cin >> laenge_in;
-    cout << "Radius: ";
+    cout << "Radius [m]: ";
     cin >> radius_in;
+    cout << "Rohrrauheit [m]: ";
+    cin >> k_s_in;
     cout << "Wärmeübergangsk. Fluid->Rohr [W/(m^2*K)]: "; 
     cin >> alpha_innen;
     cout << "!!! Zur Vereinfachung wird angenommen, dass das Rohr infinitesimal dünn ist !!!" << endl;
@@ -33,7 +36,7 @@ void start_cli(){
     cin >> alpha_aussen;
 
     // Rohrobjekt mit übergebenen Parametern initalisieren
-    Rohr rohr(laenge_in, radius_in);
+    Rohr rohr(laenge_in, radius_in, k_s_in);
     rohr.set_alpha_innen(alpha_innen);
     rohr.set_alpha_aussen(alpha_aussen);
     cout << "Rohrquerschnitt: " << rohr.get_querschnitt() << " m^2" << endl << endl;
@@ -76,7 +79,7 @@ void start_cli(){
     cout << endl;
 
     // Rohrströmung zusammenbauen
-    Rohrstroemung rohrstroemung(rohr, fluid);
+    Rohrstroemung rohrstroemung(&rohr, &fluid);
 
     cout << "***************************" << endl
          << "* Berechnete Rohrströmung *" << endl

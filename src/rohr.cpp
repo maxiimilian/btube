@@ -2,8 +2,7 @@
 #include "rohr.h"
 #include <stdexcept>
 
-Rohr::Rohr(){}
-Rohr::Rohr(double l, double r){
+Rohr::Rohr(double l, double r, double k_s){
     // Prüfen, ob Länge größer als Null ist
     if(l > 0){
         this->laenge = l;
@@ -18,6 +17,14 @@ Rohr::Rohr(double l, double r){
     }
     else {
         throw std::out_of_range("Rohrradius muss positiv und größer Null sein!");
+    }
+
+    // Prüfen, ob k_s größer Null und sinnvoll ist
+    if((k_s > 0) && (k_s < r)){
+        this->k_s = k_s;
+    }
+    else {
+        throw std::out_of_range("k_s ist entweder negativ oder größer als der Radius.");
     }
 }
 
@@ -100,4 +107,8 @@ void Rohr::set_alpha_aussen(double alpha_aussen){
 
 void Rohr::set_t_aussen(double t_aussen){
     this->t_aussen = t_aussen;
+}
+
+double Rohr::get_k_s(){
+    return this->k_s;
 }

@@ -1,7 +1,6 @@
 #include "fluid.h"
 #include <stdexcept>
 
-Fluid::Fluid(){}
 Fluid::Fluid(double dichte, double nue, double cp){
     // Validieren, dass Dichte und Viskosität größer Null sind
     if(nue > 0){
@@ -46,6 +45,10 @@ double Fluid::get_nue(){
 
 double Fluid::get_t_ein(){
     return this->t_ein;
+}
+
+double Fluid::get_my(){
+    return nue*dichte;
 }
 
 void Fluid::set_massenstrom(double massenstrom){
