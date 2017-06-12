@@ -13,11 +13,11 @@ class Plotter : public QDialog
     Q_OBJECT
 
 public:
+
     explicit Plotter(QWidget *parent = 0);
     ~Plotter();
-
-private slots:
     void erstellePlot(Rohr rohr, Fluid fluid);
+
 private:
     Ui::Plotter *ui;
 };

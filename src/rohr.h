@@ -28,6 +28,9 @@ class Rohr
         /// Aussentemperatur [Celcius oder Kelvin]
         double t_aussen;
 
+        /// Eingangsdruck
+        double p_ein;
+
 
 
     public:

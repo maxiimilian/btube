@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>764</width>
-    <height>646</height>
+    <width>841</width>
+    <height>685</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>280</x>
-     <y>190</y>
+     <y>250</y>
      <width>231</width>
      <height>51</height>
     </rect>
@@ -110,30 +110,38 @@
     <item>
      <widget class="QLabel" name="label_2">
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Länge&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Länge [m]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+     <widget class="QDoubleSpinBox" name="laenge">
+      <property name="maximum">
+       <double>1000.000000000000000</double>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QLabel" name="label_3">
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Radius&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Radius [m]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+     <widget class="QDoubleSpinBox" name="radius">
+      <property name="maximum">
+       <double>2000.000000000000000</double>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>600</y>
+     <x>580</x>
+     <y>630</y>
      <width>231</width>
      <height>28</height>
     </rect>
@@ -147,7 +155,7 @@
     <rect>
      <x>240</x>
      <y>410</y>
-     <width>130</width>
+     <width>132</width>
      <height>131</height>
     </rect>
    </property>
@@ -155,21 +163,21 @@
     <item>
      <widget class="QLabel" name="label_5">
       <property name="text">
-       <string>Dichte [Einheit]</string>
+       <string>Dichte [kg/m^3]</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="label_6">
       <property name="text">
-       <string>Viskosität [Einheit]</string>
+       <string>kin. Viskosität [m^2/s]</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="label_7">
       <property name="text">
-       <string>Massenstrom [Einheit]</string>
+       <string>Massenstrom [kg/s]</string>
       </property>
      </widget>
     </item>
@@ -185,10 +193,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>isobare Wärmekapazität [Einheit]</string>
+    <string>isobare Wärmekapazität [J/(kg*K)]</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>371</x>
@@ -199,7 +207,11 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QDoubleSpinBox" name="Dichte"/>
+     <widget class="QDoubleSpinBox" name="Dichte">
+      <property name="maximum">
+       <double>2000.000000000000000</double>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QDoubleSpinBox" name="Viskositaet"/>
@@ -211,6 +223,32 @@
      <widget class="QDoubleSpinBox" name="cpwert"/>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>180</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Anfangsdruck [bar]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="druckein">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>200</y>
+     <width>149</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <double>1000.000000000000000</double>
+   </property>
   </widget>
  </widget>
  <resources/>

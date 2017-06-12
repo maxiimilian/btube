@@ -19,6 +19,9 @@ class Rohrstroemung
     private:
         Rohr* rohr;
         Fluid* fluid;
+
+        double druckverlauf[2][100]={{0.0},{0.0}};
+
     public:
         // Konstruktor
         Rohrstroemung(Rohr* rohr, Fluid* fluid);
@@ -55,6 +58,12 @@ class Rohrstroemung
 
         /// Berechnet die Bauart an der Stelle x
         double get_bauart(double x);
+
+        /// Ausfüllen des Druckverlauf-Arrays
+        void set_druckverlauf();
+
+        /// Eintragen des Druckverlauf-Arrays in Textdatei
+        void print_druckverlauf();
 };
 
 /*!
