@@ -55,7 +55,7 @@ double Fluid::get_t_ein(){
 }
 
 double Fluid::get_my(){
-    return this->my;
+    return nue*dichte;
 }
 
 void Fluid::set_massenstrom(double massenstrom){
