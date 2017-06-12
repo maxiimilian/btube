@@ -47,9 +47,6 @@ class Fluid
 
         /// Setzt die Eintrittstemperatur
         void set_t_ein (double t_ein);
-
-
-
 };
 
 #endif 

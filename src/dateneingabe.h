@@ -19,9 +19,7 @@ public:
 
 private slots:
 
-    void on_doubleSpinBox_valueChanged(double arg1);
 
-    void on_doubleSpinBox_2_valueChanged(double arg1);
 
     void on_pushButton_clicked();
 
