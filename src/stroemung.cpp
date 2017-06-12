@@ -124,7 +124,7 @@ double Rohrstroemung::get_pressure(double x){
 
 
 void Rohrstroemung::set_druckverlauf(){
-    double x = rohr.get_laenge() / 100;
+    double x = this->rohr->get_laenge() / 100;
     this->druckverlauf[0][0] = 0;
     //this->druckverlauf[1][0] = get_startpressure();
     this->druckverlauf[1][0] = 5;
