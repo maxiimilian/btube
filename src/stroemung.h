@@ -20,7 +20,7 @@ class Rohrstroemung
         Rohr* rohr;
         Fluid* fluid;
 
-        double druckverlauf[2][100]={{0.0},{0.0}};
+        double druckverlauf[2][101]={{0.0},{0.0}};
 
     public:
         // Konstruktor
@@ -43,9 +43,6 @@ class Rohrstroemung
 
         /// Berechnet Austrittstemperatur
         double get_temp(double x);
-
-        /// Gibt Startdruck zurück
-        double get_startpressure();
 
         /// Berechnung des Drucks an der Stelle x
         double get_pressure(double x);

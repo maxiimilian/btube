@@ -61,11 +61,15 @@ void DatenEingabe::on_pushButton_clicked()
         double nue_in=ui->Viskositaet->value();
         double massenstrom_in=ui->Massenstrom->value();
         double cp_in=ui->cpwert->value();
-        double t_ein = 20;
+        double t_ein = 20;    
 
         Fluid fluid(dichte_in, nue_in, cp_in);
         fluid.set_massenstrom(massenstrom_in);
         fluid.set_t_ein(t_ein);
+
+        Rohrstroemung rohrstroemung(&rohr, &fluid);
+        rohrstroemung.set_druckverlauf();
+        rohrstroemung.print_druckverlauf();
 
         Plotter plotter;        //Modal-Approach
         plotter.erstellePlot(rohr, fluid);
