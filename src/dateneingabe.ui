@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>20</y>
+     <x>280</x>
+     <y>0</y>
      <width>241</width>
      <height>51</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>250</y>
+     <x>250</x>
+     <y>340</y>
      <width>231</width>
      <height>51</height>
     </rect>
@@ -42,8 +42,8 @@
   <widget class="QRadioButton" name="Wasser">
    <property name="geometry">
     <rect>
-     <x>181</x>
-     <y>321</y>
+     <x>100</x>
+     <y>410</y>
      <width>70</width>
      <height>20</height>
     </rect>
@@ -55,8 +55,8 @@
   <widget class="QRadioButton" name="Oel">
    <property name="geometry">
     <rect>
-     <x>424</x>
-     <y>321</y>
+     <x>560</x>
+     <y>410</y>
      <width>39</width>
      <height>20</height>
     </rect>
@@ -68,8 +68,8 @@
   <widget class="QRadioButton" name="Benutzerdefiniert">
    <property name="geometry">
     <rect>
-     <x>424</x>
-     <y>378</y>
+     <x>680</x>
+     <y>410</y>
      <width>124</width>
      <height>20</height>
     </rect>
@@ -81,8 +81,8 @@
   <widget class="QRadioButton" name="Luft">
    <property name="geometry">
     <rect>
-     <x>181</x>
-     <y>378</y>
+     <x>320</x>
+     <y>410</y>
      <width>48</width>
      <height>20</height>
     </rect>
@@ -96,46 +96,6 @@
    <property name="checked">
     <bool>false</bool>
    </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>80</y>
-     <width>621</width>
-     <height>101</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Länge [m]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QDoubleSpinBox" name="laenge">
-      <property name="maximum">
-       <double>1000.000000000000000</double>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Radius [m]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QDoubleSpinBox" name="radius">
-      <property name="maximum">
-       <double>2000.000000000000000</double>
-      </property>
-     </widget>
-    </item>
-   </layout>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
@@ -153,17 +113,24 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>410</y>
-     <width>136</width>
-     <height>131</height>
+     <x>20</x>
+     <y>480</y>
+     <width>203</width>
+     <height>121</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QLabel" name="label_5">
       <property name="text">
        <string>Dichte [kg/m^3]</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>isobare Wärmekapazität [J/(kg*K)]</string>
       </property>
      </widget>
     </item>
@@ -174,38 +141,18 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QLabel" name="label_7">
-      <property name="text">
-       <string>Massenstrom [kg/s]</string>
-      </property>
-     </widget>
-    </item>
    </layout>
-  </widget>
-  <widget class="QLabel" name="label_8">
-   <property name="geometry">
-    <rect>
-     <x>167</x>
-     <y>550</y>
-     <width>201</width>
-     <height>38</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>isobare Wärmekapazität [J/(kg*K)]</string>
-   </property>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>371</x>
-     <y>402</y>
-     <width>191</width>
-     <height>201</height>
+     <x>230</x>
+     <y>480</y>
+     <width>130</width>
+     <height>131</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QDoubleSpinBox" name="Dichte">
       <property name="decimals">
@@ -227,16 +174,6 @@
      </widget>
     </item>
     <item>
-     <widget class="QDoubleSpinBox" name="Massenstrom">
-      <property name="decimals">
-       <number>10</number>
-      </property>
-      <property name="maximum">
-       <double>10000.000000000000000</double>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QDoubleSpinBox" name="cpwert">
       <property name="decimals">
        <number>10</number>
@@ -248,31 +185,172 @@
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="label_10">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>180</y>
-     <width>181</width>
-     <height>51</height>
+     <x>210</x>
+     <y>50</y>
+     <width>301</width>
+     <height>281</height>
+
     </rect>
    </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Anfangsdruck [bar]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Länge [m]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Radius [m]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Anfangsdruck [bar]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_13">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Außentemperatur [K]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_11">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Konvektionswiderstand Innen [W/K*m^2]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_14">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Konvektionswiderstand Außen [W/K*m^2]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
-  <widget class="QDoubleSpinBox" name="druckein">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>200</y>
-     <width>149</width>
-     <height>22</height>
+     <x>510</x>
+     <y>40</y>
+     <width>74</width>
+     <height>301</height>
     </rect>
    </property>
-   <property name="maximum">
-    <double>1000.000000000000000</double>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <widget class="QDoubleSpinBox" name="laenge">
+      <property name="maximum">
+       <double>1000.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QDoubleSpinBox" name="radius">
+      <property name="maximum">
+       <double>2000.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QDoubleSpinBox" name="druckein">
+      <property name="maximum">
+       <double>1000.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QDoubleSpinBox" name="temp_aussen">
+      <property name="maximum">
+       <double>1000.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QDoubleSpinBox" name="alpha_innen">
+      <property name="maximum">
+       <double>1000.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QDoubleSpinBox" name="alpha_aussen">
+      <property name="maximum">
+       <double>1000.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>490</y>
+     <width>119</width>
+     <height>71</height>
+    </rect>
    </property>
+   <layout class="QVBoxLayout" name="verticalLayout_5">
+    <item>
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Massenstrom [kg/s]</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>Innentemperatur [K]</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>490</y>
+     <width>137</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_6">
+    <item>
+     <widget class="QDoubleSpinBox" name="Massenstrom">
+      <property name="decimals">
+       <number>10</number>
+      </property>
+      <property name="maximum">
+       <double>10000.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QDoubleSpinBox" name="temp_Innen">
+      <property name="decimals">
+       <number>10</number>
+      </property>
+      <property name="maximum">
+       <double>10000.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
@@ -284,12 +362,12 @@
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>212</x>
-     <y>335</y>
+     <x>131</x>
+     <y>424</y>
     </hint>
     <hint type="destinationlabel">
-     <x>422</x>
-     <y>431</y>
+     <x>358</x>
+     <y>514</y>
     </hint>
    </hints>
   </connection>
@@ -300,141 +378,93 @@
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>240</x>
-     <y>332</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>418</x>
-     <y>479</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Wasser</sender>
-   <signal>clicked()</signal>
-   <receiver>Massenstrom</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>195</x>
-     <y>329</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>390</x>
-     <y>523</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Oel</sender>
-   <signal>clicked()</signal>
-   <receiver>Dichte</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>443</x>
-     <y>334</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>449</x>
-     <y>422</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Oel</sender>
-   <signal>clicked()</signal>
-   <receiver>Viskositaet</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>457</x>
-     <y>327</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>490</x>
-     <y>478</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Oel</sender>
-   <signal>clicked()</signal>
-   <receiver>Massenstrom</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>428</x>
-     <y>333</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>427</x>
-     <y>522</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Luft</sender>
-   <signal>clicked()</signal>
-   <receiver>Massenstrom</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>193</x>
-     <y>384</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>388</x>
-     <y>531</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Luft</sender>
-   <signal>clicked()</signal>
-   <receiver>Viskositaet</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>210</x>
-     <y>387</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>389</x>
-     <y>470</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Luft</sender>
-   <signal>clicked()</signal>
-   <receiver>Dichte</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>225</x>
-     <y>387</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>391</x>
-     <y>422</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Benutzerdefiniert</sender>
-   <signal>clicked()</signal>
-   <receiver>Dichte</receiver>
-   <slot>show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>454</x>
-     <y>383</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>462</x>
+     <x>159</x>
      <y>421</y>
     </hint>
+    <hint type="destinationlabel">
+     <x>358</x>
+     <y>555</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Oel</sender>
+   <signal>clicked()</signal>
+   <receiver>Dichte</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>579</x>
+     <y>423</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>358</x>
+     <y>505</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Oel</sender>
+   <signal>clicked()</signal>
+   <receiver>Viskositaet</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>416</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>358</x>
+     <y>555</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Luft</sender>
+   <signal>clicked()</signal>
+   <receiver>Viskositaet</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>349</x>
+     <y>419</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>358</x>
+     <y>555</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Luft</sender>
+   <signal>clicked()</signal>
+   <receiver>Dichte</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>364</x>
+     <y>419</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>358</x>
+     <y>505</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Benutzerdefiniert</sender>
+   <signal>clicked()</signal>
+   <receiver>Dichte</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>710</x>
+     <y>415</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>358</x>
+     <y>504</y>
+    </hint>
    </hints>
   </connection>
   <connection>
@@ -444,28 +474,12 @@
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>544</x>
-     <y>388</y>
+     <x>800</x>
+     <y>420</y>
     </hint>
     <hint type="destinationlabel">
-     <x>530</x>
-     <y>476</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Benutzerdefiniert</sender>
-   <signal>clicked()</signal>
-   <receiver>Massenstrom</receiver>
-   <slot>show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>502</x>
-     <y>386</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>516</x>
-     <y>525</y>
+     <x>358</x>
+     <y>555</y>
     </hint>
    </hints>
   </connection>
@@ -476,12 +490,12 @@
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>220</x>
-     <y>330</y>
+     <x>139</x>
+     <y>419</y>
     </hint>
     <hint type="destinationlabel">
-     <x>387</x>
-     <y>576</y>
+     <x>358</x>
+     <y>596</y>
     </hint>
    </hints>
   </connection>
@@ -492,12 +506,12 @@
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>202</x>
-     <y>392</y>
+     <x>341</x>
+     <y>424</y>
     </hint>
     <hint type="destinationlabel">
-     <x>427</x>
-     <y>579</y>
+     <x>358</x>
+     <y>596</y>
     </hint>
    </hints>
   </connection>
@@ -508,12 +522,12 @@
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>434</x>
-     <y>332</y>
+     <x>570</x>
+     <y>421</y>
     </hint>
     <hint type="destinationlabel">
-     <x>459</x>
-     <y>567</y>
+     <x>358</x>
+     <y>596</y>
     </hint>
    </hints>
   </connection>
@@ -524,12 +538,12 @@
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>505</x>
-     <y>385</y>
+     <x>761</x>
+     <y>417</y>
     </hint>
     <hint type="destinationlabel">
-     <x>504</x>
-     <y>563</y>
+     <x>358</x>
+     <y>596</y>
     </hint>
    </hints>
   </connection>
