@@ -21,6 +21,8 @@ DatenEingabe::~DatenEingabe()
 
 // Einlesen der Daten aus den DoubleSpin Boxen Objekten
 
+
+
 void DatenEingabe::on_Wasser_clicked() //Stoffwerte für Wasser
 {
      Fluid Wasser(1000,10e-6,4182);
@@ -48,11 +50,12 @@ void DatenEingabe::on_pushButton_clicked()
         double laenge=ui->laenge->value();
         double radius=ui->radius->value();
         double k_s = 5e-6;
+        double p_ein=ui->druckein->value();
 
         Rohr rohr(laenge, radius, k_s);
 
-        double p_ein=ui->druckein->value();
 
+        rohr.set_startpressure(p_ein);
         rohr.set_alpha_innen(300);
         rohr.set_alpha_aussen(400);
         rohr.set_t_aussen(0);

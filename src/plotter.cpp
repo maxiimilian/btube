@@ -84,7 +84,7 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 
     /// Achsenbereich
     /// Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen
-    // double axis_plus = (rohrstroemung.get_startpressure()-m[100])/10;
+    double axis_plus = (rohr.get_startpressure()-m[100])/10;
     /// x-Achse geht von 0 bis zur Länge des Rohres
     ui->druckGraph->xAxis->setRange(0, l);
 
@@ -94,7 +94,7 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
      * Der Druck im Rohr wird aufgrund der Reibung ständig abnehmen. Eine Fallunterscheidung wie bei der Temperatur ist daher nicht nötig.
      * Der Bereich wird festgelegt vom niedirgsten Druckwert (m[100]) und dem Anfangsdruck. Zusätzlich wird noch ein Offset genau wie bei dem Temperaturverlauf berücksichtigt
      */
-    // ui->druckGraph->yAxis->setRange(m[100]-axis_plus, rohrstroemung.get_startpressure()+axis_plus);
+    ui->druckGraph->yAxis->setRange(m[100]-axis_plus, rohr.get_startpressure()+axis_plus);
 
     ui->druckGraph->replot();
 
@@ -110,7 +110,7 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 
     /*!
      * \brief aufstellen der QCPColorMap
-     * \warning  Wir verwenden die Variablen s (normalerweise x) t (normalerweise y) und u (normalerweise z) damit dies nicht mit den Vatriablen aus
+     * \warning  Wir verwenden die Variablen s für die Länge, t für den Radius und u für die FLuidgeschwindigekeit ,damit dies nicht mit den Vatriablen aus
         dem Temperaturprofil kollidiert
      */
     QCPColorMap *colorMap = new QCPColorMap(ui->speedGraph->xAxis, ui->speedGraph->yAxis);
@@ -141,8 +141,7 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
       {
           // Testfunktion und wird noch ersetzt
         colorMap->data()->cellToCoord(sIndex, tIndex, &s, &t);
-        double r = 3*qSqrt(s*s+t*t)+1e-2;
-        u = 2*s*(qCos(r+2)/r-qSin(r+2)/r)+1;
+        u = rohrstroemung.get_stroemung(sIndex, tIndex);
         colorMap->data()->setCell(sIndex, tIndex, u);
       }
     }
