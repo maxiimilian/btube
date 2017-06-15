@@ -55,6 +55,18 @@ void Fluid::set_massenstrom(double massenstrom){
     this->massenstrom = massenstrom;
 }
 
+void Fluid::set_dichte_in(double dichte){
+    this->dichte = dichte;
+}
+
+void Fluid::set_nue_in(double nue){
+    this->nue = nue;
+}
+
+void Fluid::set_cp_in(double cp){
+    this->cp = cp;
+}
+
 /*!
  * \brief Berechnet den Wärmekapazitätsstrom.
  *
