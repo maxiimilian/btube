@@ -49,15 +49,6 @@ class Fluid
 
         /// Setzt die Eintrittstemperatur
         void set_t_ein (double t_ein);
-
-        /// Setzt die Dichte
-        void set_dichte_in (double dichte);
-
-        /// Setzt kin. Viskosität
-        void set_nue_in (double nue);
-
-        /// Setzt cp-Wert
-        void set_cp_in (double cp);
 };
 
 #endif 
