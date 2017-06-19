@@ -149,7 +149,7 @@ double Rohrstroemung::get_stroemung(double r, double x){
     double radius = rohr->get_radius();
     double p_x = this->get_pressure(x);
 
-    return -1/(4*my)*p_x*(pow(radius,2)-pow(r,2));
+    return -1/(4*my)*p_x*(pow(radius,2)-pow(r-radius,2));
 }
 
 // Solver für Lambda bei hydraulisch glatten, turbulenten Strömungen

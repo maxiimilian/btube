@@ -1,16 +1,19 @@
+///Präprozessoranweisungen
 #include "plotter.h"
 #include "ui_plotter.h"
 #include "rohr.h"
 #include "fluid.h"
 #include "stroemung.h"
 
-
+/// Konstruktor für die Plotterfunktion
 Plotter::Plotter(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Plotter)
 {
     ui->setupUi(this);
 }
+
+/// Freigeben des Speicherplatzes nach Beenden des Plotters durch einen Destruktor
 Plotter::~Plotter()
 {
     delete ui;
@@ -19,11 +22,11 @@ Plotter::~Plotter()
 void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 {
     Rohrstroemung rohrstroemung(&rohr, &fluid);
+    /// Anlegen der Länge und des Radius als Variable damit Koordinatensysteme und for-Schleifen angepasst werden. Diese Variablen werden in allen drei Plotter verwendet
+    double l = rohr.get_laenge();
+    double r = rohr.get_radius();
 
     /// Temperaturprofil
-
-    /// Anlegen der Länge als Variable damit Koordinatensystem und for-Schleife angepasst werde
-    double l = rohr.get_laenge();
     /// initilaisieren von QVectoren mit Einträgen von 0..100
     QVector<double> x(101), y(101);
 
@@ -127,8 +130,6 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 
     /*!
      * \brief Iterartion über die Strömungsfunktion und Speicherung der Werte in einer Cell.
-     * \warning  Wir verwenden die Variablen s (normalerweise x) t (normalerweise y) und u (normalerweise z) damit dies nicht mit den Vatriablen aus
-        dem Temperaturprofil kollidiert
      *
      * Über die multivariate Funktion der Geschwindigkeit wird mittels zweier for-Schleifen iteriert. Die Daten werden dann der QColorMap zugewiesen
      */
@@ -139,10 +140,15 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
     {
       for (int tIndex=0; tIndex<ns; ++tIndex)
       {
-          // Testfunktion und wird noch ersetzt
-        colorMap->data()->cellToCoord(sIndex, tIndex, &s, &t);
-        u = rohrstroemung.get_stroemung(sIndex, tIndex);
-        colorMap->data()->setCell(sIndex, tIndex, u);
+       colorMap->data()->cellToCoord(sIndex, tIndex, &s, &t);
+
+       /*!
+        * \brief Anpassung der Iterationsschritte an die Länge und Radius des Rohrs.
+        *
+        * Der Radius geht von -r bis r, sodass dieser Iterationsschritt nur mit dem Faktor (r/100) angepasst werden muss
+        */
+       u = rohrstroemung.get_stroemung(tIndex*(r/100), sIndex*(l/200));
+       colorMap->data()->setCell(sIndex, tIndex, u);
       }
     }
 
