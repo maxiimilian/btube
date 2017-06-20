@@ -22,28 +22,6 @@ DatenEingabe::~DatenEingabe()
 // Einlesen der Daten aus den DoubleSpin Boxen Objekten
 
 
-
-void DatenEingabe::on_Wasser_clicked() //Stoffwerte für Wasser
-{
-     Fluid Wasser(1000,10e-6,4182);
-}
-
-void DatenEingabe::on_Oel_clicked() //Stoffwerte für Olivenöl
-{
-     Fluid Oel(910,107.5,1970);
-}
-
-void DatenEingabe::on_Luft_clicked() //Stoffwerte für Luft
-{
-     Fluid Luft(1.293,1558,1005); // kin. Viskosität von Luft ist von Druck abhängig, hier noch nicht berücksichtigt
-}
-
-void DatenEingabe::on_Benutzerdefiniert_clicked()
-
-{
-
-}
-
 void DatenEingabe::on_pushButton_clicked()
 {
 
@@ -66,13 +44,41 @@ void DatenEingabe::on_pushButton_clicked()
         double cp_in=ui->cpwert->value();
         double t_ein = 20;    
 
-        Fluid fluid(dichte_in, nue_in, cp_in);
-        fluid.set_massenstrom(massenstrom_in);
-        fluid.set_t_ein(t_ein);
-
         Rohrstroemung rohrstroemung(&rohr, &fluid);
         rohrstroemung.set_druckverlauf();
         rohrstroemung.print_druckverlauf();
+        rohr.set_alpha_innen(alpha_innen);
+        rohr.set_alpha_aussen(alpha_aussen);
+        rohr.set_t_aussen(t_aus);
+
+
+        if(ui->Wasser->isChecked()){
+            dichte_in = 1000;
+            nue_in = 10e-6;
+            cp_in = 4182;
+        }
+
+        if(ui->Luft->isChecked()){
+            dichte_in = 1.293;
+            nue_in = 1558;
+            cp_in = 1005;
+        }
+
+        if(ui->Oel->isChecked()){
+            dichte_in = 910;
+            nue_in = 107.5;
+            cp_in = 1970;
+        }
+
+        if(ui->Benutzerdefiniert->isChecked()){
+            dichte_in=ui->Dichte->value(); // Benutzer legt Werte für Parameter fest // Überprüfung der Werte muss noch erfolgen
+            nue_in=ui->Viskositaet->value();
+            cp_in=ui->cpwert->value();
+        }
+
+        Fluid fluid(dichte_in, nue_in, cp_in);
+        fluid.set_massenstrom(massenstrom_in);
+        fluid.set_t_ein(t_ein);
 
         Plotter plotter;        //Modal-Approach
         plotter.erstellePlot(rohr, fluid);

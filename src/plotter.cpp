@@ -87,7 +87,9 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 
     /// Achsenbereich
     /// Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen
+  
     double axis_plus = (rohr.get_startpressure()-m[100])/10;
+
     /// x-Achse geht von 0 bis zur Länge des Rohres
     ui->druckGraph->xAxis->setRange(0, l);
 
@@ -97,7 +99,9 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
      * Der Druck im Rohr wird aufgrund der Reibung ständig abnehmen. Eine Fallunterscheidung wie bei der Temperatur ist daher nicht nötig.
      * Der Bereich wird festgelegt vom niedirgsten Druckwert (m[100]) und dem Anfangsdruck. Zusätzlich wird noch ein Offset genau wie bei dem Temperaturverlauf berücksichtigt
      */
+
     ui->druckGraph->yAxis->setRange(m[100]-axis_plus, rohr.get_startpressure()+axis_plus);
+
 
     ui->druckGraph->replot();
 
