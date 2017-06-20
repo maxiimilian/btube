@@ -41,7 +41,7 @@ void DatenEingabe::on_pushButton_clicked()
         rohr.set_alpha_innen(alpha_innen);
         rohr.set_alpha_aussen(alpha_aussen);
         rohr.set_t_aussen(t_aus);
-
+        rohr.set_startpressure(p_ein);
 
         if(ui->Wasser->isChecked()){
             dichte_in = 1000;
@@ -71,9 +71,14 @@ void DatenEingabe::on_pushButton_clicked()
         fluid.set_massenstrom(massenstrom_in);
         fluid.set_t_ein(t_ein);
 
-        Plotter plotter;        //Modal-Approach
+        Rohrstroemung rohrstroemung(&rohr, &fluid);
+        rohrstroemung.set_druckverlauf();
+        rohrstroemung.print_druckverlauf();
+
+        /// Öffnet einen Dialog/Fenster, dass die Bearbeitung des Elternfenster verhindert
+        Plotter plotter;
         plotter.erstellePlot(rohr, fluid);
 
-    plotter.setModal(true);
-    plotter.exec();
+        plotter.setModal(true);
+        plotter.exec();
 }

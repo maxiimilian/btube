@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Dateneingabe</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -115,7 +115,7 @@
     <rect>
      <x>20</x>
      <y>480</y>
-     <width>203</width>
+     <width>212</width>
      <height>121</height>
     </rect>
    </property>
@@ -148,7 +148,7 @@
     <rect>
      <x>230</x>
      <y>480</y>
-     <width>130</width>
+     <width>151</width>
      <height>131</height>
     </rect>
    </property>
@@ -159,7 +159,7 @@
        <number>10</number>
       </property>
       <property name="maximum">
-       <double>2000.000000000000000</double>
+       <double>100000.000000000000000</double>
       </property>
      </widget>
     </item>
@@ -169,7 +169,7 @@
        <number>10</number>
       </property>
       <property name="maximum">
-       <double>1000.000000000000000</double>
+       <double>100000.000000000000000</double>
       </property>
      </widget>
     </item>
@@ -179,7 +179,7 @@
        <number>10</number>
       </property>
       <property name="maximum">
-       <double>1000.000000000000000</double>
+       <double>10000.000000000000000</double>
       </property>
      </widget>
     </item>
@@ -243,9 +243,9 @@
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>40</y>
-     <width>74</width>
-     <height>301</height>
+     <y>30</y>
+     <width>123</width>
+     <height>311</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -273,21 +273,21 @@
     <item>
      <widget class="QDoubleSpinBox" name="temp_aussen">
       <property name="maximum">
-       <double>1000.000000000000000</double>
+       <double>10000000.000000000000000</double>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QDoubleSpinBox" name="alpha_innen">
       <property name="maximum">
-       <double>1000.000000000000000</double>
+       <double>1000000000.000000000000000</double>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QDoubleSpinBox" name="alpha_aussen">
       <property name="maximum">
-       <double>1000.000000000000000</double>
+       <double>10000000000.000000000000000</double>
       </property>
      </widget>
     </item>
@@ -298,7 +298,7 @@
     <rect>
      <x>410</x>
      <y>490</y>
-     <width>119</width>
+     <width>125</width>
      <height>71</height>
     </rect>
    </property>
@@ -324,7 +324,7 @@
     <rect>
      <x>530</x>
      <y>490</y>
-     <width>137</width>
+     <width>157</width>
      <height>81</height>
     </rect>
    </property>
