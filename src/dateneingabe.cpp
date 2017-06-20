@@ -71,6 +71,10 @@ void DatenEingabe::on_pushButton_clicked()
         fluid.set_massenstrom(massenstrom_in);
         fluid.set_t_ein(t_ein);
 
+        Rohrstroemung rohrstroemung(&rohr, &fluid);
+        rohrstroemung.set_druckverlauf();
+        rohrstroemung.print_druckverlauf();
+
         Plotter plotter;        //Modal-Approach
         plotter.erstellePlot(rohr, fluid);
 

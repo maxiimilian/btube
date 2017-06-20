@@ -112,3 +112,7 @@ void Rohr::set_t_aussen(double t_aussen){
 double Rohr::get_k_s(){
     return this->k_s;
 }
+
+double Rohr::get_startpressure(){
+    return this->p_ein;
+}
