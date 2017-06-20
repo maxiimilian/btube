@@ -1,19 +1,16 @@
-///Präprozessoranweisungen
 #include "plotter.h"
 #include "ui_plotter.h"
 #include "rohr.h"
 #include "fluid.h"
 #include "stroemung.h"
 
-/// Konstruktor für die Plotterfunktion
+
 Plotter::Plotter(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Plotter)
 {
     ui->setupUi(this);
 }
-
-/// Freigeben des Speicherplatzes nach Beenden des Plotters durch einen Destruktor
 Plotter::~Plotter()
 {
     delete ui;
@@ -22,11 +19,11 @@ Plotter::~Plotter()
 void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 {
     Rohrstroemung rohrstroemung(&rohr, &fluid);
-    /// Anlegen der Länge und des Radius als Variable damit Koordinatensysteme und for-Schleifen angepasst werden. Diese Variablen werden in allen drei Plotter verwendet
-    double l = rohr.get_laenge();
-    double r = rohr.get_radius();
 
     /// Temperaturprofil
+
+    /// Anlegen der Länge als Variable damit Koordinatensystem und for-Schleife angepasst werde
+    double l = rohr.get_laenge();
     /// initilaisieren von QVectoren mit Einträgen von 0..100
     QVector<double> x(101), y(101);
 
@@ -87,9 +84,7 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 
     /// Achsenbereich
     /// Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen
-  
-    double axis_plus = (rohr.get_startpressure()-m[100])/10;
-
+    // double axis_plus = (rohrstroemung.get_startpressure()-m[100])/10;
     /// x-Achse geht von 0 bis zur Länge des Rohres
     ui->druckGraph->xAxis->setRange(0, l);
 
@@ -99,9 +94,7 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
      * Der Druck im Rohr wird aufgrund der Reibung ständig abnehmen. Eine Fallunterscheidung wie bei der Temperatur ist daher nicht nötig.
      * Der Bereich wird festgelegt vom niedirgsten Druckwert (m[100]) und dem Anfangsdruck. Zusätzlich wird noch ein Offset genau wie bei dem Temperaturverlauf berücksichtigt
      */
-
-    ui->druckGraph->yAxis->setRange(m[100]-axis_plus, rohr.get_startpressure()+axis_plus);
-
+    // ui->druckGraph->yAxis->setRange(m[100]-axis_plus, rohrstroemung.get_startpressure()+axis_plus);
 
     ui->druckGraph->replot();
 
@@ -117,7 +110,7 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 
     /*!
      * \brief aufstellen der QCPColorMap
-     * \warning  Wir verwenden die Variablen s für die Länge, t für den Radius und u für die FLuidgeschwindigekeit ,damit dies nicht mit den Vatriablen aus
+     * \warning  Wir verwenden die Variablen s (normalerweise x) t (normalerweise y) und u (normalerweise z) damit dies nicht mit den Vatriablen aus
         dem Temperaturprofil kollidiert
      */
     QCPColorMap *colorMap = new QCPColorMap(ui->speedGraph->xAxis, ui->speedGraph->yAxis);
@@ -134,6 +127,8 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 
     /*!
      * \brief Iterartion über die Strömungsfunktion und Speicherung der Werte in einer Cell.
+     * \warning  Wir verwenden die Variablen s (normalerweise x) t (normalerweise y) und u (normalerweise z) damit dies nicht mit den Vatriablen aus
+        dem Temperaturprofil kollidiert
      *
      * Über die multivariate Funktion der Geschwindigkeit wird mittels zweier for-Schleifen iteriert. Die Daten werden dann der QColorMap zugewiesen
      */
@@ -144,15 +139,11 @@ void Plotter::erstellePlot(Rohr rohr, Fluid fluid)
     {
       for (int tIndex=0; tIndex<ns; ++tIndex)
       {
-       colorMap->data()->cellToCoord(sIndex, tIndex, &s, &t);
-
-       /*!
-        * \brief Anpassung der Iterationsschritte an die Länge und Radius des Rohrs.
-        *
-        * Der Radius geht von -r bis r, sodass dieser Iterationsschritt nur mit dem Faktor (r/100) angepasst werden muss
-        */
-       u = rohrstroemung.get_stroemung(tIndex*(r/100), sIndex*(l/200));
-       colorMap->data()->setCell(sIndex, tIndex, u);
+          // Testfunktion und wird noch ersetzt
+        colorMap->data()->cellToCoord(sIndex, tIndex, &s, &t);
+        double r = 3*qSqrt(s*s+t*t)+1e-2;
+        u = 2*s*(qCos(r+2)/r-qSin(r+2)/r)+1;
+        colorMap->data()->setCell(sIndex, tIndex, u);
       }
     }
 

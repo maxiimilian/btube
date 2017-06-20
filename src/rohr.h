@@ -91,12 +91,6 @@ class Rohr
 
         /// Gibt Rohrrauheitswert aus
         double get_k_s();
-
-        /// Gibt Startdruck zurück
-        double get_startpressure();
-
-        /// Setzt Wert für Eingangsdruck
-        void set_startpressure(double p_ein);
 };
 
 #endif 
