@@ -94,6 +94,9 @@ class Rohr
 
         /// Gibt Startdruck zurück
         double get_startpressure();
+
+        /// Setzt Wert für Startdruck
+        void set_startpressure(double p_ein);
 };
 
 #endif 

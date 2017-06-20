@@ -116,3 +116,7 @@ double Rohr::get_k_s(){
 double Rohr::get_startpressure(){
     return this->p_ein;
 }
+
+void Rohr::set_startpressure(double p_ein){
+    this->p_ein = p_ein;
+}
