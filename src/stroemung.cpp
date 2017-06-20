@@ -5,6 +5,7 @@
 #include "dateneingabe.h"
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -111,8 +112,7 @@ double Rohrstroemung::get_pressure(double x){
     //double vstart = this->get_speed(0);
     //double vpoint = this->get_speed(x);
 
-    //double p = this->get_startpressure(); ---NOCH NICHT IMPLEMENTIERT!---
-    double p = 5; // auf Konsante gesetzt, da noch nicht implementiert
+    double p = rohr->get_startpressure();
     double lambda = this->get_lambda();
     double d = 2 * rohr->get_radius();
     double rho = fluid->get_dichte();
@@ -123,22 +123,21 @@ double Rohrstroemung::get_pressure(double x){
 
 
 void Rohrstroemung::set_druckverlauf(){
-    double x = this->rohr->get_laenge() / 100;
+    double x = (rohr->get_laenge())/100;
     this->druckverlauf[0][0] = 0;
-    //this->druckverlauf[1][0] = get_startpressure();
-    this->druckverlauf[1][0] = 5;
+    this->druckverlauf[1][0] = rohr->get_startpressure();
     for(int i=1; i<101; i++){
         this->druckverlauf[0][i] = i*x;
-        this->druckverlauf[1][i] = get_pressure(i*x);
+        this->druckverlauf[1][i] = this->get_pressure(i*x);
     }
 }
 
 void Rohrstroemung::print_druckverlauf(){
     ofstream tabellenausgabe;
     tabellenausgabe.open("Druckverlauf.txt");
-    tabellenausgabe << "x-Wert | Druck" << endl;
+    tabellenausgabe << setw(10) << right << "x-Wert [m]" << " | Druck" << endl;
     for (int i=0; i<101; i++){
-    tabellenausgabe << this->druckverlauf[0][i] << " | " << this->druckverlauf[1][i] << endl;
+    tabellenausgabe << setw(10) << right << this->druckverlauf[0][i] << " | " << this->druckverlauf[1][i] << endl;
     }
     tabellenausgabe.close();
 }
@@ -150,7 +149,7 @@ double Rohrstroemung::get_stroemung(double r, double x){
     double radius = rohr->get_radius();
     double p_x = this->get_pressure(x);
 
-    return -1/(4*my)*p_x*(pow(radius,2)-pow(r,2));
+    return -1/(4*my)*p_x*(pow(radius,2)-pow(r-radius,2));
 }
 
 // Solver für Lambda bei hydraulisch glatten, turbulenten Strömungen

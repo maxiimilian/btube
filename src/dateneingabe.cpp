@@ -19,25 +19,34 @@ DatenEingabe::~DatenEingabe()
     delete ui;
 }
 
+// Einlesen der Daten aus den DoubleSpin Boxen Objekten
+
+
 void DatenEingabe::on_pushButton_clicked()
-{        
-        double dichte_in;
-        double nue_in;
-        double cp_in;
+{
 
         double laenge=ui->laenge->value();
         double radius=ui->radius->value();
         double k_s = 5e-6;
+        double p_ein=ui->druckein->value();
 
         Rohr rohr(laenge, radius, k_s);
 
-        double p_ein=ui->druckein->value();
-        double alpha_innen=ui->alpha_innen->value();
-        double alpha_aussen=ui->alpha_aussen->value();
-        double t_aus=ui->temp_aussen->value();
-        double massenstrom_in=ui->Massenstrom->value();
-        double t_ein=ui->temp_Innen->value();
 
+        rohr.set_startpressure(p_ein);
+        rohr.set_alpha_innen(300);
+        rohr.set_alpha_aussen(400);
+        rohr.set_t_aussen(0);
+
+        double dichte_in=ui->Dichte->value(); // Benutzer legt Werte für Parameter fest // Überprüfung der Werte muss noch erfolgen
+        double nue_in=ui->Viskositaet->value();
+        double massenstrom_in=ui->Massenstrom->value();
+        double cp_in=ui->cpwert->value();
+        double t_ein = 20;    
+
+        Rohrstroemung rohrstroemung(&rohr, &fluid);
+        rohrstroemung.set_druckverlauf();
+        rohrstroemung.print_druckverlauf();
         rohr.set_alpha_innen(alpha_innen);
         rohr.set_alpha_aussen(alpha_aussen);
         rohr.set_t_aussen(t_aus);
