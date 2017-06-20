@@ -9,14 +9,18 @@
 
 using namespace std;
 
-using namespace std;
-
+/***************
+ * Konstruktor *
+ ***************/
 Rohrstroemung::Rohrstroemung(Rohr* rohr, Fluid* fluid){
     // Rohr und Fluid mit der Rohrströmung verbinden
     this->rohr = rohr;
     this->fluid = fluid;
 }
 
+/***************
+ * GET methods *
+ ***************/
 double Rohrstroemung::get_Re(){
     // Re_D zurückgeben
     return this->get_speed()*2*this->rohr->get_radius()/this->fluid->get_nue();
@@ -63,6 +67,7 @@ double Rohrstroemung::get_lambda(){
 }
 
 double Rohrstroemung::get_bauart(){
+    double cp_strom = this->fluid->get_cp_strom();
     return this->rohr->get_kA() / this->fluid->get_cp_strom();
 }
 
@@ -96,7 +101,6 @@ double Rohrstroemung::get_temp(){
     return this->fluid->get_t_ein() - this->get_epsilon() * (this->rohr->get_t_aussen() - this->fluid->get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
 }
 
-
 double Rohrstroemung::get_temp(double x){
     //Prüfe ob Ort x innerhalb des Rohres liegt
     if ( x <= this->rohr->get_laenge() ){
@@ -112,7 +116,6 @@ double Rohrstroemung::get_pressure(double x){
     //double vstart = this->get_speed(0);
     //double vpoint = this->get_speed(x);
 
-
     double p = rohr->get_startpressure();
     double lambda = this->get_lambda();
     double d = 2 * rohr->get_radius();
@@ -122,7 +125,18 @@ double Rohrstroemung::get_pressure(double x){
     return p-((lambda*x*rho*v*v)/(d*2));
 }
 
+//Berechnung des Strömungprofils [laminare Strömung (Hagen-Poisseuille'sche Rohrströmung)]
+double Rohrstroemung::get_stroemung(double r, double x){
+    double my = this->fluid->get_my();
+    double radius = this->rohr->get_radius();
+    double p_x = this->get_pressure(this->rohr->get_laenge());
 
+    return 1/(4*my)*p_x*(pow(radius,2)-pow(r-radius,2));
+}
+
+/***************
+ * SET methods *
+ ***************/
 void Rohrstroemung::set_druckverlauf(){
     double x = rohr->get_laenge() / 100;
     this->druckverlauf[0][0] = 0;
@@ -143,17 +157,10 @@ void Rohrstroemung::print_druckverlauf(){
     tabellenausgabe.close();
 }
 
-//Berechnung des Strömungprofils [laminare Strömung (Hagen-Poisseuille'sche Rohrströmung)]
-double Rohrstroemung::get_stroemung(double r, double x){
-
-    double my = fluid->get_my();
-    double radius = rohr->get_radius();
-    double p_x = this->get_pressure(x);
-
-    return 1/(4*my)*p_x*(pow(radius,2)-pow(r-radius,2));
-}
-
-// Solver für Lambda bei hydraulisch glatten, turbulenten Strömungen
+/*****************************
+ * Numeric Solver for Lambda *
+ *****************************/
+/// Solver für Lambda bei hydraulisch glatten, turbulenten Strömungen
 double LambdaTurbulentGlattSolver::get_lambda(double Re)
 {
     double y_ceil = 0.03; // Wird nicht größer werden, da konvergiert
@@ -184,10 +191,12 @@ double LambdaTurbulentGlattSolver::get_lambda(double Re)
     return y;
 }
 
+/// Enthält die linke Seite der zu lösenden Gleichung
 double LambdaTurbulentGlattSolver::eq_left(double x, double y){
     return 1/sqrt(y);
 }
 
+/// Enthält die rechte Seite der zu lösenden Gleichung
 double LambdaTurbulentGlattSolver::eq_right(double x, double y){
     return 2*log10(x*sqrt(y))-0.8;
 }

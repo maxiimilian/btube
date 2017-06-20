@@ -1,6 +1,9 @@
 #include "fluid.h"
 #include <stdexcept>
 
+/***************
+ * KONSTRUKTOR *
+ ***************/
 Fluid::Fluid(double dichte, double nue, double cp){
     // Validieren, dass Dichte und Viskosität größer Null sind
     if(nue > 0){
@@ -8,7 +11,6 @@ Fluid::Fluid(double dichte, double nue, double cp){
     }
     else {
         throw std::out_of_range("Die Viskosität muss größer Null sein!");
-
     }
 
     if(dichte > 0){
@@ -17,6 +19,7 @@ Fluid::Fluid(double dichte, double nue, double cp){
     else {
         throw std::out_of_range("Die Dichte muss größer Null sein!");
     }
+
     if(cp > 0){
         this->cp = cp;
     }
@@ -26,45 +29,53 @@ Fluid::Fluid(double dichte, double nue, double cp){
 
 }
 
+/***************
+ * GET methods *
+ ***************/
+/// Dichte ausgeben
 double Fluid::get_dichte(){
     return this->dichte;
 }
 
+/// Massenstrom ausgeben
 double Fluid::get_massenstrom(){
-    /// \todo: prüfen ob gesetzt
     return this->massenstrom;
 }
 
+/// isobare spezifische Wärmekapazität ausgeben
 double Fluid::get_cp(){
     return this->cp;
 }
 
+/// kinematische Viskosität ausgeben
 double Fluid::get_nue(){
     return this->nue;
 }
 
+/// Eintrittstemperatur ausgeben
 double Fluid::get_t_ein(){
     return this->t_ein;
 }
 
+/// dynamische Viskosität ausgeben
 double Fluid::get_my(){
     return nue*dichte;
 }
 
-void Fluid::set_massenstrom(double massenstrom){
-    this->massenstrom = massenstrom;
-}
-
-/*!
- * \brief Berechnet den Wärmekapazitätsstrom.
- *
- * \warning Ist es wirklich nötig die Vairablen der Funktion zu übergeben oder ist auch ein anderer Ansatz über enstprechende get-Funktionen möglich?
- * \sa Rohr::set_kA
- */
+/// cp-Strom ausgeben
 double  Fluid::get_cp_strom(){
     return this->cp_strom = this->get_cp() * this->get_massenstrom();
 }
 
+/***************
+ * SET methods *
+ ***************/
+/// Massenstrom setzen
+void Fluid::set_massenstrom(double massenstrom){
+    this->massenstrom = massenstrom;
+}
+
+/// Eintrittstemperatur setzen
 void Fluid::set_t_ein(double t_ein){
     this->t_ein = t_ein;
 }
