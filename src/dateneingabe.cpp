@@ -36,7 +36,7 @@ void DatenEingabe::on_pushButton_clicked()
         // Rohr wird erstellt
         Rohr rohr(laenge, radius, k_s);
 
-        // Druck, Konvektionswiderstände, Temperaturen und Massenstrom werden aus der GUI eingelesen
+        // Druck, Konvektionswiderstände, Temperaturen und Massenstrom werden aus der GUI eingelesen und gespeichert
         double p_ein=ui->druckein->value();
         double alpha_innen=ui->alpha_innen->value();
         double alpha_aussen=ui->alpha_aussen->value();
