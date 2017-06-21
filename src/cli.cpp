@@ -67,7 +67,6 @@ void start_cli(){
     fluid.set_massenstrom(massenstrom_in);
     fluid.set_t_ein(t_ein);
 
-
     // Umgebungsparameter eingeben
     double t_aussen = 273; 
 

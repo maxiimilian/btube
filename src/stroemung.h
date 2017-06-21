@@ -23,9 +23,14 @@ class Rohrstroemung
         double druckverlauf[2][101]={{0.0},{0.0}};
 
     public:
-        // Konstruktor
+        /***************
+         * Konstruktor *
+         ***************/
         Rohrstroemung(Rohr* rohr, Fluid* fluid);
 
+        /***************
+         * GET methods *
+         ***************/
         /// Reynoldszahl des Member-Fluids berechnen (u*d/nue)
         double get_Re();
 
@@ -56,14 +61,17 @@ class Rohrstroemung
         /// Berechnet die Bauart an der Stelle x
         double get_bauart(double x);
 
+        /// Berechnung des Strömungsprofils
+        double get_stroemung(double r, double x);
+
+        /***************
+         * SET methods *
+         ***************/
         /// Ausfüllen des Druckverlauf-Arrays
         void set_druckverlauf();
 
         /// Eintragen des Druckverlauf-Arrays in Textdatei
         void print_druckverlauf();
-        
-        /// Berechnung des Strömungsprofils
-        double get_stroemung(double r, double x);
 };
 
 /*!

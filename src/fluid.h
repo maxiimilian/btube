@@ -23,6 +23,9 @@ class Fluid
     public:
         Fluid(double dichte, double nue, double cp);
 
+        /***************
+         * GET methods *
+         ***************/
         /// Massenstrom wird zurückgegeben
         double get_massenstrom();
 
@@ -44,6 +47,9 @@ class Fluid
         /// dynamische Viskosität wird zurückgegeben
         double get_my();
 
+        /***************
+         * SET methods *
+         ***************/
         /// Setzt den Massenstrom des Fluids
         void set_massenstrom(double massenstrom);
 

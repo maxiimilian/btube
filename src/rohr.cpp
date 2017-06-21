@@ -2,6 +2,9 @@
 #include "rohr.h"
 #include <stdexcept>
 
+/***************
+ * Konstruktor *
+ ***************/
 Rohr::Rohr(double l, double r, double k_s){
     // Prüfen, ob Länge größer als Null ist
     if(l > 0){
@@ -28,6 +31,9 @@ Rohr::Rohr(double l, double r, double k_s){
     }
 }
 
+/***************
+ * GET methods *
+ ***************/
 double Rohr::get_radius(){
     // gibt den Wert des Radius-Attributs zurück
     return this->radius;
@@ -66,13 +72,6 @@ double Rohr::get_alpha_aussen(){
     return this->alpha_aussen;
 }
 
-
-/*!
- * \brief Berechenet den Wärmdurchgangskoeffzient
- *
- * \warning Anderer Ansatz: Es werden keine Werte der Funktion übergeben sondern in der Funktion get-Funktionen aufgerufen
- * \sa Fluid::set_cp_strom
- */
 double Rohr::get_kA(){
     return this->kA = 2 * M_PI * this->get_radius() * this->get_laenge() * (this->get_alpha_innen() + this->get_alpha_aussen()); //2*Pi*r*L(alpha_innen+alpha_außen)
 }
@@ -97,6 +96,21 @@ double Rohr::get_t_aussen(){
     return this->t_aussen;
 }
 
+double Rohr::get_k_s(){
+    return this->k_s;
+}
+
+double Rohr::get_startpressure(){
+    return this->p_ein;
+}
+
+/***************
+ * SET methods *
+ ***************/
+void Rohr::set_startpressure(double p_ein){
+    this->p_ein = p_ein;
+}
+
 void Rohr::set_alpha_innen(double alpha_innen){
     this->alpha_innen = alpha_innen;
 }
@@ -107,16 +121,4 @@ void Rohr::set_alpha_aussen(double alpha_aussen){
 
 void Rohr::set_t_aussen(double t_aussen){
     this->t_aussen = t_aussen;
-}
-
-double Rohr::get_k_s(){
-    return this->k_s;
-}
-
-double Rohr::get_startpressure(){
-    return this->p_ein;
-}
-
-void Rohr::set_startpressure(double p_ein){
-    this->p_ein = p_ein;
 }
