@@ -67,7 +67,6 @@ double Rohrstroemung::get_lambda(){
 }
 
 double Rohrstroemung::get_bauart(){
-    double cp_strom = this->fluid->get_cp_strom();
     return this->rohr->get_kA() / this->fluid->get_cp_strom();
 }
 
@@ -129,9 +128,13 @@ double Rohrstroemung::get_pressure(double x){
 double Rohrstroemung::get_stroemung(double r, double x){
     double my = this->fluid->get_my();
     double radius = this->rohr->get_radius();
-    double p_x = this->get_pressure(this->rohr->get_laenge());
+    double l = this->rohr->get_laenge();
 
-    return 1/(4*my)*p_x*(pow(radius,2)-pow(r-radius,2));
+    // Gemittelter Druckgradient über gesamtes Rohr
+    double dp_dx = (this->get_pressure(l)-this->get_pressure(0))/l;
+
+    // Geschwindigkeit u(r,x) berechnen
+    return -1/(4*my)*dp_dx*(pow(radius,2)-pow(r-radius,2));
 }
 
 /***************
