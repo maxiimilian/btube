@@ -77,6 +77,59 @@ void test_lambda_Berechnung(){
                              "stroemung.cpp, (rohr.cpp, fluid.cpp implizit)");
 }
 
+void test_Temperatur_Berechnung(){
+    bool testResult = true;
+
+    //Fluid erstellen mit Fluid-Konstruktor
+    Fluid test_fluid(1000, 1e-6, 5000);
+    //Rohr erstellen mit Rohr-Konstruktor
+    Rohr test_rohr(50, 1, 100e-6);
+    //Strömung erstellen mit Rohrkonstruktor
+    Rohrstroemung test_stroemung(&test_rohr, &test_fluid);
+
+    //Allgemeine Rohr und Fluid-Parameter setzen
+    test_fluid.set_massenstrom(1);
+    test_rohr.set_alpha_innen(3);
+    test_rohr.set_alpha_aussen(2);
+
+    /*
+     * Fall 1: Fluid wird von der Umgebung abgekühlt.
+     */
+     test_fluid.set_t_ein(400);
+     test_rohr.set_t_aussen(200);
+
+     //fabs-Funktion gibt den Betrag der Differenz wieder und erleichtert so die Fallunterscheidung
+     if(fabs(test_stroemung.get_temp()-346.080536) > 1e-5){
+          testResult = false;
+     }
+
+    /*
+     * Fall 2: Fluid wird von der Umgebung erwärmt.
+     */
+     test_fluid.set_t_ein(200);
+     test_rohr.set_t_aussen(400);
+
+     if(fabs(test_stroemung.get_temp()-253.919462) > 1e-5){
+          testResult = false;
+     }
+
+    /*
+     * Fall3: Fluid und Umgebung haben die gleiche Temperatur. Somit ändert das Fluid seine Temperatur nicht.
+     */
+     test_fluid.set_t_ein(300);
+     test_rohr.set_t_aussen(300);
+
+     if(fabs(test_stroemung.get_temp()-300.0) > 1e-5){
+          testResult = false;
+     }
+
+     APITest::printTestResult(testResult,
+                              "Fluidtemperatur",
+                              "Simon Thel",
+                              "Fluidtemperatur mit 3 verschiedenen Fällen: Abkühlung, Erwärmung und gleiche Temperaturen",
+                              "stroemung.cpp, (rohr.cpp, fluid.cpp implizit)");
+}
+
 #endif // TEST
 
 
@@ -86,6 +139,7 @@ void runTests(){
 
 	// Hier sollen die eigenen Tests hinzugefuegt werden
     test_lambda_Berechnung();
+    test_Temperatur_Berechnung();
 
 	APITest::printTestEndFooter(); // Nicht modifizieren
 #endif //TEST // Nicht modifizieren

@@ -72,10 +72,20 @@ double  Fluid::get_cp_strom(){
  ***************/
 /// Massenstrom setzen
 void Fluid::set_massenstrom(double massenstrom){
-    this->massenstrom = massenstrom;
+    if (massenstrom > 0){
+        this->massenstrom = massenstrom;
+    }
+    else {
+        throw std::out_of_range("Der Massenstrom muss größer 0 sein!");
+    }
 }
 
 /// Eintrittstemperatur setzen
 void Fluid::set_t_ein(double t_ein){
-    this->t_ein = t_ein;
+    if (t_ein > 0){
+        this->t_ein = t_ein;
+    }
+    else {
+        throw std::out_of_range("Die Temperatur wird in Kelvin gemessen und deshalb muss sie größer 0 sein!");
+    }
 }
