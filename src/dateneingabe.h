@@ -17,11 +17,19 @@ public:
     explicit DatenEingabe(QWidget *parent = 0);
     ~DatenEingabe();
 
+    /*
+    void set_argv (char **argv);
+
+    char** get_argv();
+    */
+
 private slots:
 
     void on_pushButton_clicked();
 
 private:
+
+    // char* argv;
 
     Ui::DatenEingabe *ui;
 

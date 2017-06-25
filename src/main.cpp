@@ -3,6 +3,10 @@
 #include <string>
 #include "cli.h"
 
+#include <iostream>
+
+using namespace std;
+
 int main(int argc, char *argv[])
 {
     // Prüfen, ob ein Argument in der Kommandozeile übergeben wurde
@@ -18,12 +22,15 @@ int main(int argc, char *argv[])
             return 0;
         }
     }
+    // cout<<"argc: "<<argc<<endl;
+    // cout<<"argv: "<<argv<<endl;
 
     // GUI starten, wenn kein passendes Argument übergeben wurde
     QApplication app(argc, argv);
 
     DatenEingabe w;
     w.show();
+    // w.set_argv(argv);
 
     return app.exec();
 }

@@ -20,7 +20,7 @@ public:
     /// Destruktorinitialisierung
     ~Plotter();
     /// Plotterfunktion mit der Übergabe der Datentypen Rohr und Fluid
-    void erstellePlot(Rohr rohr, Fluid fluid);
+    int erstellePlot(Rohr rohr, Fluid fluid);
 
 private:
     Ui::Plotter *ui;

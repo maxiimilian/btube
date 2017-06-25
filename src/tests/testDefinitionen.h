@@ -7,10 +7,15 @@
 #include "test.h"
 
 #include <math.h>
+#include <QDialog>
+#include <QApplication>
 
 #include "../fluid.h"
 #include "../rohr.h"
 #include "../stroemung.h"
+#include "../plotter.h"
+#include "../dateneingabe.h"
+
 
 
 /*!
@@ -129,6 +134,32 @@ void test_Temperatur_Berechnung(){
                               "Fluidtemperatur mit 3 verschiedenen Fällen: Abkühlung, Erwärmung und gleiche Temperaturen",
                               "stroemung.cpp, (rohr.cpp, fluid.cpp implizit)");
 }
+/*
+void test_Plotter(){
+    bool testResult = true;
+
+    int argc = 1;
+    DatenEingabe w;
+    QApplication app(argc, w.get_argv);
+
+    //Fluid definieren
+    Fluid test_fluid (1, 1, 1);
+    //Rohr definieren
+    Rohr test_rohr(1, 1, 1e-5);
+    //Plotter defnieren
+    Plotter test_plotter;
+    if(test_plotter.erstellePlot(test_rohr, test_fluid) != 40202){
+       testResult = false;
+    }
+
+    APITest::printTestResult(testResult,
+                             "Plotter",
+                             "Simon Thel",
+                             "Testet ob der Plotter eine korrekte Anzahl an Datenpunkten darstellt",
+                             "plotter.cpp");
+
+}
+*/
 
 #endif // TEST
 
@@ -140,6 +171,8 @@ void runTests(){
 	// Hier sollen die eigenen Tests hinzugefuegt werden
     test_lambda_Berechnung();
     test_Temperatur_Berechnung();
+    // test_Plotter();
+
 
 	APITest::printTestEndFooter(); // Nicht modifizieren
 #endif //TEST // Nicht modifizieren

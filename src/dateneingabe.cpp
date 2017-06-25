@@ -93,3 +93,12 @@ void DatenEingabe::on_pushButton_clicked()
         plotter.setModal(true);
         plotter.exec();
 }
+/*
+void DatenEingabe::set_argv(char** argv){
+    this->argv = argv
+}
+
+char* DatenEingabe::get_argv(){
+    return this->argv;
+}
+*/
