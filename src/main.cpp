@@ -3,8 +3,14 @@
 #include <string>
 #include "cli.h"
 
+/// Globaler String der den Ausführungspfad des Programms enthält
+std::string run_path;
+
 int main(int argc, char *argv[])
 {
+    // Ausführungspfad setzen (Erstes Argument)
+    run_path = argv[0];
+
     // Prüfen, ob ein Argument in der Kommandozeile übergeben wurde
     if(argc == 2){
         std::string arg = argv[1];

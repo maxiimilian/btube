@@ -2,6 +2,7 @@
 #define TESTDEFINITIONEN_H
 
 #include <iostream>
+#include <cstring>
 
 #ifdef TEST
 #include "test.h"
@@ -11,6 +12,7 @@
 #include "../fluid.h"
 #include "../rohr.h"
 #include "../stroemung.h"
+#include "../cli.h"
 
 
 /*!
@@ -77,6 +79,53 @@ void test_lambda_Berechnung(){
                              "stroemung.cpp, (rohr.cpp, fluid.cpp implizit)");
 }
 
+/*!
+ * \brief Testfunktion der Konsolenausgabe
+ *
+ * Testet, ob die interaktive Konsole gestartet wird,
+ * wenn dem Programm das Argument 'cli' in der Shell übergeben wird.
+ */
+void test_cli(){
+    bool testResult = true;
+
+    // Globalen Ausführungspfad aufrufen und 'cli' anhängen
+    extern std::string run_path;
+    std::string run_path_cli = run_path + " cli";
+    const char* run_path_cli_char = run_path_cli.c_str();
+
+    // Einen Dateihandler und eine 8 Bit Buffer deklarieren
+    FILE *in;
+    char buff[8];
+
+    // Das Programm ruft sich selbst mit Parameter 'cli' auf und schreibt
+    // den Output in den Dateihandler in
+    if(!(in = popen(run_path_cli_char, "r"))){
+        testResult = false;
+    }
+    else {
+        // Die ersten 8 Bit der stdout-Ausgabe in den buffer lesen
+        fgets(buff, sizeof(buff), in);
+
+        /* File handle kann hier nicht geschlossen werden, da der Test sonst blockiert wird.
+         * Dies liegt daran, dass der Prozess sich selbst aufruft. Der Handle bleibt daher offen 
+         * und wird zum Laufzeitende automatisch geschlossen
+         *
+         * pclose(in);
+         */
+
+        // Test nicht erfolgreich, falls im ersten Buffer KEIN * vorkommt! 
+        if(strchr(buff, '*') == NULL){
+            testResult = false;
+        }
+    }
+
+    // Testergebnis ausgeben
+    APITest::printTestResult(testResult,
+                             "CLI",
+                             "Maximilian Pierzyna",
+                             "CLI wird mit Shell-Argmument gestartet",
+                             "cli.cpp, main.cpp");
+}
 #endif // TEST
 
 
@@ -86,6 +135,7 @@ void runTests(){
 
 	// Hier sollen die eigenen Tests hinzugefuegt werden
     test_lambda_Berechnung();
+    test_cli();
 
 	APITest::printTestEndFooter(); // Nicht modifizieren
 #endif //TEST // Nicht modifizieren
