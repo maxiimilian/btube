@@ -26,12 +26,10 @@ void DatenEingabe::on_pushButton_clicked()
         double nue_in;
         double cp_in;
 
-        // Laenge und Radius werden aus der GUI eingelesen und gespeichert
+        // Werte für die Erstellung des Rohrs werden aus der GUI eingelesen und gespeichert
         double laenge=ui->laenge->value();
         double radius=ui->radius->value();
-
-        // Festlegen der Rohrreibungszahl
-        double k_s = 5e-6;
+        double k_s=ui->ksrohr->value()/1e6;
 
         // Rohr wird erstellt
         Rohr rohr(laenge, radius, k_s);
