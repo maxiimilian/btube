@@ -73,12 +73,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aafc515ab901ac78c1aef2c615eb38eff"><td class="memItemLeft" align="right" valign="top"><a id="aafc515ab901ac78c1aef2c615eb38eff"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Rohrstroemung</b> (<a class="el" href="class_rohr.html">Rohr</a> rohr, <a class="el" href="class_fluid.html">Fluid</a> fluid)</td></tr>
-<tr class="separator:aafc515ab901ac78c1aef2c615eb38eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8ee146566f18b2a4ca4cbfc1946c2b8"><td class="memItemLeft" align="right" valign="top"><a id="aa8ee146566f18b2a4ca4cbfc1946c2b8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Rohrstroemung</b> (<a class="el" href="class_rohr.html">Rohr</a> *rohr, <a class="el" href="class_fluid.html">Fluid</a> *fluid)</td></tr>
+<tr class="separator:aa8ee146566f18b2a4ca4cbfc1946c2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa491056aa77acac305aca0fde9c3e8bc"><td class="memItemLeft" align="right" valign="top"><a id="aa491056aa77acac305aca0fde9c3e8bc"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohrstroemung.html#aa491056aa77acac305aca0fde9c3e8bc">get_Re</a> ()</td></tr>
-<tr class="memdesc:aa491056aa77acac305aca0fde9c3e8bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reynoldszahl des Member-Fluids berechnen. <br /></td></tr>
+<tr class="memdesc:aa491056aa77acac305aca0fde9c3e8bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reynoldszahl des Member-Fluids berechnen (u*d/nue) <br /></td></tr>
 <tr class="separator:aa491056aa77acac305aca0fde9c3e8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ea25aca94625ef68bf856d957419d26"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohrstroemung.html#a7ea25aca94625ef68bf856d957419d26">get_lambda</a> ()</td></tr>
 <tr class="memdesc:a7ea25aca94625ef68bf856d957419d26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rohrreibungszahl Lambda berechnen, in Abhängigkeit von Re.  <a href="#a7ea25aca94625ef68bf856d957419d26">More...</a><br /></td></tr>
@@ -99,10 +99,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohrstroemung.html#adc94a5748b40f9e47448a11e55809593">get_temp</a> (double x)</td></tr>
 <tr class="memdesc:adc94a5748b40f9e47448a11e55809593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet Austrittstemperatur. <br /></td></tr>
 <tr class="separator:adc94a5748b40f9e47448a11e55809593"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adaf6779654f5f8d01845bf38aa9655f9"><td class="memItemLeft" align="right" valign="top"><a id="adaf6779654f5f8d01845bf38aa9655f9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohrstroemung.html#adaf6779654f5f8d01845bf38aa9655f9">get_startpressure</a> ()</td></tr>
-<tr class="memdesc:adaf6779654f5f8d01845bf38aa9655f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt Startdruck zurück. <br /></td></tr>
-<tr class="separator:adaf6779654f5f8d01845bf38aa9655f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf6265814d9ae0d148aeecb6092d8c2f"><td class="memItemLeft" align="right" valign="top"><a id="abf6265814d9ae0d148aeecb6092d8c2f"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohrstroemung.html#abf6265814d9ae0d148aeecb6092d8c2f">get_pressure</a> (double x)</td></tr>
 <tr class="memdesc:abf6265814d9ae0d148aeecb6092d8c2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnung des Drucks an der Stelle x. <br /></td></tr>
@@ -119,11 +115,24 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohrstroemung.html#a17fccbf71ba0dc1635e3a06fdc740cf3">get_bauart</a> (double x)</td></tr>
 <tr class="memdesc:a17fccbf71ba0dc1635e3a06fdc740cf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet die Bauart an der Stelle x. <br /></td></tr>
 <tr class="separator:a17fccbf71ba0dc1635e3a06fdc740cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eae88254e88fbb314096c795ec2fac2"><td class="memItemLeft" align="right" valign="top"><a id="a1eae88254e88fbb314096c795ec2fac2"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohrstroemung.html#a1eae88254e88fbb314096c795ec2fac2">get_stroemung</a> (double r, double x)</td></tr>
+<tr class="memdesc:a1eae88254e88fbb314096c795ec2fac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnung des Strömungsprofils. <br /></td></tr>
+<tr class="separator:a1eae88254e88fbb314096c795ec2fac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade5cf2d08a2c2c23d951d54ff2d05325"><td class="memItemLeft" align="right" valign="top"><a id="ade5cf2d08a2c2c23d951d54ff2d05325"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohrstroemung.html#ade5cf2d08a2c2c23d951d54ff2d05325">set_druckverlauf</a> ()</td></tr>
+<tr class="memdesc:ade5cf2d08a2c2c23d951d54ff2d05325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ausfüllen des Druckverlauf-Arrays. <br /></td></tr>
+<tr class="separator:ade5cf2d08a2c2c23d951d54ff2d05325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3adc6cad22e5ab2132b3d82b7368ba8e"><td class="memItemLeft" align="right" valign="top"><a id="a3adc6cad22e5ab2132b3d82b7368ba8e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohrstroemung.html#a3adc6cad22e5ab2132b3d82b7368ba8e">print_druckverlauf</a> ()</td></tr>
+<tr class="memdesc:a3adc6cad22e5ab2132b3d82b7368ba8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eintragen des Druckverlauf-Arrays in Textdatei. <br /></td></tr>
+<tr class="separator:a3adc6cad22e5ab2132b3d82b7368ba8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Beschriebt eine Rohrströmung. </p>
 <p>Benötigt dazu Objekte von <a class="el" href="class_rohr.html" title="Stellt ein Rohrbauteil zur Verfügung. ">Rohr</a> und <a class="el" href="class_fluid.html" title="Stellt ein Fluid zur Verfügung. ">Fluid</a>.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Es werden keine kompressiblen Fluide oder Ablösungen und Einlaufstörungen am Ein- und Ausgang des Rohrs berücksichtigt. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Es werden keine kompressiblen Fluide oder Ablösungen und Einlaufstörungen am Ein- und Ausgang des Rohrs berücksichtigt.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Zur Laufzeitoptimierung werden dieser Funktion nur Pointer auf <a class="el" href="class_rohr.html" title="Stellt ein Rohrbauteil zur Verfügung. ">Rohr</a> und <a class="el" href="class_fluid.html" title="Stellt ein Fluid zur Verfügung. ">Fluid</a> übergeben! </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7ea25aca94625ef68bf856d957419d26"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ea25aca94625ef68bf856d957419d26">&#9670;&nbsp;</a></span>get_lambda()</h2>
@@ -141,7 +150,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 
 <p>Rohrreibungszahl Lambda berechnen, in Abhängigkeit von Re. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_rohrstroemung.html#aa491056aa77acac305aca0fde9c3e8bc" title="Reynoldszahl des Member-Fluids berechnen. ">get_Re()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_rohrstroemung.html#aa491056aa77acac305aca0fde9c3e8bc" title="Reynoldszahl des Member-Fluids berechnen (u*d/nue) ">get_Re()</a> </dd></dl>
 
 </div>
 </div>

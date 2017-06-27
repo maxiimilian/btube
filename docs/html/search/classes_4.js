@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainwindow',['MainWindow',['../class_main_window.html',1,'']]]
+  ['lambdaturbulentglattsolver',['LambdaTurbulentGlattSolver',['../class_lambda_turbulent_glatt_solver.html',1,'']]]
 ];

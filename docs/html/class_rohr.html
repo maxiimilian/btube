@@ -73,9 +73,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8548148de26323a876077bfb61324ed3"><td class="memItemLeft" align="right" valign="top"><a id="a8548148de26323a876077bfb61324ed3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Rohr</b> (double l, double r)</td></tr>
-<tr class="separator:a8548148de26323a876077bfb61324ed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbfc5b0d4a796c1c88b89d88b7b36768"><td class="memItemLeft" align="right" valign="top"><a id="afbfc5b0d4a796c1c88b89d88b7b36768"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Rohr</b> (double l, double r, double k_s)</td></tr>
+<tr class="separator:afbfc5b0d4a796c1c88b89d88b7b36768"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6763a65cfe3992b6dd4baa903ae44b29"><td class="memItemLeft" align="right" valign="top"><a id="a6763a65cfe3992b6dd4baa903ae44b29"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohr.html#a6763a65cfe3992b6dd4baa903ae44b29">get_querschnitt</a> ()</td></tr>
 <tr class="memdesc:a6763a65cfe3992b6dd4baa903ae44b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt Querschnittsfläche. <br /></td></tr>
@@ -102,8 +102,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohr.html#ad02b003b17d07ee5f53bc2defbe8227a">get_alpha_aussen</a> ()</td></tr>
 <tr class="memdesc:ad02b003b17d07ee5f53bc2defbe8227a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt Konvektionswiderstand auf der Außenseite zurück. <br /></td></tr>
 <tr class="separator:ad02b003b17d07ee5f53bc2defbe8227a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29a212b5ffe5723b3c2fe02aba0804c0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohr.html#a29a212b5ffe5723b3c2fe02aba0804c0">get_kA</a> ()</td></tr>
-<tr class="memdesc:a29a212b5ffe5723b3c2fe02aba0804c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet Wärmedurchgangskoeffizient.  <a href="#a29a212b5ffe5723b3c2fe02aba0804c0">More...</a><br /></td></tr>
+<tr class="memitem:a29a212b5ffe5723b3c2fe02aba0804c0"><td class="memItemLeft" align="right" valign="top"><a id="a29a212b5ffe5723b3c2fe02aba0804c0"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohr.html#a29a212b5ffe5723b3c2fe02aba0804c0">get_kA</a> ()</td></tr>
+<tr class="memdesc:a29a212b5ffe5723b3c2fe02aba0804c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet Wärmedurchgangskoeffizient. <br /></td></tr>
 <tr class="separator:a29a212b5ffe5723b3c2fe02aba0804c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07985e6f4a1d9dc8bfcfe2e5cc9f2a60"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohr.html#a07985e6f4a1d9dc8bfcfe2e5cc9f2a60">get_kA</a> (double x)</td></tr>
 <tr class="memdesc:a07985e6f4a1d9dc8bfcfe2e5cc9f2a60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet Wärmedurchgangskoeffizient an der Stelle x und speichert ihn auch unter kA.  <a href="#a07985e6f4a1d9dc8bfcfe2e5cc9f2a60">More...</a><br /></td></tr>
@@ -124,34 +125,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohr.html#a92be37f04575328b6b15de5ab2e511a9">set_t_aussen</a> (double t_aussen)</td></tr>
 <tr class="memdesc:a92be37f04575328b6b15de5ab2e511a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt Wert für Aussentemperatur. <br /></td></tr>
 <tr class="separator:a92be37f04575328b6b15de5ab2e511a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a653e53a000dd4ed025d1adbdb83f7859"><td class="memItemLeft" align="right" valign="top"><a id="a653e53a000dd4ed025d1adbdb83f7859"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohr.html#a653e53a000dd4ed025d1adbdb83f7859">get_k_s</a> ()</td></tr>
+<tr class="memdesc:a653e53a000dd4ed025d1adbdb83f7859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt Rohrrauheitswert aus. <br /></td></tr>
+<tr class="separator:a653e53a000dd4ed025d1adbdb83f7859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad93033ce4a63458e188cfc9d8771836e"><td class="memItemLeft" align="right" valign="top"><a id="ad93033ce4a63458e188cfc9d8771836e"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohr.html#ad93033ce4a63458e188cfc9d8771836e">get_startpressure</a> ()</td></tr>
+<tr class="memdesc:ad93033ce4a63458e188cfc9d8771836e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt Startdruck zurück. <br /></td></tr>
+<tr class="separator:ad93033ce4a63458e188cfc9d8771836e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9d6974bc17fde3cba4b67fb571c7ab7"><td class="memItemLeft" align="right" valign="top"><a id="ac9d6974bc17fde3cba4b67fb571c7ab7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rohr.html#ac9d6974bc17fde3cba4b67fb571c7ab7">set_startpressure</a> (double p_ein)</td></tr>
+<tr class="memdesc:ac9d6974bc17fde3cba4b67fb571c7ab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt Wert für Startdruck. <br /></td></tr>
+<tr class="separator:ac9d6974bc17fde3cba4b67fb571c7ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Stellt ein Rohrbauteil zur Verfügung. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a29a212b5ffe5723b3c2fe02aba0804c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29a212b5ffe5723b3c2fe02aba0804c0">&#9670;&nbsp;</a></span>get_kA() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Rohr::get_kA </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Berechnet Wärmedurchgangskoeffizient. </p>
-<p>Berechenet den Wärmdurchgangskoeffzient.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Anderer Ansatz: Es werden keine Werte der Funktion übergeben sondern in der Funktion get-Funktionen aufgerufen </dd></dl>
-<dl class="section see"><dt>See also</dt><dd>Fluid::set_cp_strom </dd></dl>
-
-</div>
-</div>
 <a id="a07985e6f4a1d9dc8bfcfe2e5cc9f2a60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07985e6f4a1d9dc8bfcfe2e5cc9f2a60">&#9670;&nbsp;</a></span>get_kA() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a07985e6f4a1d9dc8bfcfe2e5cc9f2a60">&#9670;&nbsp;</a></span>get_kA()</h2>
 
 <div class="memitem">
 <div class="memproto">
