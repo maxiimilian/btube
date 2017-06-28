@@ -8,11 +8,14 @@
 #include "test.h"
 
 #include <math.h>
+#include <QDialog>
 
 #include "../fluid.h"
 #include "../rohr.h"
 #include "../stroemung.h"
 #include "../cli.h"
+#include "../plotter.h"
+#include "../dateneingabe.h"
 
 
 /*!
@@ -126,6 +129,97 @@ void test_cli(){
                              "CLI wird mit Shell-Argmument gestartet",
                              "cli.cpp, main.cpp");
 }
+
+/*!
+ * \brief Testfunktion des Temperaturverlaufs
+ *
+ * Diese Funktion testet die Funktion get_temp() der Klasse Rohrstroemung. Damit werden
+ * indirekt auch die Funktionen für die Berechnung der Werte des angenommen Wärmetauschers
+ * sowie die Berechungsfunktionen für den Wärmekapazitätsstroms
+ *
+ * Der Rechenweg der Referenzwerte befindet sich im Wiki bei der
+ * entsprechenden Testdokumentation! (Scan der Rechenschritte)
+ */
+void test_Temperatur_Berechnung(){
+    bool testResult = true;
+
+    //Fluid erstellen mit Fluid-Konstruktor
+    Fluid test_fluid(1000, 1e-6, 5000);
+    //Rohr erstellen mit Rohr-Konstruktor
+    Rohr test_rohr(50, 1, 100e-6);
+    //Strömung erstellen mit Rohrkonstruktor
+    Rohrstroemung test_stroemung(&test_rohr, &test_fluid);
+
+    //Allgemeine Rohr und Fluid-Parameter setzen
+    test_fluid.set_massenstrom(1);
+    test_rohr.set_alpha_innen(3);
+    test_rohr.set_alpha_aussen(2);
+
+    /*
+     * Fall 1: Fluid wird von der Umgebung abgekühlt.
+     */
+     test_fluid.set_t_ein(400);
+     test_rohr.set_t_aussen(200);
+
+     //fabs-Funktion gibt den Betrag der Differenz wieder und erleichtert so die Fallunterscheidung
+     if(fabs(test_stroemung.get_temp()-346.080536) > 1e-5){
+          testResult = false;
+     }
+
+    /*
+     * Fall 2: Fluid wird von der Umgebung erwärmt.
+     */
+     test_fluid.set_t_ein(200);
+     test_rohr.set_t_aussen(400);
+
+     if(fabs(test_stroemung.get_temp()-253.919462) > 1e-5){
+          testResult = false;
+     }
+
+    /*
+     * Fall3: Fluid und Umgebung haben die gleiche Temperatur. Somit ändert das Fluid seine Temperatur nicht.
+     */
+     test_fluid.set_t_ein(300);
+     test_rohr.set_t_aussen(300);
+
+     if(fabs(test_stroemung.get_temp()-300.0) > 1e-5){
+          testResult = false;
+     }
+
+     APITest::printTestResult(testResult,
+                              "Fluidtemperatur",
+                              "Simon Thel",
+                              "Fluidtemperatur mit 3 verschiedenen Fällen: Abkühlung, Erwärmung und gleiche Temperaturen",
+                              "stroemung.cpp, (rohr.cpp, fluid.cpp implizit)");
+}
+
+/*!
+ * \brief Testfunktion des Werteplotters
+ *
+ * Diese Funktion überprüft ob die Plotterfunktion eine korrekte Anzahl an Datenpunkten erstellt. Wenn die
+ * Funktion einen Wert zurückgibt, zeigt dies ebenfalls, dass die Funktion vollständig ausgeführt worden ist.
+ */
+void test_Plotter(){
+    bool testResult = false;
+
+    //Fluid definieren
+    Fluid test_fluid (1, 1, 1);
+    //Rohr definieren
+    Rohr test_rohr(1, 1, 1e-5);
+    //Plotter defnieren
+    Plotter test_plotter;
+
+    if(test_plotter.erstellePlot(test_rohr, test_fluid) == 40202){
+       testResult = true;
+    }
+
+    APITest::printTestResult(testResult,
+                             "Plotter",
+                             "Simon Thel",
+                             "Erstellung der korrekten Anzahl an Datenpunkten; komplettes Durchlaufen der Plotterfunktion",
+                             "plotter.cpp");
+}
+
 #endif // TEST
 
 
@@ -136,6 +230,8 @@ void runTests(){
 	// Hier sollen die eigenen Tests hinzugefuegt werden
     test_lambda_Berechnung();
     test_cli();
+    test_Temperatur_Berechnung();
+    test_Plotter();
 
 	APITest::printTestEndFooter(); // Nicht modifizieren
 #endif //TEST // Nicht modifizieren
@@ -148,5 +244,4 @@ void runTests(){
 	#define RUNTEST
 #endif
 
-
-#endif //TESTDEFINITIONEN_H
+#endif

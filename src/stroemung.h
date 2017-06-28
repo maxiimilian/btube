@@ -20,6 +20,8 @@ class Rohrstroemung
         Rohr* rohr;
         Fluid* fluid;
 
+        double temp;
+
         double druckverlauf[2][101]={{0.0},{0.0}};
 
     public:

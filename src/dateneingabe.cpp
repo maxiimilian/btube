@@ -93,3 +93,4 @@ void DatenEingabe::on_pushButton_clicked()
         plotter.setModal(true);
         plotter.exec();
 }
+

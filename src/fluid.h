@@ -9,18 +9,26 @@ class Fluid
     private:
         /// Dichte des Fluids [kg/m^3]
         double dichte;
+
         /// kinematische Viskosität [m^2/s]
         double nue;
+
         /// Massenstrom [kg/s]
         double massenstrom;
+
         /// spez. isobare Wärmekapazität [J/(kg*K)]
         double cp;
+
         /// Eintrittstemperatur [K]
         double t_ein;
 
+        /// Wärmekapazitätsstrom
         double cp_strom;
 
     public:
+        /***************
+        * Konstruktor *
+        ***************/
         Fluid(double dichte, double nue, double cp);
 
         /***************

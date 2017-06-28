@@ -34,8 +34,14 @@ class Rohr
 
 
     public:
+        /***************
+        * Konstruktor *
+        ***************/
         Rohr(double l, double r, double k_s);
 
+        /***************
+         * GET methods *
+         ***************/
         /// Gibt Querschnittsfläche
         double get_querschnitt();
 
@@ -80,6 +86,15 @@ class Rohr
         ///Gibt Aussentemperatur zurück
         double get_t_aussen();
 
+        /// Gibt Rohrrauheitswert aus
+        double get_k_s();
+
+        /// Gibt Startdruck zurück
+        double get_startpressure();
+
+        /***************
+         * SET methods *
+         ***************/
         /// Setzt Wert für Konvektionswiderstand auf der Außenseite
         void set_alpha_aussen(double alpha_aussen);
 
@@ -88,12 +103,6 @@ class Rohr
 
         ///Setzt Wert für Aussentemperatur
         void set_t_aussen(double t_aussen);
-
-        /// Gibt Rohrrauheitswert aus
-        double get_k_s();
-
-        /// Gibt Startdruck zurück
-        double get_startpressure();
 
         /// Setzt Wert für Startdruck
         void set_startpressure(double p_ein);

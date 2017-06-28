@@ -108,17 +108,37 @@ double Rohr::get_startpressure(){
  * SET methods *
  ***************/
 void Rohr::set_startpressure(double p_ein){
-    this->p_ein = p_ein;
+    if (p_ein > 0){
+        this->p_ein = p_ein;
+    }
+    else {
+        throw std::out_of_range("Der Startdruck muss größer 0 sein!");
+    }
 }
 
 void Rohr::set_alpha_innen(double alpha_innen){
-    this->alpha_innen = alpha_innen;
+    if (alpha_innen > 0){
+        this->alpha_innen = alpha_innen;
+    }
+    else {
+        throw std::out_of_range("Der Konvektionswiderstand muss größer 0 sein!");
+    }
 }
 
 void Rohr::set_alpha_aussen(double alpha_aussen){
-    this->alpha_aussen = alpha_aussen;
+    if (alpha_aussen > 0){
+        this->alpha_aussen = alpha_aussen;
+    }
+    else {
+        throw std::out_of_range("Der Konvektionswiderstand muss größer 0 sein!");
+    }
 }
 
 void Rohr::set_t_aussen(double t_aussen){
-    this->t_aussen = t_aussen;
+    if (t_aussen > 0){
+        this->t_aussen = t_aussen;
+    }
+    else {
+        throw std::out_of_range("Die Temperatur wird in Kelvin gemessen und deshalb muss sie größer 0 sein!");
+    }
 }

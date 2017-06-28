@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
             return 0;
         }
         if(arg == "test"){
+            QApplication app(argc, argv);
             run_tests();
             return 0;
         }

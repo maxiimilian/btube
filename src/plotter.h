@@ -19,8 +19,12 @@ public:
     explicit Plotter(QWidget *parent = 0);
     /// Destruktorinitialisierung
     ~Plotter();
-    /// Plotterfunktion mit der Übergabe der Datentypen Rohr und Fluid
-    void erstellePlot(Rohr rohr, Fluid fluid);
+    /*!
+     * \brief Plotterfunktion mit der Übergabe der Datentypen Rohr und Fluid
+     *
+     * Der Rückgabewert dient nur der Testbarkeit der Funktion und wird für die Hauptaufgabe der Funktion keine Bedeutung.
+     */
+    int erstellePlot(Rohr rohr, Fluid fluid);
 
 private:
     Ui::Plotter *ui;
