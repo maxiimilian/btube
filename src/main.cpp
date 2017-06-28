@@ -18,19 +18,17 @@ int main(int argc, char *argv[])
             return 0;
         }
         if(arg == "test"){
+            QApplication app(argc, argv);
             run_tests();
             return 0;
         }
     }
-    // cout<<"argc: "<<argc<<endl;
-    // cout<<"argv: "<<argv<<endl;
 
     // GUI starten, wenn kein passendes Argument übergeben wurde
     QApplication app(argc, argv);
 
     DatenEingabe w;
     w.show();
-    // w.set_argv(argv);
 
     return app.exec();
 }

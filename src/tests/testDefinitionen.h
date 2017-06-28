@@ -8,7 +8,6 @@
 
 #include <math.h>
 #include <QDialog>
-#include <QApplication>
 
 #include "../fluid.h"
 #include "../rohr.h"
@@ -82,6 +81,17 @@ void test_lambda_Berechnung(){
                              "stroemung.cpp, (rohr.cpp, fluid.cpp implizit)");
 }
 
+/*!
+ * \brief Testfunktion des Temperaturverlaufs
+ *
+ * Diese Funktion testet die Funktion get_temp() der Klasse Rohrstroemung. Damit werden
+ * indirekt auch die Funktionen für die Berechnung der Werte des angenommen Wärmetauschers
+ * sowie die Berechungsfunktionen für den Wärmekapazitätsstroms
+ *
+ * Der Rechenweg der Referenzwerte befindet sich im Wiki bei der
+ * entsprechenden Testdokumentation! (Scan der Rechenschritte)
+ */
+
 void test_Temperatur_Berechnung(){
     bool testResult = true;
 
@@ -134,13 +144,16 @@ void test_Temperatur_Berechnung(){
                               "Fluidtemperatur mit 3 verschiedenen Fällen: Abkühlung, Erwärmung und gleiche Temperaturen",
                               "stroemung.cpp, (rohr.cpp, fluid.cpp implizit)");
 }
-/*
-void test_Plotter(){
-    bool testResult = true;
 
-    int argc = 1;
-    DatenEingabe w;
-    QApplication app(argc, w.get_argv);
+/*!
+ * \brief Testfunktion des Werteplotters
+ *
+ * Diese Funktion überprüft ob die Plotterfunktion eine korrekte Anzahl an Datenpunkten erstellt. Wenn die
+ * Funktion einen Wert zurückgibt, zeigt dies ebenfalls, dass die Funktion vollständig ausgeführt worden ist.
+ */
+
+void test_Plotter(){
+    bool testResult = false;
 
     //Fluid definieren
     Fluid test_fluid (1, 1, 1);
@@ -148,18 +161,17 @@ void test_Plotter(){
     Rohr test_rohr(1, 1, 1e-5);
     //Plotter defnieren
     Plotter test_plotter;
-    if(test_plotter.erstellePlot(test_rohr, test_fluid) != 40202){
-       testResult = false;
+
+    if(test_plotter.erstellePlot(test_rohr, test_fluid) == 40202){
+       testResult = true;
     }
 
     APITest::printTestResult(testResult,
                              "Plotter",
                              "Simon Thel",
-                             "Testet ob der Plotter eine korrekte Anzahl an Datenpunkten darstellt",
+                             "Erstellung der korrekten Anzahl an Datenpunkten; komplettes Durchlaufen der Plotterfunktion",
                              "plotter.cpp");
-
 }
-*/
 
 #endif // TEST
 
@@ -171,7 +183,7 @@ void runTests(){
 	// Hier sollen die eigenen Tests hinzugefuegt werden
     test_lambda_Berechnung();
     test_Temperatur_Berechnung();
-    // test_Plotter();
+    test_Plotter();
 
 
 	APITest::printTestEndFooter(); // Nicht modifizieren
