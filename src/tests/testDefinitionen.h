@@ -220,6 +220,41 @@ void test_Plotter(){
                              "plotter.cpp");
 }
 
+/*!
+ * \brief Testfunktion der Enddruckberechnung
+ *
+ * Diese Funktion testet die Berechnung des Enddrucks. Dafür wird
+ * eine Berechnung des Druckabfalls durch das Programm durchgeführt
+ * und mit einem manuell errechneten (richtigen) Ergebnis verglichen.
+ */
+void test_enddruck_Berechnung(){
+    bool testResult = true;
+
+    // Fluid definieren
+    Fluid wasser(1000, 1e-6, 4180);
+    // Rohr definieren
+    Rohr rohr(100, 0.5, 100e-6);
+    // Rohrströmung definieren
+    Rohrstroemung str_wasser(&rohr, &wasser);
+
+    /*
+     * Test für laminare Rohrströmung mit Wasser (Re = 1273)
+     */
+    wasser.set_massenstrom(1);
+    rohr.set_startpressure(100);
+    if(str_wasser.get_pressure(101)>99.99593978*1.00001 || str_wasser.get_pressure(100)<99.99593978*0.99999)
+    {
+      testResult = false;
+    }
+
+
+    APITest::printTestResult(testResult,
+                             "Enddruck",
+                             "Niklas Baumgardt",
+                             "Berechnung des Enddrucks nach Strecke x",
+                             "stroemung.cpp");
+}
+
 #endif // TEST
 
 
@@ -232,6 +267,7 @@ void runTests(){
     test_cli();
     test_Temperatur_Berechnung();
     test_Plotter();
+    test_enddruck_Berechnung();
 
 	APITest::printTestEndFooter(); // Nicht modifizieren
 #endif //TEST // Nicht modifizieren
