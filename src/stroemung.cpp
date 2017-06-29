@@ -122,7 +122,7 @@ double Rohrstroemung::get_pressure(double x){
     double rho = fluid->get_dichte();
     double v = this->get_speed();
 
-    return p-((lambda*x*rho*v*v)/(d*2));
+    return p-((lambda*x*rho*v*v)/(d*2))*0.00001;  //Berechnung des Enddrucks nach Strecke x mit Umrechnung [N/m²] in [bar]
 }
 
 //Berechnung des Strömungprofils [laminare Strömung (Hagen-Poisseuille'sche Rohrströmung)]
@@ -157,7 +157,7 @@ void Rohrstroemung::set_druckverlauf(){
 void Rohrstroemung::print_druckverlauf(){
     ofstream tabellenausgabe;
     tabellenausgabe.open("Druckverlauf.txt");
-    tabellenausgabe << setw(10) << right << "x-Wert [m]" << " | Druck" << endl;
+    tabellenausgabe << setw(10) << right << "x-Wert [m]" << " | Druck [bar]" << endl;
     for (int i=0; i<101; i++){                                                             //Textdatei wird geschrieben
     tabellenausgabe << setw(10) << right << this->druckverlauf[0][i] << " | " << this->druckverlauf[1][i] << endl;
     }

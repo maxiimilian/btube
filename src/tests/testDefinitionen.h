@@ -242,7 +242,7 @@ void test_enddruck_Berechnung(){
      */
     wasser.set_massenstrom(1);
     rohr.set_startpressure(100);
-    if(str_wasser.get_pressure(101)>99.99593978*1.00001 || str_wasser.get_pressure(100)<99.99593978*0.99999)
+    if(str_wasser.get_pressure(100)>99.999999959249*1.00000000001 || str_wasser.get_pressure(100)<99.999999959249*0.99999999999)
     {
       testResult = false;
     }
