@@ -26,6 +26,10 @@ double Rohrstroemung::get_Re(){
     return this->get_speed()*2*this->rohr->get_radius()/this->fluid->get_nue();
 }
 
+double Rohrstroemung::get_druckverlauffortest(){
+    return this->druckverlauf[1][100];
+}
+
 double Rohrstroemung::get_speed(){
 
     double A = this->rohr->get_querschnitt();

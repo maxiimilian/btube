@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <fstream>
 
 #ifdef TEST
 #include "test.h"
@@ -237,11 +238,10 @@ void test_enddruck_Berechnung(){
     // Rohrströmung definieren
     Rohrstroemung str_wasser(&rohr, &wasser);
 
-    /*
-     * Test für laminare Rohrströmung mit Wasser (Re = 1273)
-     */
+
     wasser.set_massenstrom(1);
     rohr.set_startpressure(100);
+
     if(str_wasser.get_pressure(100)>99.999999959249*1.00000000001 || str_wasser.get_pressure(100)<99.999999959249*0.99999999999)
     {
       testResult = false;
@@ -252,6 +252,41 @@ void test_enddruck_Berechnung(){
                              "Enddruck",
                              "Niklas Baumgardt",
                              "Berechnung des Enddrucks nach Strecke x",
+                             "stroemung.cpp");
+}
+
+/*!
+ * \brief Testfunktion der Wertetabellenausgabe
+ *
+ * Diese Funktion testet, ob ein errechneter Enddruck korrekt in den Array
+ * eingetragen wird. Dadurch wird implizit auch die fehlerfreie Übertragung in die Textdatei getestet.
+ */
+void test_Wertetabelle(){
+    bool testResult = true;
+
+    // Fluid definieren
+    Fluid wasser(1000, 1e-6, 4180);
+    // Rohr definieren
+    Rohr rohr(900, 0.01, 100e-6);
+    // Rohrströmung definieren
+    Rohrstroemung str_wasser(&rohr, &wasser);
+
+
+    wasser.set_massenstrom(1);
+    rohr.set_startpressure(1000);
+
+    str_wasser.set_druckverlauf();
+    if(str_wasser.get_druckverlauffortest() > str_wasser.get_pressure(900)*1.000001 || str_wasser.get_druckverlauffortest() < str_wasser.get_pressure(900)*0.999999)
+    {
+      cout << str_wasser.get_druckverlauffortest();
+      testResult = false;
+    }
+
+
+    APITest::printTestResult(testResult,
+                             "Wertetabelle",
+                             "Niklas Baumgardt",
+                             "Korrektes Fuellen der Wertetabelle",
                              "stroemung.cpp");
 }
 
@@ -268,6 +303,7 @@ void runTests(){
     test_Temperatur_Berechnung();
     test_Plotter();
     test_enddruck_Berechnung();
+    test_Wertetabelle();
 
 	APITest::printTestEndFooter(); // Nicht modifizieren
 #endif //TEST // Nicht modifizieren
