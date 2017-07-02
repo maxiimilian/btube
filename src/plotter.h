@@ -24,7 +24,7 @@ public:
      *
      * Der Rückgabewert dient nur der Testbarkeit der Funktion und wird für die Hauptaufgabe der Funktion keine Bedeutung.
      */
-    int erstellePlot(Rohr rohr, Fluid fluid);
+    int erstellePlot(Rohr *rohr, Fluid *fluid);
 
 private:
     Ui::Plotter *ui;

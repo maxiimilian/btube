@@ -19,12 +19,12 @@ Plotter::~Plotter()
     delete ui;
 }
 
-int Plotter::erstellePlot(Rohr rohr, Fluid fluid)
+int Plotter::erstellePlot(Rohr *rohr, Fluid *fluid)
 {
-    Rohrstroemung rohrstroemung(&rohr, &fluid);
+    Rohrstroemung rohrstroemung(rohr, fluid);
     /// Anlegen der Länge und des Radius als Variable damit Koordinatensysteme und for-Schleifen angepasst werden. Diese Variablen werden in allen drei Plotter verwendet
-    double l = rohr.get_laenge();
-    double r = rohr.get_radius();
+    double l = rohr->get_laenge();
+    double r = rohr->get_radius();
 
     /// Variable zum Zählen der Datenpunkte
     int datenpunkte = 0;
@@ -56,20 +56,20 @@ int Plotter::erstellePlot(Rohr rohr, Fluid fluid)
     ui->tempGraph->xAxis->setRange(0, l);
 
     /// Unterscheidung ob t_aussen oder t_ein größer ist; entsprechendes Setzen der y-Achsenbereichs
-    if (rohr.get_t_aussen() >= fluid.get_t_ein()){
+    if (rohr->get_t_aussen() >= fluid->get_t_ein()){
 
         /// Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen
-        double axis_plus = (rohr.get_t_aussen()-fluid.get_t_ein())/10;
+        double axis_plus = (rohr->get_t_aussen()-fluid->get_t_ein())/10;
 
         /// y-Achse beginnt kurz unter t_ein und endet kurz über t_aussen
-        ui->tempGraph->yAxis->setRange(fluid.get_t_ein() - axis_plus, rohr.get_t_aussen() + axis_plus);
+        ui->tempGraph->yAxis->setRange(fluid->get_t_ein() - axis_plus, rohr->get_t_aussen() + axis_plus);
     }
 
     /// Analoges Vorgehen wie im if-Statement
     /// \sa if(rohr.get_t_aussen >= fluid.get_t_ein())
     else{
-        double axis_plus = (fluid.get_t_ein()-rohr.get_t_aussen())/10;
-        ui->tempGraph->yAxis->setRange(rohr.get_t_aussen() -axis_plus, fluid.get_t_ein()+axis_plus);
+        double axis_plus = (fluid->get_t_ein()-rohr->get_t_aussen())/10;
+        ui->tempGraph->yAxis->setRange(rohr->get_t_aussen() -axis_plus, fluid->get_t_ein()+axis_plus);
     }
     ui->tempGraph->replot();
 
@@ -95,7 +95,7 @@ int Plotter::erstellePlot(Rohr rohr, Fluid fluid)
 
     /// Achsenbereich
     /// Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen
-    double axis_plus = (rohr.get_startpressure()-druck[100])/10;
+    double axis_plus = (rohr->get_startpressure()-druck[100])/10;
     /// x-Achse geht von 0 bis zur Länge des Rohres
     ui->druckGraph->xAxis->setRange(0, l);
 
@@ -105,7 +105,7 @@ int Plotter::erstellePlot(Rohr rohr, Fluid fluid)
      * Der Druck im Rohr wird aufgrund der Reibung ständig abnehmen. Eine Fallunterscheidung wie bei der Temperatur ist daher nicht nötig.
      * Der Bereich wird festgelegt vom niedirgsten Druckwert (m[100]) und dem Anfangsdruck. Zusätzlich wird noch ein Offset genau wie bei dem Temperaturverlauf berücksichtigt
      */
-    ui->druckGraph->yAxis->setRange(druck[100]-axis_plus, rohr.get_startpressure()+axis_plus);
+    ui->druckGraph->yAxis->setRange(druck[100]-axis_plus, rohr->get_startpressure()+axis_plus);
 
     ui->druckGraph->replot();
 
@@ -136,7 +136,7 @@ int Plotter::erstellePlot(Rohr rohr, Fluid fluid)
     double radius;
     double geschwindigkeit;
     colorMap->data()->setSize(anz_laenge_pkt, anz_radius_pkt);
-    colorMap->data()->setRange(QCPRange(0, rohr.get_laenge()), QCPRange((-1)*rohr.get_radius(), rohr.get_radius()));
+    colorMap->data()->setRange(QCPRange(0, rohr->get_laenge()), QCPRange((-1)*rohr->get_radius(), rohr->get_radius()));
 
     /*!
      * \brief Iterartion über die Strömungsfunktion und Speicherung der Werte in einer Cell.
