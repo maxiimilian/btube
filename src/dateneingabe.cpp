@@ -45,16 +45,16 @@ void DatenEingabe::on_pushButton_clicked()
         double t_ein=ui->temp_Innen->value();
 
         // Leeren Rohrpointer erstellen
-        Rohr* rohr = NULL;
+        Rohr* rohr_ptr = NULL;
         try{
             // Rohrobjekt auf Rohrpointer erstellen und eventuelle Exceptions abfangen
-            rohr = new Rohr(laenge, radius, k_s);
+            rohr_ptr = new Rohr(laenge, radius, k_s);
 
             // Parameter für das Rohr werden festgesetzt
-            rohr->set_alpha_innen(alpha_innen);
-            rohr->set_alpha_aussen(alpha_aussen);
-            rohr->set_t_aussen(t_aus);
-            rohr->set_startpressure(p_ein);
+            rohr_ptr->set_alpha_innen(alpha_innen);
+            rohr_ptr->set_alpha_aussen(alpha_aussen);
+            rohr_ptr->set_t_aussen(t_aus);
+            rohr_ptr->set_startpressure(p_ein);
         }
         catch (const std::exception& e) {
             // Fehlermeldung ausgeben...
@@ -113,17 +113,17 @@ void DatenEingabe::on_pushButton_clicked()
         */
 
         // Öffnet einen Dialog/Fenster, dass die Bearbeitung des Elternfenster verhindert
-        Plotter* plotter_ptr = new Plotter;
         try {
-                plotter_ptr->erstellePlot(rohr, fluid_ptr);
+            Plotter plotter;
+            plotter.erstellePlot(rohr_ptr, fluid_ptr);
+            plotter.setModal(true);
+            plotter.exec();
         } catch (const std::exception& e) {
             // Fehlermeldung ausgeben...
             this->show_warning(e.what());
             // ... und Initialisierung nicht weiter fortführen
             return;
         }
-        plotter_ptr->setModal(true);
-        plotter_ptr->exec();
 }
 
 void DatenEingabe::show_warning(const char* msg){
