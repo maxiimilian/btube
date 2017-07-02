@@ -210,7 +210,7 @@ void test_Plotter(){
     //Plotter defnieren
     Plotter test_plotter;
 
-    if(test_plotter.erstellePlot(test_rohr, test_fluid) == 40202){
+    if(test_plotter.erstellePlot(&test_rohr, &test_fluid) == 40202){
        testResult = true;
     }
 
