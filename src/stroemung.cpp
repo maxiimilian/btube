@@ -26,6 +26,10 @@ double Rohrstroemung::get_Re(){
     return this->get_speed()*2*this->rohr->get_radius()/this->fluid->get_nue();
 }
 
+double Rohrstroemung::get_druckverlauffortest(){
+    return this->druckverlauf[1][100];
+}
+
 double Rohrstroemung::get_speed(){
 
     double A = this->rohr->get_querschnitt();
@@ -111,6 +115,7 @@ double Rohrstroemung::get_temp(double x){
     }
 }
 
+//Berechnung des noch vorhandenen Drucks nach Entfernung x
 double Rohrstroemung::get_pressure(double x){
     //double vstart = this->get_speed(0);
     //double vpoint = this->get_speed(x);
@@ -121,7 +126,7 @@ double Rohrstroemung::get_pressure(double x){
     double rho = fluid->get_dichte();
     double v = this->get_speed();
 
-    return p-((lambda*x*rho*v*v)/(d*2));
+    return p-((lambda*x*rho*v*v)/(d*2))*0.00001;  //Berechnung des Enddrucks nach Strecke x mit Umrechnung [N/m²] in [bar]
 }
 
 //Berechnung des Strömungprofils [laminare Strömung (Hagen-Poisseuille'sche Rohrströmung)]
@@ -140,21 +145,24 @@ double Rohrstroemung::get_stroemung(double r, double x){
 /***************
  * SET methods *
  ***************/
+
+//Füllen des Arrays für die Werte des Druckverlaufs
 void Rohrstroemung::set_druckverlauf(){
-    double x = rohr->get_laenge() / 100;
+    double x = rohr->get_laenge() / 100;                    //Stückelung in 100 Teile
     this->druckverlauf[0][0] = 0;
     this->druckverlauf[1][0] = rohr->get_startpressure();
-    for(int i=1; i<101; i++){
+    for(int i=1; i<101; i++){                               //Array wird gefüllt
         this->druckverlauf[0][i] = i*x;
         this->druckverlauf[1][i] = get_pressure(i*x);
     }
 }
 
+//Ausgabe der Werte des Druckverlaufs in Form einer Wertetabelle in einer Textdatei
 void Rohrstroemung::print_druckverlauf(){
     ofstream tabellenausgabe;
     tabellenausgabe.open("Druckverlauf.txt");
-    tabellenausgabe << setw(10) << right << "x-Wert [m]" << " | Druck" << endl;
-    for (int i=0; i<101; i++){
+    tabellenausgabe << setw(10) << right << "x-Wert [m]" << " | Druck [bar]" << endl;
+    for (int i=0; i<101; i++){                                                             //Textdatei wird geschrieben
     tabellenausgabe << setw(10) << right << this->druckverlauf[0][i] << " | " << this->druckverlauf[1][i] << endl;
     }
     tabellenausgabe.close();
