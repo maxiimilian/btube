@@ -13,7 +13,7 @@ using namespace std;
  * Konstruktor *
  ***************/
 Rohrstroemung::Rohrstroemung(Rohr* rohr, Fluid* fluid){
-    // Rohr und Fluid mit der Rohrströmung verbinden
+    /// Rohr und Fluid mit der Rohrströmung verbinden
     this->rohr = rohr;
     this->fluid = fluid;
 }
@@ -43,31 +43,28 @@ double Rohrstroemung::get_lambda(){
     double Re = get_Re();
 
     if(Re < 2300){
-        // Laminare Strömung, Gesetz von Hagen-Poiseuille (1)
+        /// Laminare Strömung, Gesetz von Hagen-Poiseuille (1)
         return 64/Re;
     }
     // Zulässige Rohrrauheit, für die noch die hydraulisch glatte Strömung gilt
     double k_s_zul = 10*this->fluid->get_nue()/this->get_speed();
 
     if(this->rohr->get_k_s() <= k_s_zul){
-        // hydraulisch glatt
+        /// hydraulisch glatt
 
         if(Re < 1e5){
-            // turbulent, aber hydraulisch glatt (2)
+            /// turbulent, aber hydraulisch glatt (2)
             return 0.3164/pow(Re, 0.25);
         }
 
-        // Re > 1e5 (3)
+        /// Re > 1e5 (3)
         LambdaTurbulentGlattSolver ltgs;
         return ltgs.get_lambda(Re);
     }
     else {
-        // raue Strömung (5)
+        /// raue Strömung (5)
         return pow(1/(1.74-2*log10(this->rohr->get_k_s()/this->rohr->get_radius())),2);
     }
-
-    // Fallback / Schätzung
-    return 0.03;
 }
 
 double Rohrstroemung::get_bauart(){

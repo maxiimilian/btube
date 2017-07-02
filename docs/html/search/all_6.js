@@ -7,6 +7,7 @@ var searchData=
   ['get_5fcp',['get_cp',['../class_fluid.html#a86bf10785c4c5822eabf9245f0b39ae0',1,'Fluid']]],
   ['get_5fcp_5fstrom',['get_cp_strom',['../class_fluid.html#a5c589565d1bde26bc83125e3e8939796',1,'Fluid']]],
   ['get_5fdichte',['get_dichte',['../class_fluid.html#acb9e3346c0871ad5fefc9d11dcfc3283',1,'Fluid']]],
+  ['get_5fdruckverlauffortest',['get_druckverlauffortest',['../class_rohrstroemung.html#a1f0c06b0e89a1d8ffaf073038efdddd9',1,'Rohrstroemung']]],
   ['get_5fepsilon',['get_epsilon',['../class_rohrstroemung.html#a47b2ddadb37169a3a21bcc914a772894',1,'Rohrstroemung::get_epsilon()'],['../class_rohrstroemung.html#ab3a28b86a6a2d630a4c37f0054fb0288',1,'Rohrstroemung::get_epsilon(double x)']]],
   ['get_5fk_5fs',['get_k_s',['../class_rohr.html#a653e53a000dd4ed025d1adbdb83f7859',1,'Rohr']]],
   ['get_5fka',['get_kA',['../class_rohr.html#a29a212b5ffe5723b3c2fe02aba0804c0',1,'Rohr::get_kA()'],['../class_rohr.html#a07985e6f4a1d9dc8bfcfe2e5cc9f2a60',1,'Rohr::get_kA(double x)']]],

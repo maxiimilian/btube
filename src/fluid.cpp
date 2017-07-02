@@ -5,7 +5,7 @@
  * KONSTRUKTOR *
  ***************/
 Fluid::Fluid(double dichte, double nue, double cp){
-    // Validieren, dass Dichte und Viskosität größer Null sind
+    /// Validieren, dass Dichte und Viskosität größer Null sind
     if(nue > 0){
         this->nue = nue;
     }
