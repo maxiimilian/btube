@@ -22,9 +22,6 @@ class Fluid
         /// Eintrittstemperatur [K]
         double t_ein;
 
-        /// Wärmekapazitätsstrom
-        double cp_strom;
-
     public:
         /***************
         * Konstruktor *

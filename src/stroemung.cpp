@@ -98,7 +98,7 @@ double Rohrstroemung::get_epsilon(double x){
 }
 
 double Rohrstroemung::get_temp(){
-    return this->temp = this->fluid->get_t_ein() + this->get_epsilon() * (this->rohr->get_t_aussen() - this->fluid->get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
+    return this->fluid->get_t_ein() + this->get_epsilon() * (this->rohr->get_t_aussen() - this->fluid->get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
 }
 
 double Rohrstroemung::get_temp(double x){

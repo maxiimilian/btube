@@ -44,9 +44,11 @@ int Plotter::erstellePlot(Rohr *rohr, Fluid *fluid)
       ///Zählen der Datenpunkte
       datenpunkte++;
     }
+
     /// Graphen erstellen und Achsen festlegen:
     ui->tempGraph->addGraph();
     ui->tempGraph->graph(0)->setData(laenge_inkrement, temperatur);
+
     /// Achsenbeschriftung:
     ui->tempGraph->xAxis->setLabel("Länge in [m]");
     ui->tempGraph->yAxis->setLabel("Temperatur des Fluids in [K]");
@@ -113,16 +115,17 @@ int Plotter::erstellePlot(Rohr *rohr, Fluid *fluid)
     /*******************
      * Strömungsprofil *
      *******************/
-    /// Möglichkeit die Farbskala durch Dragging oder Zoomen zu ändern
-    ui->speedGraph->setInteractions(QCP::iRangeDrag|QCP::iRangeZoom);
+    /// Möglichkeit die Farbskala und den Graphen durch Dragging oder Zoomen zu ändern
+    /// \warning Dies ist in dieser Version deaktiviert, da die Veränderung des Graphen zu unerwünschten Darstellungen führen kann.
+    /* ui->speedGraph->setInteractions(QCP::iRangeDrag|QCP::iRangeZoom);
     ui->speedGraph->axisRect()->setupFullAxesBox(true);
+    */
 
     /// Achsenbeschriftung
     ui->speedGraph->xAxis->setLabel("Länge in [m]");
     ui->speedGraph->yAxis->setLabel("Radius in [m]");
 
      ///aufstellen der QCPColorMap
-
     QCPColorMap *colorMap = new QCPColorMap(ui->speedGraph->xAxis, ui->speedGraph->yAxis);
 
     /*! \brief Größe der ColorMap wird festgelegt
@@ -143,7 +146,6 @@ int Plotter::erstellePlot(Rohr *rohr, Fluid *fluid)
      *
      * Über die multivariate Funktion der Geschwindigkeit wird mittels zweier for-Schleifen iteriert. Die Daten werden dann der QColorMap zugewiesen
      */
-
     for (int laenge_index=0; laenge_index < anz_laenge_pkt; ++laenge_index)
     {
       for (int radius_index=0; radius_index < anz_radius_pkt; ++radius_index)
