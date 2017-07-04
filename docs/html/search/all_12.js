@@ -8,7 +8,6 @@ var searchData=
   ['tickstepstrategy',['TickStepStrategy',['../class_q_c_p_axis_ticker.html#ab6d2f9d9477821623ac9bc4b21ddf49a',1,'QCPAxisTicker']]],
   ['timeseriestoohlc',['timeSeriesToOhlc',['../class_q_c_p_financial.html#a9a058c035040d3939b8884f4aaccb1a7',1,'QCPFinancial']]],
   ['timeunit',['TimeUnit',['../class_q_c_p_axis_ticker_time.html#a5c48ded8c6d3a1aca9b68219469fea3e',1,'QCPAxisTickerTime']]],
-  ['todo_20list',['Todo List',['../todo.html',1,'']]],
   ['top',['top',['../class_q_c_p_axis_rect.html#a45dbad181cbb9f09d068dbb76c817c95',1,'QCPAxisRect']]],
   ['topainter',['toPainter',['../class_q_custom_plot.html#a1be68d5c0f1e086d6374d1340a193fb9',1,'QCustomPlot']]],
   ['topixmap',['toPixmap',['../class_q_custom_plot.html#aabb974d71ce96c137dc04eb6eab844fe',1,'QCustomPlot']]],

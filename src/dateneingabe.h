@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QDoubleSpinBox>
 #include <QRadioButton>
+#include <string>
 
 namespace Ui {
 class DatenEingabe;
@@ -17,19 +18,14 @@ public:
     explicit DatenEingabe(QWidget *parent = 0);
     ~DatenEingabe();
 
-    /*
-    void set_argv (char **argv);
-
-    char** get_argv();
-    */
+    /// Show a QMessageBox Warning with the given message
+    void show_warning(const char *msg);
 
 private slots:
 
     void on_pushButton_clicked();
 
 private:
-
-    // char* argv;
 
     Ui::DatenEingabe *ui;
 

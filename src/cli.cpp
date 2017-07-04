@@ -2,6 +2,7 @@
 #include "rohr.h"
 #include "fluid.h"
 #include "stroemung.h"
+#include "math.h"
 
 #define TEST
 #include "tests/testDefinitionen.h"
@@ -15,11 +16,11 @@ void start_cli(){
          << "**********************************" << endl << endl; 
 
     // Rohrparameter abfragen
-    double laenge_in = 0;
-    double radius_in = 0;
-    double k_s_in = 0;
-    double alpha_innen = 0;
-    double alpha_aussen = 0;
+    double laenge_in;
+    double radius_in;
+    double k_s_in;
+    double alpha_innen;
+    double alpha_aussen;
     
     cout << "Rohrparameter eingeben:" << endl
          << "-----------------------" << endl;
@@ -29,9 +30,9 @@ void start_cli(){
     cin >> radius_in;
     cout << "Rohrrauheit [m]: ";
     cin >> k_s_in;
-    cout << "Wärmeübergangsk. Fluid->Rohr [W/(m^2*K)]: "; 
+    cout << "Hinweis: Zur Vereinfachung wird angenommen, dass das Rohr infinitesimal dünn ist." << endl;
+    cout << "Wärmeübergangsk. Fluid->Rohr [W/(m^2*K)]: ";
     cin >> alpha_innen;
-    cout << "!!! Zur Vereinfachung wird angenommen, dass das Rohr infinitesimal dünn ist !!!" << endl;
     cout << "Wärmeübergangsk. Rohr->Umgebung [W/(m^2*K)]: "; 
     cin >> alpha_aussen;
 
@@ -42,11 +43,12 @@ void start_cli(){
     cout << "Rohrquerschnitt: " << rohr.get_querschnitt() << " m^2" << endl << endl;
 
     // Fluid initialisieren
-    double massenstrom_in = 10;
-    double dichte_in = 1000;
-    double nue_in = 5e-6;
-    double cp_in = 4182;
-    double t_ein = 180;
+    double massenstrom_in;
+    double dichte_in;
+    double nue_in;
+    double cp_in;
+    double t_ein;
+    double p_in;
 
     cout << "Fluidparameter eingeben:" << endl
          << "------------------------" << endl;
@@ -54,6 +56,8 @@ void start_cli(){
     cin >> massenstrom_in;
     cout << "Dichte [kg/m^3]: ";
     cin >> dichte_in;
+    cout << "Eintrittsdruck [bar]: ";
+    cin >> p_in;
     cout << "kin. Viskosität [m^2/s]: ";
     cin >> nue_in;
     cout << "spez. isobare Wärmekapazität [J/(kg*K)]: ";
@@ -66,6 +70,7 @@ void start_cli(){
     Fluid fluid(dichte_in, nue_in, cp_in);
     fluid.set_massenstrom(massenstrom_in);
     fluid.set_t_ein(t_ein);
+    rohr.set_startpressure(p_in);
 
     // Umgebungsparameter eingeben
     double t_aussen = 273; 
@@ -80,17 +85,53 @@ void start_cli(){
     // Rohrströmung zusammenbauen
     Rohrstroemung rohrstroemung(&rohr, &fluid);
 
+   // Ergebnisse ausgeben
     cout << "***************************" << endl
          << "* Berechnete Rohrströmung *" << endl
          << "***************************" << endl; 
 
-    cout << "Rohrreibungsbeiwert [1]: " << rohrstroemung.get_lambda() << endl;
+    // Strömungsmechanische Ausgaben
     cout << "Strömungsgeschwindigkeit [m/s]: " << rohrstroemung.get_speed() << endl;
     cout << "Reynoldszahl [1]: " << rohrstroemung.get_Re() << endl;
-    cout << "kA [?]: " << rohr.get_kA() << endl;
-    cout << "Bauart [?]: " << rohrstroemung.get_bauart() << endl;
-    cout << "Epsilon [?]: " <<rohrstroemung.get_epsilon() << endl;
-    cout << "Austrittstemperatur [K]: " << rohrstroemung.get_temp() <<endl;
+    cout << "Rohrreibungsbeiwert [1]: " << rohrstroemung.get_lambda() << endl;
+    cout << "Austrittsdruck [bar]: " << rohrstroemung.get_pressure(rohr.get_laenge()) << endl;
+    cout << "Druckverlust [bar]: " << fabs(p_in - rohrstroemung.get_pressure(rohr.get_laenge())) << endl;
+
+    // Thermodynamische Ausgaben
+    cout << "Wärmeübertragungsfähigkeit kA [W/K]: " << rohr.get_kA() << endl;
+    cout << "Austrittstemperatur [K]: " << rohrstroemung.get_temp() << endl;
+    cout << "Temperaturdifferenz [K]: " << fabs(t_ein - rohrstroemung.get_temp(rohr.get_laenge())) << endl << endl;
+
+    // Abfrage, ob Strömungsprofil berechnet werden soll
+    char str_profil_answer;
+    do {
+        cout << "Möchten Sie außerdem das Strömungsprofil berechnen? [Y/N]";
+        cin >> str_profil_answer;
+    }
+    while((str_profil_answer != 'Y') && (str_profil_answer != 'N'));
+
+    // Falls gewünscht, Strömungsprofil berechnen
+    if(str_profil_answer == 'Y'){
+        // Abfrage, an welcher Stelle x berechnet werden soll.
+        double str_profil_x;
+        do {
+            cout << endl << "Bitte geben Sie eine Stelle x im Rohr an: ";
+            cin >> str_profil_x;
+        }while((str_profil_x < 0) || (str_profil_x > rohr.get_laenge()));
+
+        // Auflösung festlegen: Mit n Datenpunkten über Radius iterieren
+        double str_profil_n = 20;
+
+        // Enthält Wert des Radius, dessen Geschwindigkeit berechnet werden soll
+        double str_profil_r;
+
+        // Berechnung ausführen
+        for(int i = 0; i < str_profil_n; i++){
+            str_profil_r = rohr.get_radius()*i/str_profil_n;
+            cout << "r[" << str_profil_r << "]=" << rohrstroemung.get_stroemung(str_profil_r, str_profil_x) << " m/s" << endl;
+        }
+    }
+
 
 }
 

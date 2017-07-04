@@ -13,7 +13,7 @@ using namespace std;
  * Konstruktor *
  ***************/
 Rohrstroemung::Rohrstroemung(Rohr* rohr, Fluid* fluid){
-    // Rohr und Fluid mit der Rohrströmung verbinden
+    /// Rohr und Fluid mit der Rohrströmung verbinden
     this->rohr = rohr;
     this->fluid = fluid;
 }
@@ -24,6 +24,10 @@ Rohrstroemung::Rohrstroemung(Rohr* rohr, Fluid* fluid){
 double Rohrstroemung::get_Re(){
     // Re_D zurückgeben
     return this->get_speed()*2*this->rohr->get_radius()/this->fluid->get_nue();
+}
+
+double Rohrstroemung::get_druckverlauffortest(){
+    return this->druckverlauf[1][100];
 }
 
 double Rohrstroemung::get_speed(){
@@ -39,31 +43,28 @@ double Rohrstroemung::get_lambda(){
     double Re = get_Re();
 
     if(Re < 2300){
-        // Laminare Strömung, Gesetz von Hagen-Poiseuille (1)
+        /// Laminare Strömung, Gesetz von Hagen-Poiseuille (1)
         return 64/Re;
     }
     // Zulässige Rohrrauheit, für die noch die hydraulisch glatte Strömung gilt
     double k_s_zul = 10*this->fluid->get_nue()/this->get_speed();
 
     if(this->rohr->get_k_s() <= k_s_zul){
-        // hydraulisch glatt
+        /// hydraulisch glatt
 
         if(Re < 1e5){
-            // turbulent, aber hydraulisch glatt (2)
+            /// turbulent, aber hydraulisch glatt (2)
             return 0.3164/pow(Re, 0.25);
         }
 
-        // Re > 1e5 (3)
+        /// Re > 1e5 (3)
         LambdaTurbulentGlattSolver ltgs;
         return ltgs.get_lambda(Re);
     }
     else {
-        // raue Strömung (5)
+        /// raue Strömung (5)
         return pow(1/(1.74-2*log10(this->rohr->get_k_s()/this->rohr->get_radius())),2);
     }
-
-    // Fallback / Schätzung
-    return 0.03;
 }
 
 double Rohrstroemung::get_bauart(){
@@ -97,7 +98,7 @@ double Rohrstroemung::get_epsilon(double x){
 }
 
 double Rohrstroemung::get_temp(){
-    return this->temp = this->fluid->get_t_ein() + this->get_epsilon() * (this->rohr->get_t_aussen() - this->fluid->get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
+    return this->fluid->get_t_ein() + this->get_epsilon() * (this->rohr->get_t_aussen() - this->fluid->get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
 }
 
 double Rohrstroemung::get_temp(double x){
@@ -111,6 +112,7 @@ double Rohrstroemung::get_temp(double x){
     }
 }
 
+//Berechnung des noch vorhandenen Drucks nach Entfernung x
 double Rohrstroemung::get_pressure(double x){
     //double vstart = this->get_speed(0);
     //double vpoint = this->get_speed(x);
@@ -121,7 +123,7 @@ double Rohrstroemung::get_pressure(double x){
     double rho = fluid->get_dichte();
     double v = this->get_speed();
 
-    return p-((lambda*x*rho*v*v)/(d*2));
+    return p-((lambda*x*rho*v*v)/(d*2))*0.00001;  //Berechnung des Enddrucks nach Strecke x mit Umrechnung [N/m²] in [bar]
 }
 
 //Berechnung des Strömungprofils [laminare Strömung (Hagen-Poisseuille'sche Rohrströmung)]
@@ -140,21 +142,24 @@ double Rohrstroemung::get_stroemung(double r, double x){
 /***************
  * SET methods *
  ***************/
+
+//Füllen des Arrays für die Werte des Druckverlaufs
 void Rohrstroemung::set_druckverlauf(){
-    double x = rohr->get_laenge() / 100;
+    double x = rohr->get_laenge() / 100;                    //Stückelung in 100 Teile
     this->druckverlauf[0][0] = 0;
     this->druckverlauf[1][0] = rohr->get_startpressure();
-    for(int i=1; i<101; i++){
+    for(int i=1; i<101; i++){                               //Array wird gefüllt
         this->druckverlauf[0][i] = i*x;
         this->druckverlauf[1][i] = get_pressure(i*x);
     }
 }
 
+//Ausgabe der Werte des Druckverlaufs in Form einer Wertetabelle in einer Textdatei
 void Rohrstroemung::print_druckverlauf(){
     ofstream tabellenausgabe;
     tabellenausgabe.open("Druckverlauf.txt");
-    tabellenausgabe << setw(10) << right << "x-Wert [m]" << " | Druck" << endl;
-    for (int i=0; i<101; i++){
+    tabellenausgabe << setw(10) << right << "x-Wert [m]" << " | Druck [bar]" << endl;
+    for (int i=0; i<101; i++){                                                             //Textdatei wird geschrieben
     tabellenausgabe << setw(10) << right << this->druckverlauf[0][i] << " | " << this->druckverlauf[1][i] << endl;
     }
     tabellenausgabe.close();

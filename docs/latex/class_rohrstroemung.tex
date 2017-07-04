@@ -12,12 +12,11 @@ Beschriebt eine Rohrströmung.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_rohrstroemung_aafc515ab901ac78c1aef2c615eb38eff}\label{class_rohrstroemung_aafc515ab901ac78c1aef2c615eb38eff}} 
-{\bfseries Rohrstroemung} (\hyperlink{class_rohr}{Rohr} rohr, \hyperlink{class_fluid}{Fluid} fluid)
+\hyperlink{class_rohrstroemung_aa8ee146566f18b2a4ca4cbfc1946c2b8}{Rohrstroemung} (\hyperlink{class_rohr}{Rohr} $\ast$rohr, \hyperlink{class_fluid}{Fluid} $\ast$fluid)
 \item 
 \mbox{\Hypertarget{class_rohrstroemung_aa491056aa77acac305aca0fde9c3e8bc}\label{class_rohrstroemung_aa491056aa77acac305aca0fde9c3e8bc}} 
 double \hyperlink{class_rohrstroemung_aa491056aa77acac305aca0fde9c3e8bc}{get\+\_\+\+Re} ()
-\begin{DoxyCompactList}\small\item\em Reynoldszahl des Member-\/\+Fluids berechnen. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Reynoldszahl des Member-\/\+Fluids berechnen (u$\ast$d/nue) \end{DoxyCompactList}\item 
 double \hyperlink{class_rohrstroemung_a7ea25aca94625ef68bf856d957419d26}{get\+\_\+lambda} ()
 \begin{DoxyCompactList}\small\item\em Rohrreibungszahl Lambda berechnen, in Abhängigkeit von Re. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_rohrstroemung_aa4f7d016ed9f920b8e8f0c9bdbae5213}\label{class_rohrstroemung_aa4f7d016ed9f920b8e8f0c9bdbae5213}} 
@@ -32,9 +31,6 @@ double \hyperlink{class_rohrstroemung_a47b2ddadb37169a3a21bcc914a772894}{get\+\_
 \mbox{\Hypertarget{class_rohrstroemung_adc94a5748b40f9e47448a11e55809593}\label{class_rohrstroemung_adc94a5748b40f9e47448a11e55809593}} 
 double \hyperlink{class_rohrstroemung_adc94a5748b40f9e47448a11e55809593}{get\+\_\+temp} (double x)
 \begin{DoxyCompactList}\small\item\em Berechnet Austrittstemperatur. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohrstroemung_adaf6779654f5f8d01845bf38aa9655f9}\label{class_rohrstroemung_adaf6779654f5f8d01845bf38aa9655f9}} 
-double \hyperlink{class_rohrstroemung_adaf6779654f5f8d01845bf38aa9655f9}{get\+\_\+startpressure} ()
-\begin{DoxyCompactList}\small\item\em Gibt Startdruck zurück. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_rohrstroemung_abf6265814d9ae0d148aeecb6092d8c2f}\label{class_rohrstroemung_abf6265814d9ae0d148aeecb6092d8c2f}} 
 double \hyperlink{class_rohrstroemung_abf6265814d9ae0d148aeecb6092d8c2f}{get\+\_\+pressure} (double x)
 \begin{DoxyCompactList}\small\item\em Berechnung des Drucks an der Stelle x. \end{DoxyCompactList}\item 
@@ -46,7 +42,19 @@ double \hyperlink{class_rohrstroemung_ab3a28b86a6a2d630a4c37f0054fb0288}{get\+\_
 \begin{DoxyCompactList}\small\item\em Berechnet Epsilon an der Stelle x. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_rohrstroemung_a17fccbf71ba0dc1635e3a06fdc740cf3}\label{class_rohrstroemung_a17fccbf71ba0dc1635e3a06fdc740cf3}} 
 double \hyperlink{class_rohrstroemung_a17fccbf71ba0dc1635e3a06fdc740cf3}{get\+\_\+bauart} (double x)
-\begin{DoxyCompactList}\small\item\em Berechnet die Bauart an der Stelle x. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Berechnet die Bauart an der Stelle x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohrstroemung_a1eae88254e88fbb314096c795ec2fac2}\label{class_rohrstroemung_a1eae88254e88fbb314096c795ec2fac2}} 
+double \hyperlink{class_rohrstroemung_a1eae88254e88fbb314096c795ec2fac2}{get\+\_\+stroemung} (double r, double x)
+\begin{DoxyCompactList}\small\item\em Berechnung des Strömungsprofils. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohrstroemung_a1f0c06b0e89a1d8ffaf073038efdddd9}\label{class_rohrstroemung_a1f0c06b0e89a1d8ffaf073038efdddd9}} 
+double \hyperlink{class_rohrstroemung_a1f0c06b0e89a1d8ffaf073038efdddd9}{get\+\_\+druckverlauffortest} ()
+\begin{DoxyCompactList}\small\item\em Gibt letzten Druckwert zurück (für Testing) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohrstroemung_ade5cf2d08a2c2c23d951d54ff2d05325}\label{class_rohrstroemung_ade5cf2d08a2c2c23d951d54ff2d05325}} 
+void \hyperlink{class_rohrstroemung_ade5cf2d08a2c2c23d951d54ff2d05325}{set\+\_\+druckverlauf} ()
+\begin{DoxyCompactList}\small\item\em Ausfüllen des Druckverlauf-\/\+Arrays. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohrstroemung_a3adc6cad22e5ab2132b3d82b7368ba8e}\label{class_rohrstroemung_a3adc6cad22e5ab2132b3d82b7368ba8e}} 
+void \hyperlink{class_rohrstroemung_a3adc6cad22e5ab2132b3d82b7368ba8e}{print\+\_\+druckverlauf} ()
+\begin{DoxyCompactList}\small\item\em Eintragen des Druckverlauf-\/\+Arrays in Textdatei. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -55,9 +63,21 @@ Beschriebt eine Rohrströmung.
 Benötigt dazu Objekte von \hyperlink{class_rohr}{Rohr} und \hyperlink{class_fluid}{Fluid}.
 
 \begin{DoxyWarning}{Warning}
-Es werden keine kompressiblen Fluide oder Ablösungen und Einlaufstörungen am Ein-\/ und Ausgang des Rohrs berücksichtigt. 
+Es werden keine kompressiblen Fluide oder Ablösungen und Einlaufstörungen am Ein-\/ und Ausgang des Rohrs berücksichtigt.
 \end{DoxyWarning}
+\begin{DoxyNote}{Note}
+Zur Laufzeitoptimierung werden dieser Funktion nur Pointer auf \hyperlink{class_rohr}{Rohr} und \hyperlink{class_fluid}{Fluid} übergeben! 
+\end{DoxyNote}
 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_rohrstroemung_aa8ee146566f18b2a4ca4cbfc1946c2b8}\label{class_rohrstroemung_aa8ee146566f18b2a4ca4cbfc1946c2b8}} 
+\index{Rohrstroemung@{Rohrstroemung}!Rohrstroemung@{Rohrstroemung}}
+\index{Rohrstroemung@{Rohrstroemung}!Rohrstroemung@{Rohrstroemung}}
+\subsubsection{\texorpdfstring{Rohrstroemung()}{Rohrstroemung()}}
+{\footnotesize\ttfamily Rohrstroemung\+::\+Rohrstroemung (\begin{DoxyParamCaption}\item[{\hyperlink{class_rohr}{Rohr} $\ast$}]{rohr,  }\item[{\hyperlink{class_fluid}{Fluid} $\ast$}]{fluid }\end{DoxyParamCaption})}
+
+\hyperlink{class_rohr}{Rohr} und \hyperlink{class_fluid}{Fluid} mit der Rohrströmung verbinden 
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_rohrstroemung_a7ea25aca94625ef68bf856d957419d26}\label{class_rohrstroemung_a7ea25aca94625ef68bf856d957419d26}} 
@@ -73,7 +93,15 @@ Rohrreibungszahl Lambda berechnen, in Abhängigkeit von Re.
 \begin{DoxySeeAlso}{See also}
 \hyperlink{class_rohrstroemung_aa491056aa77acac305aca0fde9c3e8bc}{get\+\_\+\+Re()} 
 \end{DoxySeeAlso}
+Laminare Strömung, Gesetz von Hagen-\/\+Poiseuille (1)
 
+hydraulisch glatt
+
+turbulent, aber hydraulisch glatt (2)
+
+Re $>$ 1e5 (3)
+
+raue Strömung (5) 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

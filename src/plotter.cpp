@@ -19,12 +19,12 @@ Plotter::~Plotter()
     delete ui;
 }
 
-int Plotter::erstellePlot(Rohr rohr, Fluid fluid)
+int Plotter::erstellePlot(Rohr *rohr, Fluid *fluid)
 {
-    Rohrstroemung rohrstroemung(&rohr, &fluid);
+    Rohrstroemung rohrstroemung(rohr, fluid);
     /// Anlegen der Länge und des Radius als Variable damit Koordinatensysteme und for-Schleifen angepasst werden. Diese Variablen werden in allen drei Plotter verwendet
-    double l = rohr.get_laenge();
-    double r = rohr.get_radius();
+    double l = rohr->get_laenge();
+    double r = rohr->get_radius();
 
     /// Variable zum Zählen der Datenpunkte
     int datenpunkte = 0;
@@ -33,20 +33,22 @@ int Plotter::erstellePlot(Rohr rohr, Fluid fluid)
      * Temperaturprofil *
      *********************/
     /// initilaisieren von QVectoren mit Einträgen von 0..100
-    QVector<double> x(101), y(101);
+    QVector<double> laenge_inkrement (101), temperatur (101);
 
     ///Iterieren über ortsabhängige get_temp-Funktion
     for (int i=0; i<=100; ++i)  //Es müssen 100 Einträge gefüllt werden
     {
-      x[i] = i * (l/100);
-      y[i] = rohrstroemung.get_temp(i * (l/100));
+      laenge_inkrement [i] = i * (l/100);
+      temperatur [i] = rohrstroemung.get_temp(i * (l/100));
 
       ///Zählen der Datenpunkte
       datenpunkte++;
     }
+
     /// Graphen erstellen und Achsen festlegen:
     ui->tempGraph->addGraph();
-    ui->tempGraph->graph(0)->setData(x, y);
+    ui->tempGraph->graph(0)->setData(laenge_inkrement, temperatur);
+
     /// Achsenbeschriftung:
     ui->tempGraph->xAxis->setLabel("Länge in [m]");
     ui->tempGraph->yAxis->setLabel("Temperatur des Fluids in [K]");
@@ -56,20 +58,20 @@ int Plotter::erstellePlot(Rohr rohr, Fluid fluid)
     ui->tempGraph->xAxis->setRange(0, l);
 
     /// Unterscheidung ob t_aussen oder t_ein größer ist; entsprechendes Setzen der y-Achsenbereichs
-    if (rohr.get_t_aussen() >= fluid.get_t_ein()){
+    if (rohr->get_t_aussen() >= fluid->get_t_ein()){
 
         /// Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen
-        double axis_plus = (rohr.get_t_aussen()-fluid.get_t_ein())/10;
+        double axis_plus = (rohr->get_t_aussen()-fluid->get_t_ein())/10;
 
         /// y-Achse beginnt kurz unter t_ein und endet kurz über t_aussen
-        ui->tempGraph->yAxis->setRange(fluid.get_t_ein() - axis_plus, rohr.get_t_aussen() + axis_plus);
+        ui->tempGraph->yAxis->setRange(fluid->get_t_ein() - axis_plus, rohr->get_t_aussen() + axis_plus);
     }
 
     /// Analoges Vorgehen wie im if-Statement
     /// \sa if(rohr.get_t_aussen >= fluid.get_t_ein())
     else{
-        double axis_plus = (fluid.get_t_ein()-rohr.get_t_aussen())/10;
-        ui->tempGraph->yAxis->setRange(rohr.get_t_aussen() -axis_plus, fluid.get_t_ein()+axis_plus);
+        double axis_plus = (fluid->get_t_ein()-rohr->get_t_aussen())/10;
+        ui->tempGraph->yAxis->setRange(rohr->get_t_aussen() -axis_plus, fluid->get_t_ein()+axis_plus);
     }
     ui->tempGraph->replot();
 
@@ -77,26 +79,25 @@ int Plotter::erstellePlot(Rohr rohr, Fluid fluid)
      * Durckverlauf *
      ****************/
 
-    /// Initilaisieren von QVectoren mit Einträgen von 0..100
-    QVector<double> g(101), m(101);
+    /// Initilaisieren von einem QVector mit Einträgen von 0..100
+    QVector<double> druck (101);
     for (int i=0; i<=100; ++i)
     {
-      g[i] =i * (l/100);
-      m[i] = rohrstroemung.get_pressure(i * (l/100));
+      druck[i] = rohrstroemung.get_pressure(i * (l/100));
 
       ///Zählen der Datenpunkte
       datenpunkte++;
     }
 
     ui->druckGraph->addGraph();
-    ui->druckGraph->graph(0)->setData(g, m);
+    ui->druckGraph->graph(0)->setData(laenge_inkrement, druck);
 
     ui->druckGraph->xAxis->setLabel("Länge in [m]");
     ui->druckGraph->yAxis->setLabel("Druck in [bar]");
 
     /// Achsenbereich
     /// Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen
-    double axis_plus = (rohr.get_startpressure()-m[100])/10;
+    double axis_plus = (rohr->get_startpressure()-druck[100])/10;
     /// x-Achse geht von 0 bis zur Länge des Rohres
     ui->druckGraph->xAxis->setRange(0, l);
 
@@ -106,7 +107,7 @@ int Plotter::erstellePlot(Rohr rohr, Fluid fluid)
      * Der Druck im Rohr wird aufgrund der Reibung ständig abnehmen. Eine Fallunterscheidung wie bei der Temperatur ist daher nicht nötig.
      * Der Bereich wird festgelegt vom niedirgsten Druckwert (m[100]) und dem Anfangsdruck. Zusätzlich wird noch ein Offset genau wie bei dem Temperaturverlauf berücksichtigt
      */
-    ui->druckGraph->yAxis->setRange(m[100]-axis_plus, rohr.get_startpressure()+axis_plus);
+    ui->druckGraph->yAxis->setRange(druck[100]-axis_plus, rohr->get_startpressure()+axis_plus);
 
     ui->druckGraph->replot();
 
@@ -114,52 +115,50 @@ int Plotter::erstellePlot(Rohr rohr, Fluid fluid)
     /*******************
      * Strömungsprofil *
      *******************/
-    /// Möglichkeit die Farbskala durch Dragging oder Zoomen zu ändern
-    ui->speedGraph->setInteractions(QCP::iRangeDrag|QCP::iRangeZoom);
+    /// Möglichkeit die Farbskala und den Graphen durch Dragging oder Zoomen zu ändern
+    /// \warning Dies ist in dieser Version deaktiviert, da die Veränderung des Graphen zu unerwünschten Darstellungen führen kann.
+    /* ui->speedGraph->setInteractions(QCP::iRangeDrag|QCP::iRangeZoom);
     ui->speedGraph->axisRect()->setupFullAxesBox(true);
+    */
 
     /// Achsenbeschriftung
     ui->speedGraph->xAxis->setLabel("Länge in [m]");
     ui->speedGraph->yAxis->setLabel("Radius in [m]");
 
-    /*!
-     * \brief aufstellen der QCPColorMap
-     * \warning  Wir verwenden die Variablen s für die Länge, t für den Radius und u für die FLuidgeschwindigekeit ,damit dies nicht mit den Vatriablen aus
-        dem Temperaturprofil kollidiert
-     */
+     ///aufstellen der QCPColorMap
     QCPColorMap *colorMap = new QCPColorMap(ui->speedGraph->xAxis, ui->speedGraph->yAxis);
 
     /*! \brief Größe der ColorMap wird festgelegt
      *
-     * Die ColorMap wird ns*nt groß sein bzw. Bildpunkte haben.
+     * Die ColorMap wird anz_laenge_pkt*anz_radius_pkt groß sein bzw. Bildpunkte haben.
      * Der Achsberecheich für die x-Achse geht von 0 über die gesamte Länge des Rohres. Der Achsbereich für die y-Achse geht über den Gesamtenquerschnitt (von -r bis r)
      */
-    int ns = 200;
-    int nt = 200;
-    colorMap->data()->setSize(ns, nt);
-    colorMap->data()->setRange(QCPRange(0, rohr.get_laenge()), QCPRange((-1)*rohr.get_radius(), rohr.get_radius()));
+    int anz_laenge_pkt = 200;
+    int anz_radius_pkt = 200;
+    double laenge;
+    double radius;
+    double geschwindigkeit;
+    colorMap->data()->setSize(anz_laenge_pkt, anz_radius_pkt);
+    colorMap->data()->setRange(QCPRange(0, rohr->get_laenge()), QCPRange((-1)*rohr->get_radius(), rohr->get_radius()));
 
     /*!
      * \brief Iterartion über die Strömungsfunktion und Speicherung der Werte in einer Cell.
      *
      * Über die multivariate Funktion der Geschwindigkeit wird mittels zweier for-Schleifen iteriert. Die Daten werden dann der QColorMap zugewiesen
      */
-    double s;
-    double t;
-    double u;
-    for (int sIndex=0; sIndex<ns; ++sIndex)
+    for (int laenge_index=0; laenge_index < anz_laenge_pkt; ++laenge_index)
     {
-      for (int tIndex=0; tIndex<ns; ++tIndex)
+      for (int radius_index=0; radius_index < anz_radius_pkt; ++radius_index)
       {
-       colorMap->data()->cellToCoord(sIndex, tIndex, &s, &t);
+       colorMap->data()->cellToCoord(laenge_index, radius_index, &laenge, &radius);
 
        /*!
         * \brief Anpassung der Iterationsschritte an die Länge und Radius des Rohrs.
         *
         * Der Radius geht von -r bis r, sodass dieser Iterationsschritt nur mit dem Faktor (r/100) angepasst werden muss
         */
-       u = rohrstroemung.get_stroemung(tIndex*(r/100), sIndex*(l/200));
-       colorMap->data()->setCell(sIndex, tIndex, u);
+       geschwindigkeit = rohrstroemung.get_stroemung(radius_index*(r/100), laenge_index*(l/200));
+       colorMap->data()->setCell(laenge_index, radius_index, geschwindigkeit);
 
        ///Zählen der Datenpunkte
        datenpunkte++;
@@ -203,6 +202,6 @@ int Plotter::erstellePlot(Rohr rohr, Fluid fluid)
     /// Anpassung der Größe der Achsen an Widgetgröße:
     ui->speedGraph->rescaleAxes();
 
-    ///Rückgabe der Anzahl der Datenpunkte
+    ///Rückgabe des Testwerts
     return datenpunkte;
 }

@@ -33,7 +33,7 @@ var searchData=
   ['restore',['restore',['../class_q_c_p_painter.html#a64908e6298d5bbd83457dc987cc3a022',1,'QCPPainter']]],
   ['right',['right',['../class_q_c_p_axis_rect.html#a3f819d4a1b2193723d1fdafc573eea10',1,'QCPAxisRect']]],
   ['rohr',['Rohr',['../class_rohr.html',1,'']]],
-  ['rohrstroemung',['Rohrstroemung',['../class_rohrstroemung.html',1,'']]],
+  ['rohrstroemung',['Rohrstroemung',['../class_rohrstroemung.html',1,'Rohrstroemung'],['../class_rohrstroemung.html#aa8ee146566f18b2a4ca4cbfc1946c2b8',1,'Rohrstroemung::Rohrstroemung()']]],
   ['rowcoltoindex',['rowColToIndex',['../class_q_c_p_layout_grid.html#a682ba76f130810ffd294032a1bfbcfcb',1,'QCPLayoutGrid']]],
   ['rowcount',['rowCount',['../class_q_c_p_layout_grid.html#a19c66fd76cbce58a8e94f33797e0c0aa',1,'QCPLayoutGrid']]],
   ['rpimmediaterefresh',['rpImmediateRefresh',['../class_q_custom_plot.html#a45d61392d13042e712a956d27762aa39aa6eda645ccf1a60635df3e8b71ea6ae2',1,'QCustomPlot']]],
