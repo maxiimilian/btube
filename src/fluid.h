@@ -55,6 +55,9 @@ class Fluid
         /// dynamische Viskosität wird zurückgegeben
         double get_my();
 
+        /// Gibt Massenstrom zurück (für Testing)
+        double get_massenstrom_test();
+
         /***************
          * SET methods *
          ***************/

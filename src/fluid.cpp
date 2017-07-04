@@ -1,4 +1,5 @@
 #include "fluid.h"
+#include "stroemung.h"
 #include <stdexcept>
 
 /***************
@@ -88,4 +89,8 @@ void Fluid::set_t_ein(double t_ein){
     else {
         throw std::out_of_range("Die Temperatur wird in Kelvin gemessen und deshalb muss sie größer 0 sein!");
     }
+}
+
+double Fluid::get_massenstrom_test(){
+    return this -> massenstrom;
 }

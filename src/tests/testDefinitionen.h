@@ -2,20 +2,21 @@
 #define TESTDEFINITIONEN_H
 
 #include <iostream>
+#include <cstring>
+#include <fstream>
 
 #ifdef TEST
 #include "test.h"
 
 #include <math.h>
 #include <QDialog>
-#include <QApplication>
 
 #include "../fluid.h"
 #include "../rohr.h"
 #include "../stroemung.h"
+#include "../cli.h"
 #include "../plotter.h"
 #include "../dateneingabe.h"
-
 
 
 /*!
@@ -82,6 +83,64 @@ void test_lambda_Berechnung(){
                              "stroemung.cpp, (rohr.cpp, fluid.cpp implizit)");
 }
 
+/*!
+ * \brief Testfunktion der Konsolenausgabe
+ *
+ * Testet, ob die interaktive Konsole gestartet wird,
+ * wenn dem Programm das Argument 'cli' in der Shell übergeben wird.
+ */
+void test_cli(){
+    bool testResult = true;
+
+    // Globalen Ausführungspfad aufrufen und 'cli' anhängen
+    extern std::string run_path;
+    std::string run_path_cli = run_path + " cli";
+    const char* run_path_cli_char = run_path_cli.c_str();
+
+    // Einen Dateihandler und eine 8 Bit Buffer deklarieren
+    FILE *in;
+    char buff[8];
+
+    // Das Programm ruft sich selbst mit Parameter 'cli' auf und schreibt
+    // den Output in den Dateihandler in
+    if(!(in = popen(run_path_cli_char, "r"))){
+        testResult = false;
+    }
+    else {
+        // Die ersten 8 Bit der stdout-Ausgabe in den buffer lesen
+        fgets(buff, sizeof(buff), in);
+
+        /* File handle kann hier nicht geschlossen werden, da der Test sonst blockiert wird.
+         * Dies liegt daran, dass der Prozess sich selbst aufruft. Der Handle bleibt daher offen 
+         * und wird zum Laufzeitende automatisch geschlossen
+         *
+         * pclose(in);
+         */
+
+        // Test nicht erfolgreich, falls im ersten Buffer KEIN * vorkommt! 
+        if(strchr(buff, '*') == NULL){
+            testResult = false;
+        }
+    }
+
+    // Testergebnis ausgeben
+    APITest::printTestResult(testResult,
+                             "CLI",
+                             "Maximilian Pierzyna",
+                             "CLI wird mit Shell-Argmument gestartet",
+                             "cli.cpp, main.cpp");
+}
+
+/*!
+ * \brief Testfunktion des Temperaturverlaufs
+ *
+ * Diese Funktion testet die Funktion get_temp() der Klasse Rohrstroemung. Damit werden
+ * indirekt auch die Funktionen für die Berechnung der Werte des angenommen Wärmetauschers
+ * sowie die Berechungsfunktionen für den Wärmekapazitätsstroms
+ *
+ * Der Rechenweg der Referenzwerte befindet sich im Wiki bei der
+ * entsprechenden Testdokumentation! (Scan der Rechenschritte)
+ */
 void test_Temperatur_Berechnung(){
     bool testResult = true;
 
@@ -134,13 +193,15 @@ void test_Temperatur_Berechnung(){
                               "Fluidtemperatur mit 3 verschiedenen Fällen: Abkühlung, Erwärmung und gleiche Temperaturen",
                               "stroemung.cpp, (rohr.cpp, fluid.cpp implizit)");
 }
-/*
-void test_Plotter(){
-    bool testResult = true;
 
-    int argc = 1;
-    DatenEingabe w;
-    QApplication app(argc, w.get_argv);
+/*!
+ * \brief Testfunktion des Werteplotters
+ *
+ * Diese Funktion überprüft ob die Plotterfunktion eine korrekte Anzahl an Datenpunkten erstellt. Wenn die
+ * Funktion einen Wert zurückgibt, zeigt dies ebenfalls, dass die Funktion vollständig ausgeführt worden ist.
+ */
+void test_Plotter(){
+    bool testResult = false;
 
     //Fluid definieren
     Fluid test_fluid (1, 1, 1);
@@ -148,18 +209,91 @@ void test_Plotter(){
     Rohr test_rohr(1, 1, 1e-5);
     //Plotter defnieren
     Plotter test_plotter;
-    if(test_plotter.erstellePlot(test_rohr, test_fluid) != 40202){
-       testResult = false;
+
+    if(test_plotter.erstellePlot(test_rohr, test_fluid) == 40202){
+       testResult = true;
     }
 
     APITest::printTestResult(testResult,
                              "Plotter",
                              "Simon Thel",
-                             "Testet ob der Plotter eine korrekte Anzahl an Datenpunkten darstellt",
+                             "Erstellung der korrekten Anzahl an Datenpunkten; komplettes Durchlaufen der Plotterfunktion",
                              "plotter.cpp");
-
 }
-*/
+
+/*!
+ * \brief Testfunktion der Enddruckberechnung
+ *
+ * Diese Funktion testet die Berechnung des Enddrucks. Dafür wird
+ * eine Berechnung des Druckabfalls durch das Programm durchgeführt
+ * und mit einem manuell errechneten (richtigen) Ergebnis verglichen.
+ */
+void test_enddruck_Berechnung(){
+    bool testResult = true;
+
+    // Fluid definieren
+    Fluid wasser(1000, 1e-6, 4180);
+    // Rohr definieren
+    Rohr rohr(100, 0.5, 100e-6);
+    // Rohrströmung definieren
+    Rohrstroemung str_wasser(&rohr, &wasser);
+
+
+    wasser.set_massenstrom(1);
+    rohr.set_startpressure(100);
+
+    if(str_wasser.get_pressure(100)>99.999999959249*1.00000000001 || str_wasser.get_pressure(100)<99.999999959249*0.99999999999)
+    {
+      testResult = false;
+    }
+
+
+    APITest::printTestResult(testResult,
+                             "Enddruck",
+                             "Niklas Baumgardt",
+                             "Berechnung des Enddrucks nach Strecke x",
+                             "stroemung.cpp");
+}
+
+/*!
+ * \brief Testfunktion der Wertetabellenausgabe
+ *
+ * Diese Funktion testet, ob ein errechneter Enddruck korrekt in den Array
+ * eingetragen wird. Dadurch wird implizit auch die fehlerfreie Übertragung in die Textdatei getestet.
+ */
+void test_Wertetabelle(){
+    bool testResult = true;
+
+    // Fluid definieren
+    Fluid wasser(1000, 1e-6, 4180);
+    // Rohr definieren
+    Rohr rohr(900, 0.01, 100e-6);
+    // Rohrströmung definieren
+    Rohrstroemung str_wasser(&rohr, &wasser);
+
+
+    wasser.set_massenstrom(1);
+    rohr.set_startpressure(1000);
+
+    str_wasser.set_druckverlauf();
+    if(str_wasser.get_druckverlauffortest() > str_wasser.get_pressure(900)*1.000001 || str_wasser.get_druckverlauffortest() < str_wasser.get_pressure(900)*0.999999)
+    {
+      cout << str_wasser.get_druckverlauffortest();
+      testResult = false;
+    }
+
+
+    APITest::printTestResult(testResult,
+                             "Wertetabelle",
+                             "Niklas Baumgardt",
+                             "Korrektes Fuellen der Wertetabelle",
+                             "stroemung.cpp");
+}
+/*!
+ * \brief Testfunktion für die set-Funktionen
+ *
+ * Diese Funktion testet, ob die set-Funktionen die Werte richtig übergeben
+ */
 
 #endif // TEST
 
@@ -170,9 +304,11 @@ void runTests(){
 
 	// Hier sollen die eigenen Tests hinzugefuegt werden
     test_lambda_Berechnung();
+    test_cli();
     test_Temperatur_Berechnung();
-    // test_Plotter();
-
+    test_Plotter();
+    test_enddruck_Berechnung();
+    test_Wertetabelle();
 
 	APITest::printTestEndFooter(); // Nicht modifizieren
 #endif //TEST // Nicht modifizieren
@@ -185,5 +321,4 @@ void runTests(){
 	#define RUNTEST
 #endif
 
-
-#endif //TESTDEFINITIONEN_H
+#endif

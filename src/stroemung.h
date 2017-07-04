@@ -66,6 +66,9 @@ class Rohrstroemung
         /// Berechnung des Strömungsprofils
         double get_stroemung(double r, double x);
 
+        /// Gibt letzten Druckwert zurück (für Testing)
+        double get_druckverlauffortest();
+
         /***************
          * SET methods *
          ***************/
