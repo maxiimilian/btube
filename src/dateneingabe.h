@@ -25,6 +25,14 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_Wasser_clicked();
+
+    void on_Oel_clicked();
+
+    void on_Luft_clicked();
+
+    void on_Benutzerdefiniert_clicked();
+
 private:
 
     Ui::DatenEingabe *ui;

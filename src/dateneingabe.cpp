@@ -22,25 +22,51 @@ DatenEingabe::~DatenEingabe()
     delete ui;
 }
 
+void DatenEingabe::on_Wasser_clicked()
+{
+    ui->Dichte->setValue(1000);
+    ui->Viskositaet->setValue(.00001);
+    ui->cpwert->setValue(4182);
+}
+
+void DatenEingabe::on_Oel_clicked()
+{
+    ui->Dichte->setValue(910);
+    ui->Viskositaet->setValue(0.000084);
+    ui->cpwert->setValue(1970);
+}
+
+void DatenEingabe::on_Luft_clicked()
+{
+    ui->Dichte->setValue(1.293);
+    ui->Viskositaet->setValue(.000017);
+    ui->cpwert->setValue(1005);
+}
+
+void DatenEingabe::on_Benutzerdefiniert_clicked()
+{
+    ui->Dichte->setValue(0);
+    ui->Viskositaet->setValue(0);
+    ui->cpwert->setValue(0);
+}
+
 void DatenEingabe::on_pushButton_clicked()
 {
-        // Doubles aus denen das Fluid spaeter erstellt, wird initialisiert
-        double dichte_in;
-        double nue_in;
-        double cp_in;
-
         // Werte für die Erstellung des Rohrs werden aus der GUI eingelesen und gespeichert
         double laenge=ui->laenge->value();
         double radius=ui->radius->value();
         double k_s=ui->ksrohr->value()/1e6;
 
-        // Druck, Konvektionswiderstände, Temperaturen und Massenstrom werden aus der GUI eingelesen und gespeichert
+        // Druck, Konvektionswiderstände, Temperaturen, Massenstrom, Dichte, Viskosität und cp-Wert werden aus der GUI eingelesen und gespeichert
         double p_ein=ui->druckein->value();
         double alpha_innen=ui->alpha_innen->value();
         double alpha_aussen=ui->alpha_aussen->value();
         double t_aus=ui->temp_aussen->value();
         double massenstrom_in=ui->Massenstrom->value();
         double t_ein=ui->temp_Innen->value();
+        double dichte_in=ui->Dichte->value();
+        double nue_in=ui->Viskositaet->value();
+        double cp_in=ui->cpwert->value();
 
         // Leeren Rohrpointer erstellen
         Rohr* rohr_ptr = NULL;
@@ -59,34 +85,6 @@ void DatenEingabe::on_pushButton_clicked()
             this->show_warning(e.what());
             // ... und Initialisierung nicht weiter fortführen
             return;
-        }
-
-        // Fluid Eigenschaften von Wasser (Dichte, Nue und Cp-Wert)
-        if(ui->Wasser->isChecked()){
-            dichte_in = 1000;
-            nue_in = 10e-6;
-            cp_in = 4182;
-        }
-
-        // Fluid Eigenschaften von Luft (Dichte, Nue und Cp-Wert)
-        if(ui->Luft->isChecked()){
-            dichte_in = 1.293;
-            nue_in = 17.1e-6;
-            cp_in = 1005;
-        }
-
-        // Fluid Eigenschaften von Olivenoel (Dichte, Nue und Cp-Wert)
-        if(ui->Oel->isChecked()){
-            dichte_in = 910;
-            nue_in = 84e-6;
-            cp_in = 1970;
-        }
-
-        // Vom Benutzer festgelegte Fluid-Werte werden eingelesen
-        if(ui->Benutzerdefiniert->isChecked()){
-            dichte_in=ui->Dichte->value(); // Benutzer legt Werte für Parameter fest //
-            nue_in=ui->Viskositaet->value();
-            cp_in=ui->cpwert->value();
         }
 
         // Leeren Fluidpointer erstellen
