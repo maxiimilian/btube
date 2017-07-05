@@ -108,9 +108,8 @@ void DatenEingabe::on_pushButton_clicked()
         rohrstroemung.print_druckverlauf();
         */
 
-        // Öffnet einen Dialog/Fenster, dass die Bearbeitung des Elternfenster verhindert
-
         try {
+            // Öffnet einen Dialog/Fenster, dass die Bearbeitung des Elternfenster verhindert
             Plotter plotter;
             plotter.erstellePlot(rohr_ptr, fluid_ptr);
             plotter.setModal(true);
