@@ -2,7 +2,6 @@ var searchData=
 [
   ['mainkey',['mainKey',['../class_q_c_p_graph_data.html#a72fdaf738f679ef93bea3d552ba42d1b',1,'QCPGraphData::mainKey()'],['../class_q_c_p_curve_data.html#ac805ffc8b4207652efb9fcc6a2cdd3e8',1,'QCPCurveData::mainKey()'],['../class_q_c_p_bars_data.html#a8c1d09e63b0e90a6c1fba56ddeaa8964',1,'QCPBarsData::mainKey()'],['../class_q_c_p_statistical_box_data.html#a4bbbf44f60ac5eca73c5f4135741562e',1,'QCPStatisticalBoxData::mainKey()'],['../class_q_c_p_financial_data.html#af6ed6349c65d938fabd2e4dd2cd499ff',1,'QCPFinancialData::mainKey()']]],
   ['mainvalue',['mainValue',['../class_q_c_p_graph_data.html#a1b1e440a430a4a83d9a3f6f247510f27',1,'QCPGraphData::mainValue()'],['../class_q_c_p_curve_data.html#a39a94131e5f62f16b256bcf8c47a3205',1,'QCPCurveData::mainValue()'],['../class_q_c_p_bars_data.html#a360d975e587f9e84259aaec172efb10b',1,'QCPBarsData::mainValue()'],['../class_q_c_p_statistical_box_data.html#a0df3cb31cfd6d48decf6173297b81746',1,'QCPStatisticalBoxData::mainValue()'],['../class_q_c_p_financial_data.html#a65206c76b6f31a57e04dc7da88c9be60',1,'QCPFinancialData::mainValue()']]],
-  ['mainwindow',['MainWindow',['../class_main_window.html',1,'']]],
   ['makenoncosmetic',['makeNonCosmetic',['../class_q_c_p_painter.html#a7e63fbcf47e35c6f2ecd11b8fef7c7d8',1,'QCPPainter']]],
   ['marginside',['MarginSide',['../namespace_q_c_p.html#a7e487e3e2ccb62ab7771065bab7cae54',1,'QCP']]],
   ['marginsidetoaxistype',['marginSideToAxisType',['../class_q_c_p_axis.html#ac0a6b77bd52bec6c81cd62d167cfeba6',1,'QCPAxis']]],

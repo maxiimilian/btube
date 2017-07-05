@@ -210,7 +210,7 @@ void test_Plotter(){
     //Plotter defnieren
     Plotter test_plotter;
 
-    if(test_plotter.erstellePlot(test_rohr, test_fluid) == 40202){
+    if(test_plotter.erstellePlot(&test_rohr, &test_fluid) == 40202){
        testResult = true;
     }
 
@@ -295,6 +295,63 @@ void test_Wertetabelle(){
  * Diese Funktion testet, ob die set-Funktionen die Werte richtig übergeben
  */
 
+void test_set_funktionen(){
+    bool testResult = false;
+
+    // Fluid definieren
+    Fluid wasser(1000, 1e-6, 4180);
+    // Rohr definieren
+    Rohr rohr(100, 0.5, 100e-6);
+    // Rohrströmung definieren
+    Rohrstroemung str_wasser(&rohr, &wasser);
+
+    wasser.set_massenstrom(1);
+
+    if (wasser.get_massenstrom_test() == 1){
+     testResult = true;
+    }
+
+    APITest::printTestResult(testResult,
+                             "set-Funktionen",
+                             "Malte Braband",
+                             "korrekte Uebergabe der Werte",
+                             "dateneingabe.cpp");
+}
+
+/*!
+ * \brief Testfunktion für die Berechnung des Strömungsprofils
+ *
+ * Diese Funktion testet die korrekte Berechnung des Strömungsprofils.
+ * Damit wird indirekt aus die Funktion get_my() gestestet.
+ * Die Vergleichsergebnisse wurden per Hand errechnet.
+ * Die Rechenschritte dazu befinden sich im Wiki unter dem Punkt Testing.
+ */
+
+void test_stroemungsprofil(){
+    bool testResult = true;
+
+    // Fluid definieren
+    Fluid wasser(1000, 1e-6, 4182);
+    // Rohr definieren
+    Rohr rohr(10, 1, 10e-6);
+    // Rohrströmung definieren
+    Rohrstroemung str_wasser(&rohr, &wasser);
+
+    wasser.set_massenstrom(1);
+    rohr.set_startpressure(2);
+
+
+    if (fabs(str_wasser.get_stroemung(0,10)) - 0.006365 > 1e-5 ){
+     testResult = false;
+    }
+
+    APITest::printTestResult(testResult,
+                             "Stroemungsprofil",
+                             "Malte Braband",
+                             "Berechnung des Stroemungsprofils",
+                             "stroemung.cpp");
+}
+
 #endif // TEST
 
 
@@ -309,6 +366,8 @@ void runTests(){
     test_Plotter();
     test_enddruck_Berechnung();
     test_Wertetabelle();
+    test_set_funktionen();
+    test_stroemungsprofil();
 
 	APITest::printTestEndFooter(); // Nicht modifizieren
 #endif //TEST // Nicht modifizieren

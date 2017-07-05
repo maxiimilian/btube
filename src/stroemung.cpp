@@ -13,7 +13,7 @@ using namespace std;
  * Konstruktor *
  ***************/
 Rohrstroemung::Rohrstroemung(Rohr* rohr, Fluid* fluid){
-    // Rohr und Fluid mit der Rohrströmung verbinden
+    /// Rohr und Fluid mit der Rohrströmung verbinden
     this->rohr = rohr;
     this->fluid = fluid;
 }
@@ -43,31 +43,28 @@ double Rohrstroemung::get_lambda(){
     double Re = get_Re();
 
     if(Re < 2300){
-        // Laminare Strömung, Gesetz von Hagen-Poiseuille (1)
+        /// Laminare Strömung, Gesetz von Hagen-Poiseuille (1)
         return 64/Re;
     }
     // Zulässige Rohrrauheit, für die noch die hydraulisch glatte Strömung gilt
     double k_s_zul = 10*this->fluid->get_nue()/this->get_speed();
 
     if(this->rohr->get_k_s() <= k_s_zul){
-        // hydraulisch glatt
+        /// hydraulisch glatt
 
         if(Re < 1e5){
-            // turbulent, aber hydraulisch glatt (2)
+            /// turbulent, aber hydraulisch glatt (2)
             return 0.3164/pow(Re, 0.25);
         }
 
-        // Re > 1e5 (3)
+        /// Re > 1e5 (3)
         LambdaTurbulentGlattSolver ltgs;
         return ltgs.get_lambda(Re);
     }
     else {
-        // raue Strömung (5)
+        /// raue Strömung (5)
         return pow(1/(1.74-2*log10(this->rohr->get_k_s()/this->rohr->get_radius())),2);
     }
-
-    // Fallback / Schätzung
-    return 0.03;
 }
 
 double Rohrstroemung::get_bauart(){
@@ -101,7 +98,7 @@ double Rohrstroemung::get_epsilon(double x){
 }
 
 double Rohrstroemung::get_temp(){
-    return this->temp = this->fluid->get_t_ein() + this->get_epsilon() * (this->rohr->get_t_aussen() - this->fluid->get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
+    return this->fluid->get_t_ein() + this->get_epsilon() * (this->rohr->get_t_aussen() - this->fluid->get_t_ein()); // t_austritt = t_ein - epsiolon * tempdifferenz
 }
 
 double Rohrstroemung::get_temp(double x){
@@ -136,7 +133,7 @@ double Rohrstroemung::get_stroemung(double r, double x){
     double l = this->rohr->get_laenge();
 
     // Gemittelter Druckgradient über gesamtes Rohr
-    double dp_dx = (this->get_pressure(l)-this->get_pressure(0))/l;
+    double dp_dx = (this->get_pressure(l)*1e5-this->get_pressure(0)*1e5)/l;
 
     // Geschwindigkeit u(r,x) berechnen
     return -1/(4*my)*dp_dx*(pow(radius,2)-pow(r-radius,2));

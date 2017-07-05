@@ -12,8 +12,8 @@ Stellt ein Rohrbauteil zur Verfügung.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_rohr_a8548148de26323a876077bfb61324ed3}\label{class_rohr_a8548148de26323a876077bfb61324ed3}} 
-{\bfseries Rohr} (double l, double r)
+\mbox{\Hypertarget{class_rohr_afbfc5b0d4a796c1c88b89d88b7b36768}\label{class_rohr_afbfc5b0d4a796c1c88b89d88b7b36768}} 
+{\bfseries Rohr} (double l, double r, double k\+\_\+s)
 \item 
 \mbox{\Hypertarget{class_rohr_a6763a65cfe3992b6dd4baa903ae44b29}\label{class_rohr_a6763a65cfe3992b6dd4baa903ae44b29}} 
 double \hyperlink{class_rohr_a6763a65cfe3992b6dd4baa903ae44b29}{get\+\_\+querschnitt} ()
@@ -34,6 +34,7 @@ double \hyperlink{class_rohr_a8e5ea4e3595b344475e2db45deccd9fd}{get\+\_\+alpha\+
 \mbox{\Hypertarget{class_rohr_ad02b003b17d07ee5f53bc2defbe8227a}\label{class_rohr_ad02b003b17d07ee5f53bc2defbe8227a}} 
 double \hyperlink{class_rohr_ad02b003b17d07ee5f53bc2defbe8227a}{get\+\_\+alpha\+\_\+aussen} ()
 \begin{DoxyCompactList}\small\item\em Gibt Konvektionswiderstand auf der Außenseite zurück. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}\label{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}} 
 double \hyperlink{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}{get\+\_\+kA} ()
 \begin{DoxyCompactList}\small\item\em Berechnet Wärmedurchgangskoeffizient. \end{DoxyCompactList}\item 
 double \hyperlink{class_rohr_a07985e6f4a1d9dc8bfcfe2e5cc9f2a60}{get\+\_\+kA} (double x)
@@ -41,6 +42,12 @@ double \hyperlink{class_rohr_a07985e6f4a1d9dc8bfcfe2e5cc9f2a60}{get\+\_\+kA} (do
 \mbox{\Hypertarget{class_rohr_a5d7b97148ffb9e42e5dc9b5657a64cc0}\label{class_rohr_a5d7b97148ffb9e42e5dc9b5657a64cc0}} 
 double \hyperlink{class_rohr_a5d7b97148ffb9e42e5dc9b5657a64cc0}{get\+\_\+t\+\_\+aussen} ()
 \begin{DoxyCompactList}\small\item\em Gibt Aussentemperatur zurück. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohr_a653e53a000dd4ed025d1adbdb83f7859}\label{class_rohr_a653e53a000dd4ed025d1adbdb83f7859}} 
+double \hyperlink{class_rohr_a653e53a000dd4ed025d1adbdb83f7859}{get\+\_\+k\+\_\+s} ()
+\begin{DoxyCompactList}\small\item\em Gibt Rohrrauheitswert aus. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohr_ad93033ce4a63458e188cfc9d8771836e}\label{class_rohr_ad93033ce4a63458e188cfc9d8771836e}} 
+double \hyperlink{class_rohr_ad93033ce4a63458e188cfc9d8771836e}{get\+\_\+startpressure} ()
+\begin{DoxyCompactList}\small\item\em Gibt Startdruck zurück. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_rohr_ae6e604082fdb43a35bcdc74478ced8a7}\label{class_rohr_ae6e604082fdb43a35bcdc74478ced8a7}} 
 void \hyperlink{class_rohr_ae6e604082fdb43a35bcdc74478ced8a7}{set\+\_\+alpha\+\_\+aussen} (double alpha\+\_\+aussen)
 \begin{DoxyCompactList}\small\item\em Setzt Wert für Konvektionswiderstand auf der Außenseite. \end{DoxyCompactList}\item 
@@ -49,35 +56,20 @@ void \hyperlink{class_rohr_aed25a50fcf5c735e51693303d8b41663}{set\+\_\+alpha\+\_
 \begin{DoxyCompactList}\small\item\em Setzt Wert für Konvektionswiderstand auf der Innenseite. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_rohr_a92be37f04575328b6b15de5ab2e511a9}\label{class_rohr_a92be37f04575328b6b15de5ab2e511a9}} 
 void \hyperlink{class_rohr_a92be37f04575328b6b15de5ab2e511a9}{set\+\_\+t\+\_\+aussen} (double t\+\_\+aussen)
-\begin{DoxyCompactList}\small\item\em Setzt Wert für Aussentemperatur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Setzt Wert für Aussentemperatur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rohr_ac9d6974bc17fde3cba4b67fb571c7ab7}\label{class_rohr_ac9d6974bc17fde3cba4b67fb571c7ab7}} 
+void \hyperlink{class_rohr_ac9d6974bc17fde3cba4b67fb571c7ab7}{set\+\_\+startpressure} (double p\+\_\+ein)
+\begin{DoxyCompactList}\small\item\em Setzt Wert für Startdruck. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Stellt ein Rohrbauteil zur Verfügung. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}\label{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}} 
-\index{Rohr@{Rohr}!get\+\_\+kA@{get\+\_\+kA}}
-\index{get\+\_\+kA@{get\+\_\+kA}!Rohr@{Rohr}}
-\subsubsection{\texorpdfstring{get\+\_\+k\+A()}{get\_kA()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily double Rohr\+::get\+\_\+kA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Berechnet Wärmedurchgangskoeffizient. 
-
-Berechenet den Wärmdurchgangskoeffzient.
-
-\begin{DoxyWarning}{Warning}
-Anderer Ansatz\+: Es werden keine Werte der Funktion übergeben sondern in der Funktion get-\/\+Funktionen aufgerufen 
-\end{DoxyWarning}
-\begin{DoxySeeAlso}{See also}
-Fluid\+::set\+\_\+cp\+\_\+strom 
-\end{DoxySeeAlso}
 \mbox{\Hypertarget{class_rohr_a07985e6f4a1d9dc8bfcfe2e5cc9f2a60}\label{class_rohr_a07985e6f4a1d9dc8bfcfe2e5cc9f2a60}} 
 \index{Rohr@{Rohr}!get\+\_\+kA@{get\+\_\+kA}}
 \index{get\+\_\+kA@{get\+\_\+kA}!Rohr@{Rohr}}
-\subsubsection{\texorpdfstring{get\+\_\+k\+A()}{get\_kA()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\subsubsection{\texorpdfstring{get\+\_\+k\+A()}{get\_kA()}}
 {\footnotesize\ttfamily double Rohr\+::get\+\_\+kA (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
 
 

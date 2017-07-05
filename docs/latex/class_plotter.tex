@@ -1,5 +1,14 @@
 \hypertarget{class_plotter}{}\section{Plotter Class Reference}
 \label{class_plotter}\index{Plotter@{Plotter}}
+
+
+Erstellung einer neuen Klasse mit dem Namen \hyperlink{class_plotter}{Plotter}.  
+
+
+
+
+{\ttfamily \#include $<$plotter.\+h$>$}
+
 Inheritance diagram for Plotter\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,10 +18,133 @@ Inheritance diagram for Plotter\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_plotter_a367b6890c36910a27ec710ac3693e64b}\label{class_plotter_a367b6890c36910a27ec710ac3693e64b}} 
-{\bfseries Plotter} (Q\+Widget $\ast$parent=0)
-\end{DoxyCompactItemize}
+\hyperlink{class_plotter_a367b6890c36910a27ec710ac3693e64b}{Plotter} (Q\+Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Konstruktorinitialiserung; \char`\"{}explict\char`\"{} verhindert versehentliche Übergabe von anderen Datentypen und deren Konvertierung in ein Q\+Widget. \end{DoxyCompactList}\item 
+\hyperlink{class_plotter_acd0883f9597a6b3bfcca0fce926809a0}{$\sim$\+Plotter} ()
+\begin{DoxyCompactList}\small\item\em Destruktorinitialisierung. \end{DoxyCompactList}\item 
+int \hyperlink{class_plotter_ad866f44f28b5bee3b528261560daee2f}{erstelle\+Plot} (\hyperlink{class_rohr}{Rohr} rohr, \hyperlink{class_fluid}{Fluid} fluid)
+\begin{DoxyCompactList}\small\item\em Plotterfunktion mit der Übergabe der Datentypen \hyperlink{class_rohr}{Rohr} und \hyperlink{class_fluid}{Fluid}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Erstellung einer neuen Klasse mit dem Namen \hyperlink{class_plotter}{Plotter}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_plotter_a367b6890c36910a27ec710ac3693e64b}\label{class_plotter_a367b6890c36910a27ec710ac3693e64b}} 
+\index{Plotter@{Plotter}!Plotter@{Plotter}}
+\index{Plotter@{Plotter}!Plotter@{Plotter}}
+\subsubsection{\texorpdfstring{Plotter()}{Plotter()}}
+{\footnotesize\ttfamily Plotter\+::\+Plotter (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Konstruktorinitialiserung; \char`\"{}explict\char`\"{} verhindert versehentliche Übergabe von anderen Datentypen und deren Konvertierung in ein Q\+Widget. 
+
+Präprozessoranweisungen.
+
+Konstruktor für die Plotterfunktion \mbox{\Hypertarget{class_plotter_acd0883f9597a6b3bfcca0fce926809a0}\label{class_plotter_acd0883f9597a6b3bfcca0fce926809a0}} 
+\index{Plotter@{Plotter}!````~Plotter@{$\sim$\+Plotter}}
+\index{````~Plotter@{$\sim$\+Plotter}!Plotter@{Plotter}}
+\subsubsection{\texorpdfstring{$\sim$\+Plotter()}{~Plotter()}}
+{\footnotesize\ttfamily Plotter\+::$\sim$\+Plotter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destruktorinitialisierung. 
+
+Freigeben des Speicherplatzes nach Beenden des Plotters durch einen Destruktor. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_plotter_ad866f44f28b5bee3b528261560daee2f}\label{class_plotter_ad866f44f28b5bee3b528261560daee2f}} 
+\index{Plotter@{Plotter}!erstelle\+Plot@{erstelle\+Plot}}
+\index{erstelle\+Plot@{erstelle\+Plot}!Plotter@{Plotter}}
+\subsubsection{\texorpdfstring{erstelle\+Plot()}{erstellePlot()}}
+{\footnotesize\ttfamily int Plotter\+::erstelle\+Plot (\begin{DoxyParamCaption}\item[{\hyperlink{class_rohr}{Rohr}}]{rohr,  }\item[{\hyperlink{class_fluid}{Fluid}}]{fluid }\end{DoxyParamCaption})}
+
+
+
+Plotterfunktion mit der Übergabe der Datentypen \hyperlink{class_rohr}{Rohr} und \hyperlink{class_fluid}{Fluid}. 
+
+Der Rückgabewert dient nur der Testbarkeit der Funktion und wird für die Hauptaufgabe der Funktion keine Bedeutung. Anlegen der Länge und des Radius als Variable damit Koordinatensysteme und for-\/\+Schleifen angepasst werden. Diese Variablen werden in allen drei \hyperlink{class_plotter}{Plotter} verwendet
+
+Variable zum Zählen der Datenpunkte
+
+initilaisieren von Q\+Vectoren mit Einträgen von 0..100
+
+Iterieren über ortsabhängige get\+\_\+temp-\/\+Funktion
+
+Zählen der Datenpunkte
+
+Graphen erstellen und Achsen festlegen\+:
+
+Achsenbeschriftung\+:
+
+Achsenbereich x-\/\+Achse geht von 0 bis zur Länge des Rohres
+
+Unterscheidung ob t\+\_\+aussen oder t\+\_\+ein größer ist; entsprechendes Setzen der y-\/\+Achsenbereichs
+
+Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen
+
+y-\/\+Achse beginnt kurz unter t\+\_\+ein und endet kurz über t\+\_\+aussen
+
+Analoges Vorgehen wie im if-\/\+Statement \begin{DoxySeeAlso}{See also}
+if(rohr.\+get\+\_\+t\+\_\+aussen $>$= fluid.\+get\+\_\+t\+\_\+ein())
+\end{DoxySeeAlso}
+Initilaisieren von einem Q\+Vector mit Einträgen von 0..100
+
+Zählen der Datenpunkte
+
+Achsenbereich Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen
+
+x-\/\+Achse geht von 0 bis zur Länge des Rohres
+
+Legt den y-\/\+Achsenbereich fest
+
+Der Druck im \hyperlink{class_rohr}{Rohr} wird aufgrund der Reibung ständig abnehmen. Eine Fallunterscheidung wie bei der Temperatur ist daher nicht nötig. Der Bereich wird festgelegt vom niedirgsten Druckwert (m\mbox{[}100\mbox{]}) und dem Anfangsdruck. Zusätzlich wird noch ein Offset genau wie bei dem Temperaturverlauf berücksichtigt
+
+Möglichkeit die Farbskala durch Dragging oder Zoomen zu ändern
+
+Achsenbeschriftung
+
+aufstellen der \hyperlink{class_q_c_p_color_map}{Q\+C\+P\+Color\+Map}
+
+Größe der Color\+Map wird festgelegt
+
+Die Color\+Map wird anz\+\_\+laenge\+\_\+pkt$\ast$anz\+\_\+radius\+\_\+pkt groß sein bzw. Bildpunkte haben. Der Achsberecheich für die x-\/\+Achse geht von 0 über die gesamte Länge des Rohres. Der Achsbereich für die y-\/\+Achse geht über den Gesamtenquerschnitt (von -\/r bis r)
+
+Iterartion über die Strömungsfunktion und Speicherung der Werte in einer Cell.
+
+Über die multivariate Funktion der Geschwindigkeit wird mittels zweier for-\/\+Schleifen iteriert. Die Daten werden dann der Q\+Color\+Map zugewiesen
+
+Anpassung der Iterationsschritte an die Länge und Radius des Rohrs.
+
+Der Radius geht von -\/r bis r, sodass dieser Iterationsschritt nur mit dem Faktor (r/100) angepasst werden muss
+
+Zählen der Datenpunkte
+
+Hinzufügen der Farbskala
+
+Skala wird der richtigen Achse zugewiesen
+
+Vertikale Farbskala auf der rechten Seite
+
+Verbindung von Farbe der Skala mit der Farbe der Color\+Map
+
+Hinzufügen der Skalenbeschriftung
+
+Laden eines Farbgradient aus den Voreinstellung
+
+gp\+Jet ist ein Fabrverlauf der für numerische Analysen verwendet wird und passt daher auf unseren Anwendungsfall
+
+Die Farbdimension wird so angepasst, sodass alle erzeugten Datenpunkten auch eine Farbe zugewiesen bekommen.
+
+Die Anpassung an die Werte geschieht automatisch, sodass die Bandbreite von der geringsten auftretenden Greschwindigkeit zur maximalen Geschwindigkeit geht.
+
+Achsen und Color\+Map an sich sollen direkt aneinaderliegen\+:
+
+Anpassung der Größe der Achsen an Widgetgröße\+:
+
+Rückgabe des Testwerts 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

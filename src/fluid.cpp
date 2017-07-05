@@ -6,7 +6,7 @@
  * KONSTRUKTOR *
  ***************/
 Fluid::Fluid(double dichte, double nue, double cp){
-    // Validieren, dass Dichte und Viskosität größer Null sind
+    /// Validieren, dass Dichte und Viskosität größer Null sind
     if(nue > 0){
         this->nue = nue;
     }
@@ -65,7 +65,7 @@ double Fluid::get_my(){
 
 /// cp-Strom ausgeben
 double  Fluid::get_cp_strom(){
-    return this->cp_strom = this->get_cp() * this->get_massenstrom();
+    return this->get_cp() * this->get_massenstrom();
 }
 
 /***************
@@ -77,7 +77,7 @@ void Fluid::set_massenstrom(double massenstrom){
         this->massenstrom = massenstrom;
     }
     else {
-        throw std::out_of_range("Der Massenstrom muss größer 0 sein!");
+        throw std::out_of_range("Der Massenstrom muss größer Null sein!");
     }
 }
 
@@ -87,7 +87,7 @@ void Fluid::set_t_ein(double t_ein){
         this->t_ein = t_ein;
     }
     else {
-        throw std::out_of_range("Die Temperatur wird in Kelvin gemessen und deshalb muss sie größer 0 sein!");
+        throw std::out_of_range("Die Eintrittstemperatur wird in Kelvin gemessen und deshalb muss sie größer Null sein!");
     }
 }
 

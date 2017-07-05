@@ -1,3 +1,6 @@
+#include "QMessageBox"
+#include <string>
+
 #include "dateneingabe.h"
 #include "ui_dateneingabe.h"
 #include "rohr.h"
@@ -26,15 +29,10 @@ void DatenEingabe::on_pushButton_clicked()
         double nue_in;
         double cp_in;
 
-        // Laenge und Radius werden aus der GUI eingelesen und gespeichert
+        // Werte für die Erstellung des Rohrs werden aus der GUI eingelesen und gespeichert
         double laenge=ui->laenge->value();
         double radius=ui->radius->value();
-
-        // Festlegen der Rohrreibungszahl
-        double k_s = 5e-6;
-
-        // Rohr wird erstellt
-        Rohr rohr(laenge, radius, k_s);
+        double k_s=ui->ksrohr->value()/1e6;
 
         // Druck, Konvektionswiderstände, Temperaturen und Massenstrom werden aus der GUI eingelesen und gespeichert
         double p_ein=ui->druckein->value();
@@ -44,15 +42,28 @@ void DatenEingabe::on_pushButton_clicked()
         double massenstrom_in=ui->Massenstrom->value();
         double t_ein=ui->temp_Innen->value();
 
-        // Parameter für das Rohr werden festgesetzt
-        rohr.set_alpha_innen(alpha_innen);
-        rohr.set_alpha_aussen(alpha_aussen);
-        rohr.set_t_aussen(t_aus);
-        rohr.set_startpressure(p_ein);
+        // Leeren Rohrpointer erstellen
+        Rohr* rohr_ptr = NULL;
+        try{
+            // Rohrobjekt auf Rohrpointer erstellen und eventuelle Exceptions abfangen
+            rohr_ptr = new Rohr(laenge, radius, k_s);
+
+            // Parameter für das Rohr werden festgesetzt
+            rohr_ptr->set_alpha_innen(alpha_innen);
+            rohr_ptr->set_alpha_aussen(alpha_aussen);
+            rohr_ptr->set_t_aussen(t_aus);
+            rohr_ptr->set_startpressure(p_ein);
+        }
+        catch (const std::exception& e) {
+            // Fehlermeldung ausgeben...
+            this->show_warning(e.what());
+            // ... und Initialisierung nicht weiter fortführen
+            return;
+        }
 
         // Fluid Eigenschaften von Wasser (Dichte, Nue und Cp-Wert)
         if(ui->Wasser->isChecked()){
-            dichte_in = 1000;
+            ui->Dichte->setValue(1000);
             nue_in = 10e-6;
             cp_in = 4182;
         }
@@ -73,24 +84,54 @@ void DatenEingabe::on_pushButton_clicked()
 
         // Vom Benutzer festgelegte Fluid-Werte werden eingelesen
         if(ui->Benutzerdefiniert->isChecked()){
-            dichte_in=ui->Dichte->value(); // Benutzer legt Werte für Parameter fest // Überprüfung der Werte muss noch erfolgen
+            dichte_in=ui->Dichte->value(); // Benutzer legt Werte für Parameter fest //
             nue_in=ui->Viskositaet->value();
             cp_in=ui->cpwert->value();
         }
 
-        // Erstellung des Fluides
-        Fluid fluid(dichte_in, nue_in, cp_in);
-        fluid.set_massenstrom(massenstrom_in);
-        fluid.set_t_ein(t_ein);
+        // Leeren Fluidpointer erstellen
+        Fluid* fluid_ptr = NULL;
 
-        Rohrstroemung rohrstroemung(&rohr, &fluid);
+        // Erstellung des Fluides
+        try {
+            fluid_ptr = new Fluid(dichte_in, nue_in, cp_in);
+            fluid_ptr->set_massenstrom(massenstrom_in);
+            fluid_ptr->set_t_ein(t_ein);
+        } catch (const std::exception& e) {
+            // Fehlermeldung ausgeben...
+            this->show_warning(e.what());
+            // ... und Initialisierung nicht weiter fortführen
+            return;
+        }
+
+        /*
+        Rohrstroemung rohrstroemung(rohr, fluid_ptr);
         rohrstroemung.set_druckverlauf();
         rohrstroemung.print_druckverlauf();
+        */
 
         // Öffnet einen Dialog/Fenster, dass die Bearbeitung des Elternfenster verhindert
-        Plotter plotter;
-        plotter.erstellePlot(rohr, fluid);
-        plotter.setModal(true);
-        plotter.exec();
+
+        try {
+            Plotter plotter;
+            plotter.erstellePlot(rohr_ptr, fluid_ptr);
+            plotter.setModal(true);
+            plotter.exec();
+        } catch (const std::exception& e) {
+            // Fehlermeldung ausgeben...
+            this->show_warning(e.what());
+            // ... und Initialisierung nicht weiter fortführen
+            return;
+        }
 }
 
+void DatenEingabe::show_warning(const char* msg){
+    // Messagebox initialisieren
+    QMessageBox errorbox;
+    errorbox.setIcon(QMessageBox::Warning);
+    // Fenstertitel setzen
+    errorbox.setWindowTitle("Warnung - Ungültige Eingabe");
+    // Nachricht setzen
+    errorbox.setText(msg);
+    errorbox.exec();
+}
