@@ -63,7 +63,7 @@ void DatenEingabe::on_pushButton_clicked()
 
         // Fluid Eigenschaften von Wasser (Dichte, Nue und Cp-Wert)
         if(ui->Wasser->isChecked()){
-            ui->Dichte->setValue(1000);
+            dichte = 1000;
             nue_in = 10e-6;
             cp_in = 4182;
         }
