@@ -354,5 +354,198 @@
   <tabstop>pushButton</tabstop>
  </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>Wasser</sender>
+   <signal>clicked()</signal>
+   <receiver>Dichte</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>69</x>
+     <y>362</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>301</x>
+     <y>416</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Wasser</sender>
+   <signal>clicked()</signal>
+   <receiver>cpwert</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>169</x>
+     <y>359</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>339</x>
+     <y>450</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Wasser</sender>
+   <signal>clicked()</signal>
+   <receiver>Viskositaet</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>372</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>313</x>
+     <y>480</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Oel</sender>
+   <signal>clicked()</signal>
+   <receiver>Dichte</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>258</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>331</x>
+     <y>421</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Oel</sender>
+   <signal>clicked()</signal>
+   <receiver>cpwert</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>315</x>
+     <y>362</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>365</x>
+     <y>448</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Oel</sender>
+   <signal>clicked()</signal>
+   <receiver>Viskositaet</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>322</x>
+     <y>367</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>360</x>
+     <y>468</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Luft</sender>
+   <signal>clicked()</signal>
+   <receiver>Dichte</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>436</x>
+     <y>364</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>394</x>
+     <y>408</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Luft</sender>
+   <signal>clicked()</signal>
+   <receiver>cpwert</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>490</x>
+     <y>364</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>426</x>
+     <y>442</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Luft</sender>
+   <signal>clicked()</signal>
+   <receiver>Viskositaet</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>519</x>
+     <y>359</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>471</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Benutzerdefiniert</sender>
+   <signal>clicked()</signal>
+   <receiver>Dichte</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>652</x>
+     <y>369</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>428</x>
+     <y>416</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Benutzerdefiniert</sender>
+   <signal>clicked()</signal>
+   <receiver>cpwert</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>701</x>
+     <y>370</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>427</x>
+     <y>445</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Benutzerdefiniert</sender>
+   <signal>clicked()</signal>
+   <receiver>Viskositaet</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>756</x>
+     <y>368</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>418</x>
+     <y>471</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
