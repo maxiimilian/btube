@@ -148,6 +148,9 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="text">
          <string>Wasser</string>
         </property>
@@ -160,6 +163,9 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="text">
          <string>Öl</string>
         </property>
@@ -171,6 +177,9 @@
          <font>
           <pointsize>10</pointsize>
          </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="text">
          <string>Luft</string>
@@ -190,6 +199,9 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="text">
          <string>Benutzerdefiniert</string>
         </property>
@@ -201,11 +213,20 @@
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="1">
        <widget class="QDoubleSpinBox" name="Dichte">
+        <property name="cursor">
+         <cursorShape>ArrowCursor</cursorShape>
+        </property>
+        <property name="wrapping">
+         <bool>false</bool>
+        </property>
         <property name="decimals">
          <number>10</number>
         </property>
         <property name="maximum">
          <double>100000.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.000000000000000</double>
         </property>
        </widget>
       </item>
@@ -326,6 +347,9 @@
     </item>
     <item>
      <widget class="QPushButton" name="pushButton">
+      <property name="cursor">
+       <cursorShape>WaitCursor</cursorShape>
+      </property>
       <property name="text">
        <string>Berechnung starten</string>
       </property>

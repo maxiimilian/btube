@@ -22,6 +22,7 @@ DatenEingabe::~DatenEingabe()
     delete ui;
 }
 
+// Werte für Wasser werden festgelegt und in der jeweiligen SpinBox angezeigt
 void DatenEingabe::on_Wasser_clicked()
 {
     ui->Dichte->setValue(1000);
@@ -29,6 +30,7 @@ void DatenEingabe::on_Wasser_clicked()
     ui->cpwert->setValue(4182);
 }
 
+// Werte für Öl, hier Olivenöl, werden festgelegt und in der jeweiligen SpinBox angezeigt
 void DatenEingabe::on_Oel_clicked()
 {
     ui->Dichte->setValue(910);
@@ -36,6 +38,7 @@ void DatenEingabe::on_Oel_clicked()
     ui->cpwert->setValue(1970);
 }
 
+// Werte für Luft werden festgelegt und in der jeweiligen SpinBox angezeigt
 void DatenEingabe::on_Luft_clicked()
 {
     ui->Dichte->setValue(1.293);
@@ -43,6 +46,7 @@ void DatenEingabe::on_Luft_clicked()
     ui->cpwert->setValue(1005);
 }
 
+// Werte für Benutzerdefiniert werden in den SpinBoxen auf Null gesetzt
 void DatenEingabe::on_Benutzerdefiniert_clicked()
 {
     ui->Dichte->setValue(0);
