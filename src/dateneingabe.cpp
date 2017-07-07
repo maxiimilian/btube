@@ -106,11 +106,11 @@ void DatenEingabe::on_pushButton_clicked()
             return;
         }
 
-        /*
-        Rohrstroemung rohrstroemung(rohr, fluid_ptr);
+
+        Rohrstroemung rohrstroemung(rohr_ptr, fluid_ptr);
         rohrstroemung.set_druckverlauf();
         rohrstroemung.print_druckverlauf();
-        */
+
 
         try {
             // Öffnet einen Dialog/Fenster, dass die Bearbeitung des Elternfenster verhindert
