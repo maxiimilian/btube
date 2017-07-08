@@ -87,9 +87,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acd0883f9597a6b3bfcca0fce926809a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plotter.html#acd0883f9597a6b3bfcca0fce926809a0">~Plotter</a> ()</td></tr>
 <tr class="memdesc:acd0883f9597a6b3bfcca0fce926809a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destruktorinitialisierung.  <a href="#acd0883f9597a6b3bfcca0fce926809a0">More...</a><br /></td></tr>
 <tr class="separator:acd0883f9597a6b3bfcca0fce926809a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad866f44f28b5bee3b528261560daee2f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plotter.html#ad866f44f28b5bee3b528261560daee2f">erstellePlot</a> (<a class="el" href="class_rohr.html">Rohr</a> rohr, <a class="el" href="class_fluid.html">Fluid</a> fluid)</td></tr>
-<tr class="memdesc:ad866f44f28b5bee3b528261560daee2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plotterfunktion mit der Übergabe der Datentypen <a class="el" href="class_rohr.html" title="Stellt ein Rohrbauteil zur Verfügung. ">Rohr</a> und <a class="el" href="class_fluid.html" title="Stellt ein Fluid zur Verfügung. ">Fluid</a>.  <a href="#ad866f44f28b5bee3b528261560daee2f">More...</a><br /></td></tr>
-<tr class="separator:ad866f44f28b5bee3b528261560daee2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4808217f2ec95082cee4c239b707fcc3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plotter.html#a4808217f2ec95082cee4c239b707fcc3">erstellePlot</a> (<a class="el" href="class_rohr.html">Rohr</a> *rohr, <a class="el" href="class_fluid.html">Fluid</a> *fluid)</td></tr>
+<tr class="memdesc:a4808217f2ec95082cee4c239b707fcc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plotterfunktion mit der Übergabe der Datentypen <a class="el" href="class_rohr.html" title="Stellt ein Rohrbauteil zur Verfügung. ">Rohr</a> und <a class="el" href="class_fluid.html" title="Stellt ein Fluid zur Verfügung. ">Fluid</a>.  <a href="#a4808217f2ec95082cee4c239b707fcc3">More...</a><br /></td></tr>
+<tr class="separator:a4808217f2ec95082cee4c239b707fcc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Erstellung einer neuen Klasse mit dem Namen <a class="el" href="class_plotter.html" title="Erstellung einer neuen Klasse mit dem Namen Plotter. ">Plotter</a>. </p>
@@ -119,8 +119,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Konstruktorinitialiserung; "explict" verhindert versehentliche Übergabe von anderen Datentypen und deren Konvertierung in ein QWidget. </p>
-<p>Präprozessoranweisungen.</p>
-<p>Konstruktor für die Plotterfunktion </p>
+<p>Konstruktor für die Plotterfunktion. </p>
 
 </div>
 </div>
@@ -145,8 +144,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad866f44f28b5bee3b528261560daee2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad866f44f28b5bee3b528261560daee2f">&#9670;&nbsp;</a></span>erstellePlot()</h2>
+<a id="a4808217f2ec95082cee4c239b707fcc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4808217f2ec95082cee4c239b707fcc3">&#9670;&nbsp;</a></span>erstellePlot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,13 +153,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">int Plotter::erstellePlot </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_rohr.html">Rohr</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_rohr.html">Rohr</a> *&#160;</td>
           <td class="paramname"><em>rohr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_fluid.html">Fluid</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_fluid.html">Fluid</a> *&#160;</td>
           <td class="paramname"><em>fluid</em>&#160;</td>
         </tr>
         <tr>
@@ -176,42 +175,20 @@ Public Member Functions</h2></td></tr>
 <p>Anlegen der Länge und des Radius als Variable damit Koordinatensysteme und for-Schleifen angepasst werden. Diese Variablen werden in allen drei <a class="el" href="class_plotter.html" title="Erstellung einer neuen Klasse mit dem Namen Plotter. ">Plotter</a> verwendet</p>
 <p>Variable zum Zählen der Datenpunkte</p>
 <p>initilaisieren von QVectoren mit Einträgen von 0..100</p>
-<p>Iterieren über ortsabhängige get_temp-Funktion</p>
-<p>Zählen der Datenpunkte</p>
-<p>Graphen erstellen und Achsen festlegen:</p>
-<p>Achsenbeschriftung:</p>
-<p>Achsenbereich x-Achse geht von 0 bis zur Länge des Rohres</p>
 <p>Unterscheidung ob t_aussen oder t_ein größer ist; entsprechendes Setzen der y-Achsenbereichs</p>
-<p>Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen</p>
-<p>y-Achse beginnt kurz unter t_ein und endet kurz über t_aussen</p>
-<p>Analoges Vorgehen wie im if-Statement </p><dl class="section see"><dt>See also</dt><dd>if(rohr.get_t_aussen &gt;= fluid.get_t_ein())</dd></dl>
-<p>Initilaisieren von einem QVector mit Einträgen von 0..100</p>
-<p>Zählen der Datenpunkte</p>
-<p>Achsenbereich Bestimmung eines Wertes damit die größten/kleinsten Werte nicht am Rand liegen</p>
-<p>x-Achse geht von 0 bis zur Länge des Rohres</p>
 <p>Legt den y-Achsenbereich fest</p>
 <p>Der Druck im <a class="el" href="class_rohr.html" title="Stellt ein Rohrbauteil zur Verfügung. ">Rohr</a> wird aufgrund der Reibung ständig abnehmen. Eine Fallunterscheidung wie bei der Temperatur ist daher nicht nötig. Der Bereich wird festgelegt vom niedirgsten Druckwert (m[100]) und dem Anfangsdruck. Zusätzlich wird noch ein Offset genau wie bei dem Temperaturverlauf berücksichtigt</p>
-<p>Möglichkeit die Farbskala durch Dragging oder Zoomen zu ändern</p>
-<p>Achsenbeschriftung</p>
-<p>aufstellen der <a class="el" href="class_q_c_p_color_map.html" title="A plottable representing a two-dimensional color map in a plot. ">QCPColorMap</a></p>
+<p>Möglichkeit die Farbskala und den Graphen durch Dragging oder Zoomen zu ändern </p><dl class="section warning"><dt>Warning</dt><dd>Dies ist in dieser Version deaktiviert, da die Veränderung des Graphen zu unerwünschten Darstellungen führen kann.</dd></dl>
 <p>Größe der ColorMap wird festgelegt</p>
-<p>Die ColorMap wird anz_laenge_pkt*anz_radius_pkt groß sein bzw. Bildpunkte haben. Der Achsberecheich für die x-Achse geht von 0 über die gesamte Länge des Rohres. Der Achsbereich für die y-Achse geht über den Gesamtenquerschnitt (von -r bis r)</p>
+<p>Die <a class="el" href="class_q_c_p_color_map.html" title="A plottable representing a two-dimensional color map in a plot. ">QCPColorMap</a> wird anz_laenge_pkt*anz_radius_pkt groß sein bzw. Bildpunkte haben. Der Achsberecheich für die x-Achse geht von 0 über die gesamte Länge des Rohres. Der Achsbereich für die y-Achse geht über den Gesamtenquerschnitt (von -r bis r)</p>
 <p>Iterartion über die Strömungsfunktion und Speicherung der Werte in einer Cell.</p>
-<p>Über die multivariate Funktion der Geschwindigkeit wird mittels zweier for-Schleifen iteriert. Die Daten werden dann der QColorMap zugewiesen</p>
+<p>Über die multivariate Funktion der Geschwindigkeit wird mittels zweier for-Schleifen iteriert. Die Daten werden dann der <a class="el" href="class_q_c_p_color_map.html" title="A plottable representing a two-dimensional color map in a plot. ">QCPColorMap</a> zugewiesen</p>
 <p>Anpassung der Iterationsschritte an die Länge und Radius des Rohrs.</p>
 <p>Der Radius geht von -r bis r, sodass dieser Iterationsschritt nur mit dem Faktor (r/100) angepasst werden muss</p>
-<p>Zählen der Datenpunkte</p>
-<p>Hinzufügen der Farbskala</p>
-<p>Skala wird der richtigen Achse zugewiesen</p>
-<p>Vertikale Farbskala auf der rechten Seite</p>
-<p>Verbindung von Farbe der Skala mit der Farbe der ColorMap</p>
-<p>Hinzufügen der Skalenbeschriftung</p>
-<p>Laden eines Farbgradient aus den Voreinstellung</p>
+<p>Laden eines <a class="el" href="class_q_c_p_color_gradient.html" title="Defines a color gradient for use with e.g. QCPColorMap. ">QCPColorGradient</a> (Farbgradient) aus den Voreinstellung</p>
 <p>gpJet ist ein Fabrverlauf der für numerische Analysen verwendet wird und passt daher auf unseren Anwendungsfall</p>
 <p>Die Farbdimension wird so angepasst, sodass alle erzeugten Datenpunkten auch eine Farbe zugewiesen bekommen.</p>
 <p>Die Anpassung an die Werte geschieht automatisch, sodass die Bandbreite von der geringsten auftretenden Greschwindigkeit zur maximalen Geschwindigkeit geht.</p>
-<p>Achsen und ColorMap an sich sollen direkt aneinaderliegen:</p>
-<p>Anpassung der Größe der Achsen an Widgetgröße:</p>
 <p>Rückgabe des Testwerts </p>
 
 </div>

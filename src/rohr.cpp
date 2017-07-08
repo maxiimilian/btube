@@ -11,7 +11,7 @@ Rohr::Rohr(double l, double r, double k_s){
         this->laenge = l;
     }
     else{
-        throw std::out_of_range("Rohrlänge muss positiv und größer Null sein!");
+        throw std::out_of_range("Rohrlänge muss positiv sein!");
     }
 
     // Prüfen, ob Radius größer Null ist
@@ -19,7 +19,7 @@ Rohr::Rohr(double l, double r, double k_s){
         this->radius = r;
     }
     else {
-        throw std::out_of_range("Rohrradius muss positiv und größer Null sein!");
+        throw std::out_of_range("Rohrradius muss positiv sein!");
     }
 
     // Prüfen, ob k_s größer Null und sinnvoll ist
