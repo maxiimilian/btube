@@ -220,7 +220,10 @@
          <bool>false</bool>
         </property>
         <property name="decimals">
-         <number>10</number>
+         <number>4</number>
+        </property>
+        <property name="minimum">
+         <double>0.000000000000000</double>
         </property>
         <property name="maximum">
          <double>100000.000000000000000</double>
@@ -269,7 +272,7 @@
       <item row="0" column="4">
        <widget class="QDoubleSpinBox" name="Massenstrom">
         <property name="decimals">
-         <number>10</number>
+         <number>2</number>
         </property>
         <property name="maximum">
          <double>10000.000000000000000</double>
@@ -279,7 +282,7 @@
       <item row="3" column="4">
        <widget class="QDoubleSpinBox" name="temp_Innen">
         <property name="decimals">
-         <number>10</number>
+         <number>2</number>
         </property>
         <property name="maximum">
          <double>10000.000000000000000</double>
@@ -326,17 +329,23 @@
       <item row="4" column="1">
        <widget class="QDoubleSpinBox" name="Viskositaet">
         <property name="decimals">
-         <number>10</number>
+         <number>6</number>
+        </property>
+        <property name="minimum">
+         <double>0.000000000000000</double>
         </property>
         <property name="maximum">
          <double>100000.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>0.000000000000000</double>
         </property>
        </widget>
       </item>
       <item row="3" column="1">
        <widget class="QDoubleSpinBox" name="cpwert">
         <property name="decimals">
-         <number>10</number>
+         <number>2</number>
         </property>
         <property name="maximum">
          <double>10000.000000000000000</double>
