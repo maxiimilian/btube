@@ -23,7 +23,9 @@ public:
 
 private slots:
 
-    // Funktionen für den Button und die Check-Boxen werden gesetzt
+    /// Funktionen für den Button und die Check-Boxen werden gesetzt
+    /// \author Malte Braband
+
     void on_pushButton_clicked();
 
     void on_Wasser_clicked();
