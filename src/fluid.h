@@ -26,28 +26,28 @@ class Fluid
         /***************
         * Konstruktor *
         ***************/
-        Fluid(double dichte, double nue, double cp);
+        Fluid(double dichte, double nue, double cp);      // Maximilian Pyrzina & Simon Thel
 
         /***************
          * GET methods *
          ***************/
         /// Massenstrom wird zurückgegeben
-        double get_massenstrom();
+        double get_massenstrom();                         // Simon Thel
 
         /// Dichte wird zurückgegeben
-        double get_dichte();
+        double get_dichte();                              // Simon Thel
 
         /// kinematische Viskosität wird zurückgegen
-        double get_nue();
+        double get_nue();                                 // Simon Thel
 
         /// Wärmekapazität wird zurückgegeben
-        double get_cp();
+        double get_cp();                                  // Simon Thel
 
         /// Wärmekapazitätsstrom wird zurückgegen
-        double get_cp_strom();
+        double get_cp_strom();                            // Simon Thel
 
         /// Gibt Eintrittstemperatur des Fluids zurück
-        double get_t_ein();
+        double get_t_ein();                               // Simon Thel
 
         /// dynamische Viskosität wird zurückgegeben
         double get_my();
@@ -62,6 +62,6 @@ class Fluid
         void set_massenstrom(double massenstrom);
 
         /// Setzt die Eintrittstemperatur
-        void set_t_ein (double t_ein);
+        void set_t_ein (double t_ein);                   // Simon Thel
 };
 #endif 

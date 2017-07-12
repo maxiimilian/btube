@@ -68,23 +68,23 @@ class Rohr
         double get_laenge();
 
         /// Gibt Konvektionswiderstand auf der Innenseite zurück
-        double get_alpha_innen();
+        double get_alpha_innen();                                   // Simon Thel
 
         /// Gibt Konvektionswiderstand auf der Außenseite zurück
-        double get_alpha_aussen();
+        double get_alpha_aussen();                                  // Simon Thel
 
         /// Berechnet Wärmedurchgangskoeffizient
-        double get_kA();
+        double get_kA();                                            // Simon Thel
 
         /*!
          * \brief Berechnet Wärmedurchgangskoeffizient an der Stelle x und speichert ihn auch unter kA
          *
          * \warning Diese Funktion überschreiben, um kA=f(x) zu realisieren.
          */
-        double get_kA(double x);
+        double get_kA(double x);                                    // Simon Thel
 
         ///Gibt Aussentemperatur zurück
-        double get_t_aussen();
+        double get_t_aussen();                                      // Simon Thel
 
         /// Gibt Rohrrauheitswert aus
         double get_k_s();
@@ -96,13 +96,13 @@ class Rohr
          * SET methods *
          ***************/
         /// Setzt Wert für Konvektionswiderstand auf der Außenseite
-        void set_alpha_aussen(double alpha_aussen);
+        void set_alpha_aussen(double alpha_aussen);                 // Simon Thel
 
         /// Setzt Wert für Konvektionswiderstand auf der Innenseite
-        void set_alpha_innen(double alpha_innen);
+        void set_alpha_innen(double alpha_innen);                   // Simon Thel
 
         ///Setzt Wert für Aussentemperatur
-        void set_t_aussen(double t_aussen);
+        void set_t_aussen(double t_aussen);                         // Simon Thel
 
         /// Setzt Wert für Startdruck
         void set_startpressure(double p_ein);

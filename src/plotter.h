@@ -1,3 +1,7 @@
+/***************************
+ * erstellt von Simon Thel *
+ ***************************/
+
 #ifndef PLOTTER_H
 #define PLOTTER_H
 #include "fluid.h"
@@ -17,8 +21,10 @@ public:
 
     /// Konstruktorinitialiserung; "explict" verhindert versehentliche Übergabe von anderen Datentypen und deren Konvertierung in ein QWidget.
     explicit Plotter(QWidget *parent = 0);
+
     /// Destruktorinitialisierung
     ~Plotter();
+
     /*!
      * \brief Plotterfunktion mit der Übergabe der Datentypen Rohr und Fluid
      *
