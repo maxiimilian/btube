@@ -1,3 +1,8 @@
+
+/***************************
+ * erstellt von Simon Thel *
+ ***************************/
+
 // Präprozessoranweisungen
 #include "plotter.h"
 #include "ui_plotter.h"

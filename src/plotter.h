@@ -1,3 +1,7 @@
+/***************************
+ * erstellt von Simon Thel *
+ ***************************/
+
 #ifndef PLOTTER_H
 #define PLOTTER_H
 #include "fluid.h"
@@ -16,14 +20,18 @@ class Plotter : public QDialog
 public:
 
     /// Konstruktorinitialiserung; "explict" verhindert versehentliche Übergabe von anderen Datentypen und deren Konvertierung in ein QWidget.
+    /// \author Simon Thel
     explicit Plotter(QWidget *parent = 0);
+
     /// Destruktorinitialisierung
     ~Plotter();
+
     /*!
      * \brief Plotterfunktion mit der Übergabe der Datentypen Rohr und Fluid
      *
      * Der Rückgabewert dient nur der Testbarkeit der Funktion und wird für die Hauptaufgabe der Funktion keine Bedeutung.
      */
+    /// \author Simon Thel
     int erstellePlot(Rohr *rohr, Fluid *fluid);
 
 private:

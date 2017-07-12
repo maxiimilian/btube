@@ -6,6 +6,10 @@
 /// Globaler String der den Ausführungspfad des Programms enthält
 std::string run_path;
 
+/*!
+ * \brief Hauptfunktion, die je nach Parameter GUI, Testing oder CLI aufruft
+ * \author Maximilian Pierzyna
+ */
 int main(int argc, char *argv[])
 {
     // Ausführungspfad setzen (Erstes Argument)
