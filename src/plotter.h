@@ -20,6 +20,7 @@ class Plotter : public QDialog
 public:
 
     /// Konstruktorinitialiserung; "explict" verhindert versehentliche Übergabe von anderen Datentypen und deren Konvertierung in ein QWidget.
+    /// \author Simon Thel
     explicit Plotter(QWidget *parent = 0);
 
     /// Destruktorinitialisierung
@@ -30,6 +31,7 @@ public:
      *
      * Der Rückgabewert dient nur der Testbarkeit der Funktion und wird für die Hauptaufgabe der Funktion keine Bedeutung.
      */
+    /// \author Simon Thel
     int erstellePlot(Rohr *rohr, Fluid *fluid);
 
 private:
