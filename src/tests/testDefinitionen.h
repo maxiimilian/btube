@@ -31,6 +31,8 @@
  *
  * Der Rechenweg der Referenzwerte befindet sich im Wiki bei der
  * entsprechenden Testdokumentation! (Scan der Rechenschritte)
+ *
+ * \author Maximilian Pierzyna
  */
 void test_lambda_Berechnung(){
     bool testResult = true;
@@ -88,6 +90,8 @@ void test_lambda_Berechnung(){
  *
  * Testet, ob die interaktive Konsole gestartet wird,
  * wenn dem Programm das Argument 'cli' in der Shell übergeben wird.
+ *
+ * \author Maximilian Pierzyna
  */
 void test_cli(){
     bool testResult = true;
@@ -140,6 +144,8 @@ void test_cli(){
  *
  * Der Rechenweg der Referenzwerte befindet sich im Wiki bei der
  * entsprechenden Testdokumentation! (Scan der Rechenschritte)
+ *
+ * \author Simon Thel
  */
 void test_Temperatur_Berechnung(){
     bool testResult = true;
@@ -199,6 +205,8 @@ void test_Temperatur_Berechnung(){
  *
  * Diese Funktion überprüft ob die Plotterfunktion eine korrekte Anzahl an Datenpunkten erstellt. Wenn die
  * Funktion einen Wert zurückgibt, zeigt dies ebenfalls, dass die Funktion vollständig ausgeführt worden ist.
+ *
+ * \author Simon Thel
  */
 void test_Plotter(){
     bool testResult = false;

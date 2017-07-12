@@ -26,28 +26,35 @@ class Fluid
         /***************
         * Konstruktor *
         ***************/
-        Fluid(double dichte, double nue, double cp);      // Maximilian Pyrzina & Simon Thel
+        /// \author Maximilian Pierzyna, Simon Thel
+        Fluid(double dichte, double nue, double cp);      
 
         /***************
          * GET methods *
          ***************/
         /// Massenstrom wird zurückgegeben
-        double get_massenstrom();                         // Simon Thel
+        /// \author Simon Thel
+        double get_massenstrom();                         
 
         /// Dichte wird zurückgegeben
-        double get_dichte();                              // Simon Thel
+        /// \author Simon Thel
+        double get_dichte();                              
 
         /// kinematische Viskosität wird zurückgegen
-        double get_nue();                                 // Simon Thel
+        /// \author Simon Thel
+        double get_nue();                                 
 
         /// Wärmekapazität wird zurückgegeben
-        double get_cp();                                  // Simon Thel
+        /// \author Simon Thel
+        double get_cp();                                  
 
         /// Wärmekapazitätsstrom wird zurückgegen
-        double get_cp_strom();                            // Simon Thel
+        /// \author Simon Thel
+        double get_cp_strom();                            
 
         /// Gibt Eintrittstemperatur des Fluids zurück
-        double get_t_ein();                               // Simon Thel
+        /// \author Simon Thel
+        double get_t_ein();                               
 
         /// dynamische Viskosität wird zurückgegeben
         double get_my();
@@ -59,9 +66,11 @@ class Fluid
          * SET methods *
          ***************/
         /// Setzt den Massenstrom des Fluids
+        /// \author Maximilian Pierzyna
         void set_massenstrom(double massenstrom);
 
         /// Setzt die Eintrittstemperatur
-        void set_t_ein (double t_ein);                   // Simon Thel
+        /// \author Simon Thel
+        void set_t_ein (double t_ein);                   
 };
 #endif 
