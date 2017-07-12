@@ -1,3 +1,4 @@
+
 #ifndef TESTDEFINITIONEN_H
 #define TESTDEFINITIONEN_H
 
@@ -292,7 +293,9 @@ void test_Wertetabelle(){
 /*!
  * \brief Testfunktion für die set-Funktionen
  *
- * Diese Funktion testet, ob die set-Funktionen die Werte richtig übergeben
+ * Diese Funktion testet, ob die set-Funktionen die Werte richtig übergeben.
+ *
+ * \author Malte Braband
  */
 
 void test_set_funktionen(){
@@ -325,6 +328,8 @@ void test_set_funktionen(){
  * Damit wird indirekt aus die Funktion get_my() gestestet.
  * Die Vergleichsergebnisse wurden per Hand errechnet.
  * Die Rechenschritte dazu befinden sich im Wiki unter dem Punkt Testing.
+ *
+ * \author Malte Braband
  */
 
 void test_stroemungsprofil(){

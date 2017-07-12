@@ -24,7 +24,6 @@ public:
 private slots:
 
     // Funktionen für den Button und die Check-Boxen werden gesetzt
-
     void on_pushButton_clicked();
 
     void on_Wasser_clicked();
