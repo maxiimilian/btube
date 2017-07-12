@@ -72,6 +72,7 @@ class Rohrstroemung
         double get_bauart(double x);                    
 
         /// Berechnung des Strömungsprofils
+        /// \author Malte Braband
         double get_stroemung(double r, double x);
 
         /// Gibt letzten Druckwert zurück (für Testing)

@@ -57,9 +57,11 @@ class Fluid
         double get_t_ein();                               
 
         /// dynamische Viskosität wird zurückgegeben
+        /// \author Malte Braband
         double get_my();
 
         /// Gibt Massenstrom zurück (für Testing)
+        /// \author Malte Braband
         double get_massenstrom_test();
 
         /***************
