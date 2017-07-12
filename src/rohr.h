@@ -68,23 +68,28 @@ class Rohr
         double get_laenge();
 
         /// Gibt Konvektionswiderstand auf der Innenseite zurück
-        double get_alpha_innen();                                   // Simon Thel
+        /// \author Simon Thel
+        double get_alpha_innen();
 
         /// Gibt Konvektionswiderstand auf der Außenseite zurück
-        double get_alpha_aussen();                                  // Simon Thel
+         /// \author Simon Thel
+        double get_alpha_aussen();
 
         /// Berechnet Wärmedurchgangskoeffizient
-        double get_kA();                                            // Simon Thel
+        /// \author Simon Thel
+        double get_kA();
 
         /*!
          * \brief Berechnet Wärmedurchgangskoeffizient an der Stelle x und speichert ihn auch unter kA
          *
          * \warning Diese Funktion überschreiben, um kA=f(x) zu realisieren.
          */
-        double get_kA(double x);                                    // Simon Thel
+         /// \author Simon Thel
+        double get_kA(double x);
 
         ///Gibt Aussentemperatur zurück
-        double get_t_aussen();                                      // Simon Thel
+        /// \author Simon Thel
+        double get_t_aussen();
 
         /// Gibt Rohrrauheitswert aus
         double get_k_s();
@@ -96,13 +101,16 @@ class Rohr
          * SET methods *
          ***************/
         /// Setzt Wert für Konvektionswiderstand auf der Außenseite
-        void set_alpha_aussen(double alpha_aussen);                 // Simon Thel
+        /// \author Simon Thel
+        void set_alpha_aussen(double alpha_aussen);
 
         /// Setzt Wert für Konvektionswiderstand auf der Innenseite
-        void set_alpha_innen(double alpha_innen);                   // Simon Thel
+        /// \author Simon Thel
+        void set_alpha_innen(double alpha_innen);
 
         ///Setzt Wert für Aussentemperatur
-        void set_t_aussen(double t_aussen);                         // Simon Thel
+        /// \author Simon Thel
+        void set_t_aussen(double t_aussen);
 
         /// Setzt Wert für Startdruck
         void set_startpressure(double p_ein);

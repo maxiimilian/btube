@@ -32,34 +32,43 @@ class Rohrstroemung
          * GET methods *
          ***************/
         /// Reynoldszahl des Member-Fluids berechnen (u*d/nue)
-        double get_Re();                                // Simon Thel
+        /// \author Simon Thel
+        double get_Re();
 
         /// Rohrreibungszahl Lambda berechnen, in Abhängigkeit von Re \sa get_Re()
+        /// \author Simon Thel
         double get_lambda();
 
         /// Berechnung der Fluidgeschwindigkeit durch den Massenstorm
-        double get_speed();                             // Simon Thel
+        /// \author Simon Thel
+        double get_speed();
 
         /// Berechnet Bauartszahl
-        double get_bauart();                            // Simon Thel
+        /// \author Simon Thel
+        double get_bauart();
 
         /// Gibt Leistungsgröße zurück
-        double get_epsilon();                           // Simon Thel
+        /// \author Simon Thel
+        double get_epsilon();
 
         /// Berechnet Austrittstemperatur
-        double get_temp(double x);                      // Simon Thel
+        /// \author Simon Thel
+        double get_temp(double x);
 
         /// Berechnung des Drucks an der Stelle x
         double get_pressure(double x);
 
         /// Berechnet Temperatur an der Stelle x
-        double get_temp();                              // Simon Thel
+        /// \author Simon Thel
+        double get_temp();
 
         /// Berechnet Epsilon an  der Stelle x
-        double get_epsilon(double x);                   // Simon Thel
+        /// \author Simon Thel
+        double get_epsilon(double x);
 
         /// Berechnet die Bauart an der Stelle x
-        double get_bauart(double x);                    // Simon Thel
+        /// \author Simon Thel
+        double get_bauart(double x);
 
         /// Berechnung des Strömungsprofils
         double get_stroemung(double r, double x);
