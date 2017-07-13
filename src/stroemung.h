@@ -57,6 +57,7 @@ class Rohrstroemung
         double get_temp(double x);                      
 
         /// Berechnung des Drucks an der Stelle x
+        /// \author Niklas Baumgardt
         double get_pressure(double x);
 
         /// Berechnet Temperatur an der Stelle x
@@ -76,15 +77,18 @@ class Rohrstroemung
         double get_stroemung(double r, double x);
 
         /// Gibt letzten Druckwert zurück (für Testing)
+        /// \author Niklas Baumgardt
         double get_druckverlauffortest();
 
         /***************
          * SET methods *
          ***************/
         /// Ausfüllen des Druckverlauf-Arrays
+        /// \author Niklas Baumgardt
         void set_druckverlauf();
 
         /// Eintragen des Druckverlauf-Arrays in Textdatei
+        /// \author Niklas Baumgardt
         void print_druckverlauf();
 };
 

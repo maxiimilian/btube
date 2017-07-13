@@ -104,6 +104,7 @@ class Rohr
         double get_k_s();
 
         /// Gibt Startdruck zurück
+        /// \author Niklas Baumgardt
         double get_startpressure();
 
         /***************
@@ -122,6 +123,7 @@ class Rohr
         void set_t_aussen(double t_aussen);                         
 
         /// Setzt Wert für Startdruck
+        /// \author Niklas Baumgardt
         void set_startpressure(double p_ein);
 };
 
