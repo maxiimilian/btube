@@ -30,6 +30,7 @@ var searchData=
   ['rescalevalueaxis',['rescaleValueAxis',['../class_q_c_p_abstract_plottable.html#a714eaf36b12434cd71846215504db82e',1,'QCPAbstractPlottable']]],
   ['restore',['restore',['../class_q_c_p_painter.html#a64908e6298d5bbd83457dc987cc3a022',1,'QCPPainter']]],
   ['right',['right',['../class_q_c_p_axis_rect.html#a3f819d4a1b2193723d1fdafc573eea10',1,'QCPAxisRect']]],
+  ['rohr',['Rohr',['../class_rohr.html#afbfc5b0d4a796c1c88b89d88b7b36768',1,'Rohr']]],
   ['rohrstroemung',['Rohrstroemung',['../class_rohrstroemung.html#aa8ee146566f18b2a4ca4cbfc1946c2b8',1,'Rohrstroemung']]],
   ['rowcoltoindex',['rowColToIndex',['../class_q_c_p_layout_grid.html#a682ba76f130810ffd294032a1bfbcfcb',1,'QCPLayoutGrid']]],
   ['rowcount',['rowCount',['../class_q_c_p_layout_grid.html#a19c66fd76cbce58a8e94f33797e0c0aa',1,'QCPLayoutGrid']]]

@@ -15,26 +15,25 @@ Stellt ein \hyperlink{class_fluid}{Fluid} zur Verfügung.
 \hyperlink{class_fluid_a2b1fada8a43d2edf1424e4f5915d6e06}{Fluid} (double dichte, double nue, double cp)
 \item 
 double \hyperlink{class_fluid_afd9451c48ea66d15fdb8226da58da28e}{get\+\_\+massenstrom} ()
-\begin{DoxyCompactList}\small\item\em Massenstrom wird zurückgegeben. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Massenstrom ausgeben. \end{DoxyCompactList}\item 
 double \hyperlink{class_fluid_acb9e3346c0871ad5fefc9d11dcfc3283}{get\+\_\+dichte} ()
-\begin{DoxyCompactList}\small\item\em Dichte wird zurückgegeben. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Dichte ausgeben. \end{DoxyCompactList}\item 
 double \hyperlink{class_fluid_ae0031c0e8f70a4fb3dacc34c9725c3c1}{get\+\_\+nue} ()
-\begin{DoxyCompactList}\small\item\em kinematische Viskosität wird zurückgegen \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em kinematische Viskosität ausgeben \end{DoxyCompactList}\item 
 double \hyperlink{class_fluid_a86bf10785c4c5822eabf9245f0b39ae0}{get\+\_\+cp} ()
-\begin{DoxyCompactList}\small\item\em Wärmekapazität wird zurückgegeben. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em isobare spezifische Wärmekapazität ausgeben \end{DoxyCompactList}\item 
 double \hyperlink{class_fluid_a5c589565d1bde26bc83125e3e8939796}{get\+\_\+cp\+\_\+strom} ()
-\begin{DoxyCompactList}\small\item\em Wärmekapazitätsstrom wird zurückgegen. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em cp-\/\+Strom ausgeben \end{DoxyCompactList}\item 
 double \hyperlink{class_fluid_a60d0c9269a8c8af00bf8828c7f764537}{get\+\_\+t\+\_\+ein} ()
-\begin{DoxyCompactList}\small\item\em Gibt Eintrittstemperatur des Fluids zurück. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Eintrittstemperatur ausgeben. \end{DoxyCompactList}\item 
 double \hyperlink{class_fluid_a80d39a71b73f5ac4cffcaceb61b9e0ee}{get\+\_\+my} ()
-\begin{DoxyCompactList}\small\item\em dynamische Viskosität wird zurückgegeben \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_fluid_ac30c9c13d0bc8094ff28dad837c4eb81}\label{class_fluid_ac30c9c13d0bc8094ff28dad837c4eb81}} 
+\begin{DoxyCompactList}\small\item\em dynamische Viskosität ausgeben \end{DoxyCompactList}\item 
 double \hyperlink{class_fluid_ac30c9c13d0bc8094ff28dad837c4eb81}{get\+\_\+massenstrom\+\_\+test} ()
-\begin{DoxyCompactList}\small\item\em Gibt Massenstrom zurück (für Testing) \end{DoxyCompactList}\item 
+\item 
 void \hyperlink{class_fluid_af70884f77d5dd43499fcc70969100498}{set\+\_\+massenstrom} (double massenstrom)
-\begin{DoxyCompactList}\small\item\em Setzt den Massenstrom des Fluids. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Massenstrom setzen. \end{DoxyCompactList}\item 
 void \hyperlink{class_fluid_a9449846d8fd4bf31d8685eefa55d4a57}{set\+\_\+t\+\_\+ein} (double t\+\_\+ein)
-\begin{DoxyCompactList}\small\item\em Setzt die Eintrittstemperatur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Eintrittstemperatur setzen. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -47,6 +46,9 @@ Stellt ein \hyperlink{class_fluid}{Fluid} zur Verfügung.
 \subsubsection{\texorpdfstring{Fluid()}{Fluid()}}
 {\footnotesize\ttfamily Fluid\+::\+Fluid (\begin{DoxyParamCaption}\item[{double}]{dichte,  }\item[{double}]{nue,  }\item[{double}]{cp }\end{DoxyParamCaption})}
 
+\begin{DoxyAuthor}{Author}
+Maximilian Pierzyna, Simon Thel 
+\end{DoxyAuthor}
 Validieren, dass Dichte und Viskosität größer Null sind 
 
 \subsection{Member Function Documentation}
@@ -58,9 +60,12 @@ Validieren, dass Dichte und Viskosität größer Null sind
 
 
 
-Wärmekapazität wird zurückgegeben. 
+isobare spezifische Wärmekapazität ausgeben 
 
-isobare spezifische Wärmekapazität ausgeben \mbox{\Hypertarget{class_fluid_a5c589565d1bde26bc83125e3e8939796}\label{class_fluid_a5c589565d1bde26bc83125e3e8939796}} 
+Wärmekapazität wird zurückgegeben \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_fluid_a5c589565d1bde26bc83125e3e8939796}\label{class_fluid_a5c589565d1bde26bc83125e3e8939796}} 
 \index{Fluid@{Fluid}!get\+\_\+cp\+\_\+strom@{get\+\_\+cp\+\_\+strom}}
 \index{get\+\_\+cp\+\_\+strom@{get\+\_\+cp\+\_\+strom}!Fluid@{Fluid}}
 \subsubsection{\texorpdfstring{get\+\_\+cp\+\_\+strom()}{get\_cp\_strom()}}
@@ -68,9 +73,12 @@ isobare spezifische Wärmekapazität ausgeben \mbox{\Hypertarget{class_fluid_a5c
 
 
 
-Wärmekapazitätsstrom wird zurückgegen. 
+cp-\/\+Strom ausgeben 
 
-cp-\/\+Strom ausgeben \mbox{\Hypertarget{class_fluid_acb9e3346c0871ad5fefc9d11dcfc3283}\label{class_fluid_acb9e3346c0871ad5fefc9d11dcfc3283}} 
+Wärmekapazitätsstrom wird zurückgegen \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_fluid_acb9e3346c0871ad5fefc9d11dcfc3283}\label{class_fluid_acb9e3346c0871ad5fefc9d11dcfc3283}} 
 \index{Fluid@{Fluid}!get\+\_\+dichte@{get\+\_\+dichte}}
 \index{get\+\_\+dichte@{get\+\_\+dichte}!Fluid@{Fluid}}
 \subsubsection{\texorpdfstring{get\+\_\+dichte()}{get\_dichte()}}
@@ -78,9 +86,12 @@ cp-\/\+Strom ausgeben \mbox{\Hypertarget{class_fluid_acb9e3346c0871ad5fefc9d11dc
 
 
 
-Dichte wird zurückgegeben. 
+Dichte ausgeben. 
 
-Dichte ausgeben. \mbox{\Hypertarget{class_fluid_afd9451c48ea66d15fdb8226da58da28e}\label{class_fluid_afd9451c48ea66d15fdb8226da58da28e}} 
+Dichte wird zurückgegeben \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_fluid_afd9451c48ea66d15fdb8226da58da28e}\label{class_fluid_afd9451c48ea66d15fdb8226da58da28e}} 
 \index{Fluid@{Fluid}!get\+\_\+massenstrom@{get\+\_\+massenstrom}}
 \index{get\+\_\+massenstrom@{get\+\_\+massenstrom}!Fluid@{Fluid}}
 \subsubsection{\texorpdfstring{get\+\_\+massenstrom()}{get\_massenstrom()}}
@@ -88,9 +99,21 @@ Dichte ausgeben. \mbox{\Hypertarget{class_fluid_afd9451c48ea66d15fdb8226da58da28
 
 
 
-Massenstrom wird zurückgegeben. 
+Massenstrom ausgeben. 
 
-Massenstrom ausgeben. \mbox{\Hypertarget{class_fluid_a80d39a71b73f5ac4cffcaceb61b9e0ee}\label{class_fluid_a80d39a71b73f5ac4cffcaceb61b9e0ee}} 
+Massenstrom wird zurückgegeben \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_fluid_ac30c9c13d0bc8094ff28dad837c4eb81}\label{class_fluid_ac30c9c13d0bc8094ff28dad837c4eb81}} 
+\index{Fluid@{Fluid}!get\+\_\+massenstrom\+\_\+test@{get\+\_\+massenstrom\+\_\+test}}
+\index{get\+\_\+massenstrom\+\_\+test@{get\+\_\+massenstrom\+\_\+test}!Fluid@{Fluid}}
+\subsubsection{\texorpdfstring{get\+\_\+massenstrom\+\_\+test()}{get\_massenstrom\_test()}}
+{\footnotesize\ttfamily double Fluid\+::get\+\_\+massenstrom\+\_\+test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gibt Massenstrom zurück (für Testing) \begin{DoxyAuthor}{Author}
+Malte Braband 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_fluid_a80d39a71b73f5ac4cffcaceb61b9e0ee}\label{class_fluid_a80d39a71b73f5ac4cffcaceb61b9e0ee}} 
 \index{Fluid@{Fluid}!get\+\_\+my@{get\+\_\+my}}
 \index{get\+\_\+my@{get\+\_\+my}!Fluid@{Fluid}}
 \subsubsection{\texorpdfstring{get\+\_\+my()}{get\_my()}}
@@ -98,9 +121,12 @@ Massenstrom ausgeben. \mbox{\Hypertarget{class_fluid_a80d39a71b73f5ac4cffcaceb61
 
 
 
-dynamische Viskosität wird zurückgegeben 
+dynamische Viskosität ausgeben 
 
-dynamische Viskosität ausgeben \mbox{\Hypertarget{class_fluid_ae0031c0e8f70a4fb3dacc34c9725c3c1}\label{class_fluid_ae0031c0e8f70a4fb3dacc34c9725c3c1}} 
+dynamische Viskosität wird zurückgegeben \begin{DoxyAuthor}{Author}
+Malte Braband 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_fluid_ae0031c0e8f70a4fb3dacc34c9725c3c1}\label{class_fluid_ae0031c0e8f70a4fb3dacc34c9725c3c1}} 
 \index{Fluid@{Fluid}!get\+\_\+nue@{get\+\_\+nue}}
 \index{get\+\_\+nue@{get\+\_\+nue}!Fluid@{Fluid}}
 \subsubsection{\texorpdfstring{get\+\_\+nue()}{get\_nue()}}
@@ -108,9 +134,12 @@ dynamische Viskosität ausgeben \mbox{\Hypertarget{class_fluid_ae0031c0e8f70a4fb
 
 
 
-kinematische Viskosität wird zurückgegen 
+kinematische Viskosität ausgeben 
 
-kinematische Viskosität ausgeben \mbox{\Hypertarget{class_fluid_a60d0c9269a8c8af00bf8828c7f764537}\label{class_fluid_a60d0c9269a8c8af00bf8828c7f764537}} 
+kinematische Viskosität wird zurückgegen \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_fluid_a60d0c9269a8c8af00bf8828c7f764537}\label{class_fluid_a60d0c9269a8c8af00bf8828c7f764537}} 
 \index{Fluid@{Fluid}!get\+\_\+t\+\_\+ein@{get\+\_\+t\+\_\+ein}}
 \index{get\+\_\+t\+\_\+ein@{get\+\_\+t\+\_\+ein}!Fluid@{Fluid}}
 \subsubsection{\texorpdfstring{get\+\_\+t\+\_\+ein()}{get\_t\_ein()}}
@@ -118,9 +147,12 @@ kinematische Viskosität ausgeben \mbox{\Hypertarget{class_fluid_a60d0c9269a8c8a
 
 
 
-Gibt Eintrittstemperatur des Fluids zurück. 
+Eintrittstemperatur ausgeben. 
 
-Eintrittstemperatur ausgeben. \mbox{\Hypertarget{class_fluid_af70884f77d5dd43499fcc70969100498}\label{class_fluid_af70884f77d5dd43499fcc70969100498}} 
+Gibt Eintrittstemperatur des Fluids zurück \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_fluid_af70884f77d5dd43499fcc70969100498}\label{class_fluid_af70884f77d5dd43499fcc70969100498}} 
 \index{Fluid@{Fluid}!set\+\_\+massenstrom@{set\+\_\+massenstrom}}
 \index{set\+\_\+massenstrom@{set\+\_\+massenstrom}!Fluid@{Fluid}}
 \subsubsection{\texorpdfstring{set\+\_\+massenstrom()}{set\_massenstrom()}}
@@ -128,9 +160,12 @@ Eintrittstemperatur ausgeben. \mbox{\Hypertarget{class_fluid_af70884f77d5dd43499
 
 
 
-Setzt den Massenstrom des Fluids. 
+Massenstrom setzen. 
 
-Massenstrom setzen. \mbox{\Hypertarget{class_fluid_a9449846d8fd4bf31d8685eefa55d4a57}\label{class_fluid_a9449846d8fd4bf31d8685eefa55d4a57}} 
+Setzt den Massenstrom des Fluids \begin{DoxyAuthor}{Author}
+Maximilian Pierzyna 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_fluid_a9449846d8fd4bf31d8685eefa55d4a57}\label{class_fluid_a9449846d8fd4bf31d8685eefa55d4a57}} 
 \index{Fluid@{Fluid}!set\+\_\+t\+\_\+ein@{set\+\_\+t\+\_\+ein}}
 \index{set\+\_\+t\+\_\+ein@{set\+\_\+t\+\_\+ein}!Fluid@{Fluid}}
 \subsubsection{\texorpdfstring{set\+\_\+t\+\_\+ein()}{set\_t\_ein()}}
@@ -138,9 +173,12 @@ Massenstrom setzen. \mbox{\Hypertarget{class_fluid_a9449846d8fd4bf31d8685eefa55d
 
 
 
-Setzt die Eintrittstemperatur. 
-
 Eintrittstemperatur setzen. 
+
+Setzt die Eintrittstemperatur \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

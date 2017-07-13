@@ -12,64 +12,98 @@ Stellt ein Rohrbauteil zur Verfügung.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_rohr_afbfc5b0d4a796c1c88b89d88b7b36768}\label{class_rohr_afbfc5b0d4a796c1c88b89d88b7b36768}} 
-{\bfseries Rohr} (double l, double r, double k\+\_\+s)
+\hyperlink{class_rohr_afbfc5b0d4a796c1c88b89d88b7b36768}{Rohr} (double l, double r, double k\+\_\+s)
 \item 
-\mbox{\Hypertarget{class_rohr_a6763a65cfe3992b6dd4baa903ae44b29}\label{class_rohr_a6763a65cfe3992b6dd4baa903ae44b29}} 
 double \hyperlink{class_rohr_a6763a65cfe3992b6dd4baa903ae44b29}{get\+\_\+querschnitt} ()
-\begin{DoxyCompactList}\small\item\em Gibt Querschnittsfläche. \end{DoxyCompactList}\item 
+\item 
 double \hyperlink{class_rohr_ab8c1e474c5b1510a7c52cb805260ab15}{get\+\_\+querschnitt} (double x)
 \begin{DoxyCompactList}\small\item\em Gibt den Querschnitt an der Stelle x zurück. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohr_a273b05707337661cfaab228a670350f2}\label{class_rohr_a273b05707337661cfaab228a670350f2}} 
 double \hyperlink{class_rohr_a273b05707337661cfaab228a670350f2}{get\+\_\+radius} ()
-\begin{DoxyCompactList}\small\item\em Gibt Radius zurück. \end{DoxyCompactList}\item 
+\item 
 double \hyperlink{class_rohr_a427e4ad6d350912715bd6796e385eaf3}{get\+\_\+radius} (double x)
 \begin{DoxyCompactList}\small\item\em Gibt Radius an der Stelle x zurück. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohr_a191d4b81fcdfc02f9433effdc1fade81}\label{class_rohr_a191d4b81fcdfc02f9433effdc1fade81}} 
 double \hyperlink{class_rohr_a191d4b81fcdfc02f9433effdc1fade81}{get\+\_\+laenge} ()
-\begin{DoxyCompactList}\small\item\em Gibt Länge zurück. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohr_a8e5ea4e3595b344475e2db45deccd9fd}\label{class_rohr_a8e5ea4e3595b344475e2db45deccd9fd}} 
+\item 
 double \hyperlink{class_rohr_a8e5ea4e3595b344475e2db45deccd9fd}{get\+\_\+alpha\+\_\+innen} ()
-\begin{DoxyCompactList}\small\item\em Gibt Konvektionswiderstand auf der Innenseite zurück. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohr_ad02b003b17d07ee5f53bc2defbe8227a}\label{class_rohr_ad02b003b17d07ee5f53bc2defbe8227a}} 
+\item 
 double \hyperlink{class_rohr_ad02b003b17d07ee5f53bc2defbe8227a}{get\+\_\+alpha\+\_\+aussen} ()
-\begin{DoxyCompactList}\small\item\em Gibt Konvektionswiderstand auf der Außenseite zurück. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}\label{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}} 
+\item 
 double \hyperlink{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}{get\+\_\+kA} ()
-\begin{DoxyCompactList}\small\item\em Berechnet Wärmedurchgangskoeffizient. \end{DoxyCompactList}\item 
+\item 
 double \hyperlink{class_rohr_a07985e6f4a1d9dc8bfcfe2e5cc9f2a60}{get\+\_\+kA} (double x)
 \begin{DoxyCompactList}\small\item\em Berechnet Wärmedurchgangskoeffizient an der Stelle x und speichert ihn auch unter kA. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohr_a5d7b97148ffb9e42e5dc9b5657a64cc0}\label{class_rohr_a5d7b97148ffb9e42e5dc9b5657a64cc0}} 
 double \hyperlink{class_rohr_a5d7b97148ffb9e42e5dc9b5657a64cc0}{get\+\_\+t\+\_\+aussen} ()
-\begin{DoxyCompactList}\small\item\em Gibt Aussentemperatur zurück. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohr_a653e53a000dd4ed025d1adbdb83f7859}\label{class_rohr_a653e53a000dd4ed025d1adbdb83f7859}} 
+\item 
 double \hyperlink{class_rohr_a653e53a000dd4ed025d1adbdb83f7859}{get\+\_\+k\+\_\+s} ()
-\begin{DoxyCompactList}\small\item\em Gibt Rohrrauheitswert aus. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohr_ad93033ce4a63458e188cfc9d8771836e}\label{class_rohr_ad93033ce4a63458e188cfc9d8771836e}} 
+\item 
 double \hyperlink{class_rohr_ad93033ce4a63458e188cfc9d8771836e}{get\+\_\+startpressure} ()
-\begin{DoxyCompactList}\small\item\em Gibt Startdruck zurück. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohr_ae6e604082fdb43a35bcdc74478ced8a7}\label{class_rohr_ae6e604082fdb43a35bcdc74478ced8a7}} 
+\item 
 void \hyperlink{class_rohr_ae6e604082fdb43a35bcdc74478ced8a7}{set\+\_\+alpha\+\_\+aussen} (double alpha\+\_\+aussen)
-\begin{DoxyCompactList}\small\item\em Setzt Wert für Konvektionswiderstand auf der Außenseite. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohr_aed25a50fcf5c735e51693303d8b41663}\label{class_rohr_aed25a50fcf5c735e51693303d8b41663}} 
+\item 
 void \hyperlink{class_rohr_aed25a50fcf5c735e51693303d8b41663}{set\+\_\+alpha\+\_\+innen} (double alpha\+\_\+innen)
-\begin{DoxyCompactList}\small\item\em Setzt Wert für Konvektionswiderstand auf der Innenseite. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohr_a92be37f04575328b6b15de5ab2e511a9}\label{class_rohr_a92be37f04575328b6b15de5ab2e511a9}} 
+\item 
 void \hyperlink{class_rohr_a92be37f04575328b6b15de5ab2e511a9}{set\+\_\+t\+\_\+aussen} (double t\+\_\+aussen)
-\begin{DoxyCompactList}\small\item\em Setzt Wert für Aussentemperatur. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_rohr_ac9d6974bc17fde3cba4b67fb571c7ab7}\label{class_rohr_ac9d6974bc17fde3cba4b67fb571c7ab7}} 
+\item 
 void \hyperlink{class_rohr_ac9d6974bc17fde3cba4b67fb571c7ab7}{set\+\_\+startpressure} (double p\+\_\+ein)
-\begin{DoxyCompactList}\small\item\em Setzt Wert für Startdruck. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Stellt ein Rohrbauteil zur Verfügung. 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_rohr_afbfc5b0d4a796c1c88b89d88b7b36768}\label{class_rohr_afbfc5b0d4a796c1c88b89d88b7b36768}} 
+\index{Rohr@{Rohr}!Rohr@{Rohr}}
+\index{Rohr@{Rohr}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{Rohr()}{Rohr()}}
+{\footnotesize\ttfamily Rohr\+::\+Rohr (\begin{DoxyParamCaption}\item[{double}]{l,  }\item[{double}]{r,  }\item[{double}]{k\+\_\+s }\end{DoxyParamCaption})}
+
+\begin{DoxyAuthor}{Author}
+Maximilian Pierzyna 
+\end{DoxyAuthor}
+
+
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_rohr_ad02b003b17d07ee5f53bc2defbe8227a}\label{class_rohr_ad02b003b17d07ee5f53bc2defbe8227a}} 
+\index{Rohr@{Rohr}!get\+\_\+alpha\+\_\+aussen@{get\+\_\+alpha\+\_\+aussen}}
+\index{get\+\_\+alpha\+\_\+aussen@{get\+\_\+alpha\+\_\+aussen}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+alpha\+\_\+aussen()}{get\_alpha\_aussen()}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+alpha\+\_\+aussen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gibt Konvektionswiderstand auf der Außenseite zurück \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_rohr_a8e5ea4e3595b344475e2db45deccd9fd}\label{class_rohr_a8e5ea4e3595b344475e2db45deccd9fd}} 
+\index{Rohr@{Rohr}!get\+\_\+alpha\+\_\+innen@{get\+\_\+alpha\+\_\+innen}}
+\index{get\+\_\+alpha\+\_\+innen@{get\+\_\+alpha\+\_\+innen}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+alpha\+\_\+innen()}{get\_alpha\_innen()}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+alpha\+\_\+innen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gibt Konvektionswiderstand auf der Innenseite zurück \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_rohr_a653e53a000dd4ed025d1adbdb83f7859}\label{class_rohr_a653e53a000dd4ed025d1adbdb83f7859}} 
+\index{Rohr@{Rohr}!get\+\_\+k\+\_\+s@{get\+\_\+k\+\_\+s}}
+\index{get\+\_\+k\+\_\+s@{get\+\_\+k\+\_\+s}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+k\+\_\+s()}{get\_k\_s()}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+k\+\_\+s (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gibt Rohrrauheitswert aus \begin{DoxyAuthor}{Author}
+Maximilian Pierzyna 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}\label{class_rohr_a29a212b5ffe5723b3c2fe02aba0804c0}} 
+\index{Rohr@{Rohr}!get\+\_\+kA@{get\+\_\+kA}}
+\index{get\+\_\+kA@{get\+\_\+kA}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+k\+A()}{get\_kA()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+kA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Berechnet Wärmedurchgangskoeffizient \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
 \mbox{\Hypertarget{class_rohr_a07985e6f4a1d9dc8bfcfe2e5cc9f2a60}\label{class_rohr_a07985e6f4a1d9dc8bfcfe2e5cc9f2a60}} 
 \index{Rohr@{Rohr}!get\+\_\+kA@{get\+\_\+kA}}
 \index{get\+\_\+kA@{get\+\_\+kA}!Rohr@{Rohr}}
-\subsubsection{\texorpdfstring{get\+\_\+k\+A()}{get\_kA()}}
+\subsubsection{\texorpdfstring{get\+\_\+k\+A()}{get\_kA()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily double Rohr\+::get\+\_\+kA (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
 
 
@@ -79,10 +113,31 @@ Berechnet Wärmedurchgangskoeffizient an der Stelle x und speichert ihn auch unt
 \begin{DoxyWarning}{Warning}
 Diese Funktion überschreiben, um kA=f(x) zu realisieren. 
 \end{DoxyWarning}
-berechnet den Wert von kA an einer bestimmten Stelle. Kann überschrieben werden, um den Radius als kA=f(x) auszudrücken.\mbox{\Hypertarget{class_rohr_ab8c1e474c5b1510a7c52cb805260ab15}\label{class_rohr_ab8c1e474c5b1510a7c52cb805260ab15}} 
+\begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+berechnet den Wert von kA an einer bestimmten Stelle. Kann überschrieben werden, um den Radius als kA=f(x) auszudrücken.\mbox{\Hypertarget{class_rohr_a191d4b81fcdfc02f9433effdc1fade81}\label{class_rohr_a191d4b81fcdfc02f9433effdc1fade81}} 
+\index{Rohr@{Rohr}!get\+\_\+laenge@{get\+\_\+laenge}}
+\index{get\+\_\+laenge@{get\+\_\+laenge}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+laenge()}{get\_laenge()}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+laenge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gibt Länge zurück \begin{DoxyAuthor}{Author}
+Maximilian Pierzyna 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_rohr_a6763a65cfe3992b6dd4baa903ae44b29}\label{class_rohr_a6763a65cfe3992b6dd4baa903ae44b29}} 
 \index{Rohr@{Rohr}!get\+\_\+querschnitt@{get\+\_\+querschnitt}}
 \index{get\+\_\+querschnitt@{get\+\_\+querschnitt}!Rohr@{Rohr}}
-\subsubsection{\texorpdfstring{get\+\_\+querschnitt()}{get\_querschnitt()}}
+\subsubsection{\texorpdfstring{get\+\_\+querschnitt()}{get\_querschnitt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+querschnitt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gibt Querschnittsfläche \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_rohr_ab8c1e474c5b1510a7c52cb805260ab15}\label{class_rohr_ab8c1e474c5b1510a7c52cb805260ab15}} 
+\index{Rohr@{Rohr}!get\+\_\+querschnitt@{get\+\_\+querschnitt}}
+\index{get\+\_\+querschnitt@{get\+\_\+querschnitt}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+querschnitt()}{get\_querschnitt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily double Rohr\+::get\+\_\+querschnitt (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
 
 
@@ -93,19 +148,90 @@ Gibt den Querschnitt an der Stelle x zurück.
 Basiert auf get\+\_\+radius, daher wird r=f(x) hier automatisch berücksichtigt. Nicht doppelt überschreiben! 
 \end{DoxyWarning}
 \begin{DoxySeeAlso}{See also}
-\hyperlink{class_rohr_a427e4ad6d350912715bd6796e385eaf3}{Rohr\+::get\+\_\+radius(double x)} 
+\hyperlink{class_rohr_a427e4ad6d350912715bd6796e385eaf3}{Rohr\+::get\+\_\+radius(double x)}
 \end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Maximilian Pierzyna 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_rohr_a273b05707337661cfaab228a670350f2}\label{class_rohr_a273b05707337661cfaab228a670350f2}} 
+\index{Rohr@{Rohr}!get\+\_\+radius@{get\+\_\+radius}}
+\index{get\+\_\+radius@{get\+\_\+radius}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+radius()}{get\_radius()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gibt Radius zurück \begin{DoxyAuthor}{Author}
+Maximilian Pierzyna 
+\end{DoxyAuthor}
 \mbox{\Hypertarget{class_rohr_a427e4ad6d350912715bd6796e385eaf3}\label{class_rohr_a427e4ad6d350912715bd6796e385eaf3}} 
 \index{Rohr@{Rohr}!get\+\_\+radius@{get\+\_\+radius}}
 \index{get\+\_\+radius@{get\+\_\+radius}!Rohr@{Rohr}}
-\subsubsection{\texorpdfstring{get\+\_\+radius()}{get\_radius()}}
+\subsubsection{\texorpdfstring{get\+\_\+radius()}{get\_radius()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily double Rohr\+::get\+\_\+radius (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
 
 
 
 Gibt Radius an der Stelle x zurück. 
 
-Diese Funktion überschreiben, um r=f(x) zu realisieren gibt den Wert des Radius an einer bestimmten Stelle zurück. Kann überschrieben werden, um den Radius als r=f(x) auszudrücken.
+Diese Funktion überschreiben, um r=f(x) zu realisieren
+
+\begin{DoxyAuthor}{Author}
+Maximilian Pierzyna 
+\end{DoxyAuthor}
+gibt den Wert des Radius an einer bestimmten Stelle zurück. Kann überschrieben werden, um den Radius als r=f(x) auszudrücken.\mbox{\Hypertarget{class_rohr_ad93033ce4a63458e188cfc9d8771836e}\label{class_rohr_ad93033ce4a63458e188cfc9d8771836e}} 
+\index{Rohr@{Rohr}!get\+\_\+startpressure@{get\+\_\+startpressure}}
+\index{get\+\_\+startpressure@{get\+\_\+startpressure}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+startpressure()}{get\_startpressure()}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+startpressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gibt Startdruck zurück \begin{DoxyAuthor}{Author}
+Niklas Baumgardt 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_rohr_a5d7b97148ffb9e42e5dc9b5657a64cc0}\label{class_rohr_a5d7b97148ffb9e42e5dc9b5657a64cc0}} 
+\index{Rohr@{Rohr}!get\+\_\+t\+\_\+aussen@{get\+\_\+t\+\_\+aussen}}
+\index{get\+\_\+t\+\_\+aussen@{get\+\_\+t\+\_\+aussen}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{get\+\_\+t\+\_\+aussen()}{get\_t\_aussen()}}
+{\footnotesize\ttfamily double Rohr\+::get\+\_\+t\+\_\+aussen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gibt Aussentemperatur zurück \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_rohr_ae6e604082fdb43a35bcdc74478ced8a7}\label{class_rohr_ae6e604082fdb43a35bcdc74478ced8a7}} 
+\index{Rohr@{Rohr}!set\+\_\+alpha\+\_\+aussen@{set\+\_\+alpha\+\_\+aussen}}
+\index{set\+\_\+alpha\+\_\+aussen@{set\+\_\+alpha\+\_\+aussen}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{set\+\_\+alpha\+\_\+aussen()}{set\_alpha\_aussen()}}
+{\footnotesize\ttfamily void Rohr\+::set\+\_\+alpha\+\_\+aussen (\begin{DoxyParamCaption}\item[{double}]{alpha\+\_\+aussen }\end{DoxyParamCaption})}
+
+Setzt Wert für Konvektionswiderstand auf der Außenseite \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_rohr_aed25a50fcf5c735e51693303d8b41663}\label{class_rohr_aed25a50fcf5c735e51693303d8b41663}} 
+\index{Rohr@{Rohr}!set\+\_\+alpha\+\_\+innen@{set\+\_\+alpha\+\_\+innen}}
+\index{set\+\_\+alpha\+\_\+innen@{set\+\_\+alpha\+\_\+innen}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{set\+\_\+alpha\+\_\+innen()}{set\_alpha\_innen()}}
+{\footnotesize\ttfamily void Rohr\+::set\+\_\+alpha\+\_\+innen (\begin{DoxyParamCaption}\item[{double}]{alpha\+\_\+innen }\end{DoxyParamCaption})}
+
+Setzt Wert für Konvektionswiderstand auf der Innenseite \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_rohr_ac9d6974bc17fde3cba4b67fb571c7ab7}\label{class_rohr_ac9d6974bc17fde3cba4b67fb571c7ab7}} 
+\index{Rohr@{Rohr}!set\+\_\+startpressure@{set\+\_\+startpressure}}
+\index{set\+\_\+startpressure@{set\+\_\+startpressure}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{set\+\_\+startpressure()}{set\_startpressure()}}
+{\footnotesize\ttfamily void Rohr\+::set\+\_\+startpressure (\begin{DoxyParamCaption}\item[{double}]{p\+\_\+ein }\end{DoxyParamCaption})}
+
+Setzt Wert für Startdruck \begin{DoxyAuthor}{Author}
+Niklas Baumgardt 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_rohr_a92be37f04575328b6b15de5ab2e511a9}\label{class_rohr_a92be37f04575328b6b15de5ab2e511a9}} 
+\index{Rohr@{Rohr}!set\+\_\+t\+\_\+aussen@{set\+\_\+t\+\_\+aussen}}
+\index{set\+\_\+t\+\_\+aussen@{set\+\_\+t\+\_\+aussen}!Rohr@{Rohr}}
+\subsubsection{\texorpdfstring{set\+\_\+t\+\_\+aussen()}{set\_t\_aussen()}}
+{\footnotesize\ttfamily void Rohr\+::set\+\_\+t\+\_\+aussen (\begin{DoxyParamCaption}\item[{double}]{t\+\_\+aussen }\end{DoxyParamCaption})}
+
+Setzt Wert für Aussentemperatur \begin{DoxyAuthor}{Author}
+Simon Thel 
+\end{DoxyAuthor}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
